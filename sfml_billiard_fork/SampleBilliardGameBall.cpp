@@ -1,55 +1,77 @@
-#include "SampleBilliardGameBall.h"
-#include "SampleGame.h"
+#include "SampleBilliardBoard.h"
 
-bool SampleBilliardGameBall::isIntersecting(sf::Vector2f mouse)
+SampleBilliardBoard::SampleBilliardBoard(void)
 {
-	// mouse�� XY�� radius �ȿ� �������� �˻� 
-	
-	if ((std::powf(mouse.x - getPosition().x, 2.f) + std::powf(mouse.y - getPosition().y, 2.f)) 
-		<= getRadius() * getRadius())
-	{
+	// Sample Game을 위한 당구대 텍스처 이미지 로드 
+	// Sample Game을 위한 당구대 텍스처 이미지 로드 
+	texture.loadFromFile("textureBoard.png", sf::IntRect(1, 1, 454, 848));
+
+	// 스프라이트 설정 
+	// 스프라이트 설정 
+	sprite.setTexture(texture);
+	sprite.setPosition(572.5f, 25.f);
+
+	// 당구대 경계 초기화 - 상하좌우 
+	// 당구대 경계 초기화 - 상하좌우 
+	SampleBilliardBoard::Border lineTop(602.5f, 55.f, 998.5f, 55.f);
+	SampleBilliardBoard::Border lineLeft(602.5f, 55.f, 602.5f, 830.5f);
+	SampleBilliardBoard::Border lineBottom(602.5f, 830.5f, 998.5f, 830.5f);
+	SampleBilliardBoard::Border lineRight(998.5f, 55.f, 998.5f, 830.5f);
+	borderLines.push_back(lineTop);
+	borderLines.push_back(lineBottom);
+	borderLines.push_back(lineLeft);
+	borderLines.push_back(lineRight);
+	//좌표랑 구멍 크기 찾아야댐...
+	SampleBilliardBoard::Hole Hole1();
+	SampleBilliardBoard::Hole Hole2();
+	SampleBilliardBoard::Hole Hole3();
+	SampleBilliardBoard::Hole Hole4();
+	SampleBilliardBoard::Hole Hole5();
+	SampleBilliardBoard::Hole Hole6();
+
+}
+
+// 소멸자 
+SampleBilliardBoard::~SampleBilliardBoard(void)
+{
+	borderLines.clear();
+}
+void SampleBilliardBoard::getHole()
+{
+	return Hole;
+}
+
+bool SampleBilliardBoard::isHole()
+{
+	if (//공 드가면)
 		return true;
-	}
+	else
+		return false;
+}
+void SampleBilliardBoard::setHole()
+{
 
-	return false;
+// Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
+}
+void SampleBilliardBoard::update(float timeElapsed)
+{
+	// Sample Game의 당구대는 상태 갱신 X 
 }
 
-bool SampleBilliardGameBall::isPlayable(void)
+// Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
+void SampleBilliardBoard::collide(SampleBilliardObject& other)
 {
-	return playable;
+	// Sample Game의 당구대는 고정 오브젝트이기 때문에 충돌 X 
 }
 
-void SampleBilliardGameBall::setPlayable(bool playable)
+// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
+void SampleBilliardBoard::render(sf::RenderTarget& target)
 {
-	this->playable = playable;
+	target.draw(sprite);
 }
 
-void SampleBilliardGameBall::setOwner(std::string owner)
+// 당구대를 구성하는 경계 요소 반환 
+const std::vector<SampleBilliardBoard::Border>& SampleBilliardBoard::getBorders(void) const
 {
-	this->owner = owner;
-}
-
-bool SampleBilliardGameBall::isOwner(std::string owner)
-{
-	return owner.compare(this->owner) == 0;
-}
-
-std::string SampleBilliardGameBall::getOwner(void)
-{
-	return owner; 
-}
-
-void SampleBilliardGameBall::render(sf::RenderTarget& target)
-{
-	// �� ���� �׸� 
-	target.draw(getVertices());
-
-	// SampleGame������ �� ���� �÷��̾� ���� ǥ�� 
-	sf::Text ballText;
-	ballText.setFont(SampleGame::getFont());
-	ballText.setFillColor(sf::Color::Black);
-	ballText.setString("a");    
-	ballText.setCharacterSize(18);
-	ballText.setPosition(getPosition() - sf::Vector2f(5, 12));
-	target.draw(ballText);
+	return borderLines;
 }
