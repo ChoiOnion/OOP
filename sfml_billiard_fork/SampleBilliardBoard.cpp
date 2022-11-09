@@ -1,15 +1,18 @@
 #include "SampleBilliardBoard.h"
 
-SampleBilliardBoard::SampleBilliardBoard(void) 
+SampleBilliardBoard::SampleBilliardBoard(void)
 {
-	// Sample GameÀ» À§ÇÑ ´ç±¸´ë ÅØ½ºÃ³ ÀÌ¹ÌÁö ·Îµå 
+	// Sample Gameì„ ìœ„í•œ ë‹¹êµ¬ëŒ€ í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ë¡œë“œ 
+	// Sample Gameì„ ìœ„í•œ ë‹¹êµ¬ëŒ€ í…ìŠ¤ì²˜ ì´ë¯¸ì§€ ë¡œë“œ 
 	texture.loadFromFile("textureBoard.png", sf::IntRect(1, 1, 454, 848));
-	
-	// ½ºÇÁ¶óÀÌÆ® ¼³Á¤ 
+
+	// ìŠ¤í”„ë¼ì´íŠ¸ ì„¤ì • 
+	// ìŠ¤í”„ë¼ì´íŠ¸ ì„¤ì • 
 	sprite.setTexture(texture);
 	sprite.setPosition(572.5f, 25.f);
 
-	// ´ç±¸´ë °æ°è ÃÊ±âÈ­ - »óÇÏÁÂ¿ì 
+	// ë‹¹êµ¬ëŒ€ ê²½ê³„ ì´ˆê¸°í™” - ìƒí•˜ì¢Œìš° 
+	// ë‹¹êµ¬ëŒ€ ê²½ê³„ ì´ˆê¸°í™” - ìƒí•˜ì¢Œìš° 
 	SampleBilliardBoard::Border lineTop(602.5f, 55.f, 998.5f, 55.f);
 	SampleBilliardBoard::Border lineLeft(602.5f, 55.f, 602.5f, 830.5f);
 	SampleBilliardBoard::Border lineBottom(602.5f, 830.5f, 998.5f, 830.5f);
@@ -18,33 +21,56 @@ SampleBilliardBoard::SampleBilliardBoard(void)
 	borderLines.push_back(lineBottom);
 	borderLines.push_back(lineLeft);
 	borderLines.push_back(lineRight);
+	//ì¢Œí‘œë‘ êµ¬ë© í¬ê¸° ì°¾ì•„ì•¼ëŒ...
+	SampleBilliardBoard::Hole Hole1();
+	SampleBilliardBoard::Hole Hole2();
+	SampleBilliardBoard::Hole Hole3();
+	SampleBilliardBoard::Hole Hole4();
+	SampleBilliardBoard::Hole Hole5();
+	SampleBilliardBoard::Hole Hole6();
+
 }
 
-// ¼Ò¸êÀÚ 
+// ì†Œë©¸ì 
 SampleBilliardBoard::~SampleBilliardBoard(void)
 {
 	borderLines.clear();
 }
+void SampleBilliardBoard::getHole()
+{
+	return Hole;
+}
 
-// Sample GameÀÇ °´Ã¼µéÀº ¹İµå½Ã »óÅÂ °»½Å ÇÔ¼ö ±¸ÇöÇØ¾ß ÇÔ 
+bool SampleBilliardBoard::isHole()
+{
+	if (//ê³µ ë“œê°€ë©´)
+		return true;
+	else
+		return false;
+}
+void SampleBilliardBoard::setHole()
+{
+
+// Sample Gameì˜ ê°ì²´ë“¤ì€ ë°˜ë“œì‹œ ìƒíƒœ ê°±ì‹  í•¨ìˆ˜ êµ¬í˜„í•´ì•¼ í•¨ 
+}
 void SampleBilliardBoard::update(float timeElapsed)
 {
-	// Sample GameÀÇ ´ç±¸´ë´Â »óÅÂ °»½Å X 
+	// Sample Gameì˜ ë‹¹êµ¬ëŒ€ëŠ” ìƒíƒœ ê°±ì‹  X 
 }
 
-// Sample GameÀÇ °´Ã¼µéÀº ¹İµå½Ã Ãæµ¹ ¹°¸® ±¸ÇöÇØ¾ß ÇÔ
+// Sample Gameì˜ ê°ì²´ë“¤ì€ ë°˜ë“œì‹œ ì¶©ëŒ ë¬¼ë¦¬ êµ¬í˜„í•´ì•¼ í•¨
 void SampleBilliardBoard::collide(SampleBilliardObject& other)
 {
-	// Sample GameÀÇ ´ç±¸´ë´Â °íÁ¤ ¿ÀºêÁ§Æ®ÀÌ±â ¶§¹®¿¡ Ãæµ¹ X 
+	// Sample Gameì˜ ë‹¹êµ¬ëŒ€ëŠ” ê³ ì • ì˜¤ë¸Œì íŠ¸ì´ê¸° ë•Œë¬¸ì— ì¶©ëŒ X 
 }
 
-// Sample GameÀÇ °´Ã¼µéÀº ¹İµå½Ã ·»´õ¸µ ÇÔ¼ö ±¸ÇöÇØ¾ß ÇÔ  
+// Sample Gameì˜ ê°ì²´ë“¤ì€ ë°˜ë“œì‹œ ë Œë”ë§ í•¨ìˆ˜ êµ¬í˜„í•´ì•¼ í•¨  
 void SampleBilliardBoard::render(sf::RenderTarget& target)
 {
 	target.draw(sprite);
 }
 
-// ´ç±¸´ë¸¦ ±¸¼ºÇÏ´Â °æ°è ¿ä¼Ò ¹İÈ¯ 
+// ë‹¹êµ¬ëŒ€ë¥¼ êµ¬ì„±í•˜ëŠ” ê²½ê³„ ìš”ì†Œ ë°˜í™˜ 
 const std::vector<SampleBilliardBoard::Border>& SampleBilliardBoard::getBorders(void) const
 {
 	return borderLines;
