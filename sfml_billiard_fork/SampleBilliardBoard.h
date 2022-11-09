@@ -1,21 +1,17 @@
 #pragma once
-
 #include <iostream>
 #include <vector> 
-
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
-
 #include "SampleBilliardObject.h"
-
 class SampleBilliardBoard : public SampleBilliardObject
 {
 public:
-	// ³»ºÎÅ¬·¡½º - ´ç±¸´ë ¹°¸®Àû °æ°è
+	// ë‚´ë¶€í´ë˜ìŠ¤ - ë‹¹êµ¬ëŒ€ ë¬¼ë¦¬ì  ê²½ê³„
 	class Border
 	{
 	public:
@@ -23,39 +19,50 @@ public:
 		{
 			this->points.setPrimitiveType(sf::LineStrip);
 			this->points.append(sf::Vertex(sf::Vector2f(x1, y1)));
-			this->points.append(sf::Vertex(sf::Vector2f(x2, y2))); 
+			this->points.append(sf::Vertex(sf::Vector2f(x2, y2)));
 		}
 		~Border(void) { points.clear(); }
 		const sf::VertexArray& getPoints(void) const { return points; }
 		sf::VertexArray points;
 	};
-
+	//êµ¬ë©
+	class Hole 
+	{
+	public:
+		Hole(float radius, float a1, float a2, float b1, float b2);
+		{
+			this->points.setPrimitiveType(sf::LineStrip);
+			this->points.append(sf::Vertex(sf::Vector2f(a1, b1)));
+			this->points.append(sf::Vertex(sf::Vector2f(a2, yb)));
+			this->points.append(sf::Vertex(sf::Vector2f(a2, b2)));
+		}
+		~Hole(void) { points.clear(); }
+		const sf::VertexArray& getPoints(void) const { return points; }
+		sf::VertexArray points;
+	};
 public: 
-	// »ı¼ºÀÚ 
+	// ìƒì„±ì 
 	SampleBilliardBoard(void);
-
-	// ¼Ò¸êÀÚ 
+	// ì†Œë©¸ì 
 	~SampleBilliardBoard(void);
-
-	// Sample GameÀÇ °´Ã¼µéÀº ¹İµå½Ã »óÅÂ °»½Å ÇÔ¼ö ±¸ÇöÇØ¾ß ÇÔ 
+	//holeì— ê³µ ë“¤ì–´ê°€ë©´ 1 ë°˜í™˜ ì•„ë‹ˆë©´ 0
+	virtual bool isHole();
+	virtual void getHole();
+	virtual void setHole();
+	
+	// Sample Gameì˜ ê°ì²´ë“¤ì€ ë°˜ë“œì‹œ ìƒíƒœ ê°±ì‹  í•¨ìˆ˜ êµ¬í˜„í•´ì•¼ í•¨ 
 	virtual void update(float timeElapsed);
-
-	// Sample GameÀÇ °´Ã¼µéÀº ¹İµå½Ã Ãæµ¹ ¹°¸® ±¸ÇöÇØ¾ß ÇÔ
+	// Sample Gameì˜ ê°ì²´ë“¤ì€ ë°˜ë“œì‹œ ì¶©ëŒ ë¬¼ë¦¬ êµ¬í˜„í•´ì•¼ í•¨
 	virtual void collide(SampleBilliardObject& other);
-
-	// Sample GameÀÇ °´Ã¼µéÀº ¹İµå½Ã ·»´õ¸µ ÇÔ¼ö ±¸ÇöÇØ¾ß ÇÔ  
+	// Sample Gameì˜ ê°ì²´ë“¤ì€ ë°˜ë“œì‹œ ë Œë”ë§ í•¨ìˆ˜ êµ¬í˜„í•´ì•¼ í•¨  
 	virtual void render(sf::RenderTarget& target);
-
-	// ´ç±¸´ë¸¦ ±¸¼ºÇÏ´Â °æ°è ¿ä¼Ò ¹İÈ¯ 
+	// ë‹¹êµ¬ëŒ€ë¥¼ êµ¬ì„±í•˜ëŠ” ê²½ê³„ ìš”ì†Œ ë°˜í™˜ 
 	const std::vector<SampleBilliardBoard::Border>& getBorders(void) const;
-
 private:
-	// ´ç±¸´ë¸¦ ³ªÅ¸³»´Â ½ºÇÁ¶óÀÌÆ® ÀÌ¹ÌÁö 
+	// ë‹¹êµ¬ëŒ€ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ìŠ¤í”„ë¼ì´íŠ¸ ì´ë¯¸ì§€ 
 	sf::Sprite			sprite;
-
-	// ´ç±¸´ë ÅØ½ºÃ³ µ¥ÀÌÅÍ
+	// ë‹¹êµ¬ëŒ€ í…ìŠ¤ì²˜ ë°ì´í„°
 	sf::Texture			texture;
-
-	// ´ç±¸´ë ¹°¸®Àû °æ°è
+	// ë‹¹êµ¬ëŒ€ ë¬¼ë¦¬ì  ê²½ê³„
 	std::vector<SampleBilliardBoard::Border>	borderLines;
 };
