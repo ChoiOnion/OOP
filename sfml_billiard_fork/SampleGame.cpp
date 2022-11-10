@@ -1,6 +1,7 @@
 #include "SampleGame.h"
 #include "SampleBilliardBoard.h"
 #include "SampleBilliardGameBall.h"
+#include "SampleBilliardSolidBall.h"
 #include "SampleBilliardBlackBall.h"
 #include "SampleBilliardStripeBall.h"
 #include "SampleBilliardObject.h"
@@ -32,13 +33,13 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 
 	// SampleGame을 위한 당구공 생성 및 등록 
 	SampleBilliardGameBall* playerBall = new SampleBilliardGameBall(sf::Vector2f(800, 600), 12, sf::Color::White);
-	SampleBilliardGameBall* ball1 = new SampleBilliardGameBall(sf::Vector2f(800, 300), 12, sf::Color::Yellow);
-	SampleBilliardGameBall* ball2 = new SampleBilliardGameBall(sf::Vector2f(785, 280), 12, sf::Color::Blue);
-	SampleBilliardGameBall* ball3 = new SampleBilliardGameBall(sf::Vector2f(815, 280), 12, sf::Color::Red);
-	SampleBilliardGameBall* ball4 = new SampleBilliardGameBall(sf::Vector2f(770, 260), 12, sf::Color::Magenta);
-	SampleBilliardGameBall* ball5 = new SampleBilliardGameBall(sf::Vector2f(800, 260), 12, sf::Color::Cyan);
-	SampleBilliardGameBall* ball6 = new SampleBilliardGameBall(sf::Vector2f(830, 260), 12, sf::Color::Green);
-	SampleBilliardGameBall* ball7 = new SampleBilliardGameBall(sf::Vector2f(755, 240), 12, sf::Color::Yellow);
+	SampleBilliardSolidBall* ball1 = new SampleBilliardSolidBall(sf::Vector2f(800, 300), 12, sf::Color::Yellow);
+	SampleBilliardSolidBall* ball2 = new SampleBilliardSolidBall(sf::Vector2f(785, 280), 12, sf::Color::Blue);
+	SampleBilliardSolidBall* ball3 = new SampleBilliardSolidBall(sf::Vector2f(815, 280), 12, sf::Color::Red);
+	SampleBilliardSolidBall* ball4 = new SampleBilliardSolidBall(sf::Vector2f(770, 260), 12, sf::Color::Magenta);
+	SampleBilliardSolidBall* ball5 = new SampleBilliardSolidBall(sf::Vector2f(800, 260), 12, sf::Color::Cyan);
+	SampleBilliardSolidBall* ball6 = new SampleBilliardSolidBall(sf::Vector2f(830, 260), 12, sf::Color::Green);
+	SampleBilliardSolidBall* ball7 = new SampleBilliardSolidBall(sf::Vector2f(755, 240), 12, sf::Color::Yellow);
 	SampleBilliardBlackBall* ball8 = new SampleBilliardBlackBall(sf::Vector2f(785, 240), 12, sf::Color::Black);
 	SampleBilliardStripeBall* ball9 = new SampleBilliardStripeBall(sf::Vector2f(815, 240), 12, sf::Color::Yellow);
 	SampleBilliardStripeBall* ball10 = new SampleBilliardStripeBall(sf::Vector2f(845, 240), 12, sf::Color::Blue);

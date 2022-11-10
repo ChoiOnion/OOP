@@ -12,7 +12,7 @@
 
 #include "SampleBilliardBall.h"
 
-class SampleBilliardPlayerBall : public SampleBilliardBall
+class SampleBilliardSolidBall : public SampleBilliardBall
 {
 public:
 	using SampleBilliardBall::SampleBilliardBall;
@@ -25,6 +25,8 @@ public:
 	void setOwner(std::string owner);
 	bool isOwner(std::string owner);
 	std::string getOwner(void);
+
+	//void setStripe(float x, float y, sf::Color color);
 
 	// 게임 공에 숫자를 그리기 위해 virtual 함수 재정의 
 	void render(sf::RenderTarget& window);

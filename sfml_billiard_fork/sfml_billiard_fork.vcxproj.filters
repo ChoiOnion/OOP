@@ -51,7 +51,7 @@
     <ClCompile Include="SampleBilliardBlackBall.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardPlayerBall.cpp">
+    <ClCompile Include="SampleBilliardSolidBall.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,7 +89,7 @@
     <ClInclude Include="SampleBilliardBlackBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardPlayerBall.h">
+    <ClInclude Include="SampleBilliardSolidBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
