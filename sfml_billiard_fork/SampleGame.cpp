@@ -1,6 +1,9 @@
 #include "SampleGame.h"
 #include "SampleBilliardBoard.h"
+#include "SampleBilliardPlayerBall.h"
 #include "SampleBilliardGameBall.h"
+#include "SampleBilliardBlackBall.h"
+#include "SampleBilliardStripeBall.h"
 #include "SampleBilliardObject.h"
 #include "GameText.h"
 #include "LoadImage.h"
@@ -29,13 +32,73 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(new SampleBilliardBoard());
 
 	// SampleGame을 위한 당구공 생성 및 등록 
-	SampleBilliardGameBall* ball1 = new SampleBilliardGameBall(sf::Vector2f(800, 500), 10, sf::Color::Yellow);
-	SampleBilliardGameBall* ball2 = new SampleBilliardGameBall(sf::Vector2f(800, 400), 10, sf::Color::Yellow);
-	ball2->setOwner("2P");
-	ball1->setPlayable(true);
-	ball2->setPlayable(true);
+	SampleBilliardPlayerBall* playerBall = new SampleBilliardPlayerBall(sf::Vector2f(800, 600), 12, sf::Color::White);
+	SampleBilliardGameBall* ball1 = new SampleBilliardGameBall(sf::Vector2f(800, 300), 12, sf::Color::Yellow);
+	SampleBilliardGameBall* ball2 = new SampleBilliardGameBall(sf::Vector2f(785, 280), 12, sf::Color::Blue);
+	SampleBilliardGameBall* ball3 = new SampleBilliardGameBall(sf::Vector2f(815, 280), 12, sf::Color::Red);
+	SampleBilliardGameBall* ball4 = new SampleBilliardGameBall(sf::Vector2f(770, 260), 12, sf::Color::Magenta);
+	SampleBilliardGameBall* ball5 = new SampleBilliardGameBall(sf::Vector2f(800, 260), 12, sf::Color::Cyan);
+	SampleBilliardGameBall* ball6 = new SampleBilliardGameBall(sf::Vector2f(830, 260), 12, sf::Color::Green);
+	SampleBilliardGameBall* ball7 = new SampleBilliardGameBall(sf::Vector2f(755, 240), 12, sf::Color::Yellow);
+	SampleBilliardBlackBall* ball8 = new SampleBilliardBlackBall(sf::Vector2f(785, 240), 12, sf::Color::Black);
+	SampleBilliardStripeBall* ball9 = new SampleBilliardStripeBall(sf::Vector2f(815, 240), 12, sf::Color::Yellow);
+	SampleBilliardStripeBall* ball10 = new SampleBilliardStripeBall(sf::Vector2f(845, 240), 12, sf::Color::Blue);
+	SampleBilliardStripeBall* ball11 = new SampleBilliardStripeBall(sf::Vector2f(740, 220), 12, sf::Color::Red);
+	SampleBilliardStripeBall* ball12 = new SampleBilliardStripeBall(sf::Vector2f(770, 220), 12, sf::Color::Magenta);
+	SampleBilliardStripeBall* ball13 = new SampleBilliardStripeBall(sf::Vector2f(800, 220), 12, sf::Color::Cyan);
+	SampleBilliardStripeBall* ball14 = new SampleBilliardStripeBall(sf::Vector2f(830, 220), 12, sf::Color::Green);
+	SampleBilliardStripeBall* ball15 = new SampleBilliardStripeBall(sf::Vector2f(860, 220), 12, sf::Color::Blue);
+
+	playerBall->setNumber(" ");
+	ball1->setNumber("1");
+	ball2->setNumber("2");
+	ball3->setNumber("3");
+	ball4->setNumber("4");
+	ball5->setNumber("5");
+	ball6->setNumber("6");
+	ball7->setNumber("7");
+	ball8->setNumber("8");
+	ball9->setNumber("9");
+	ball10->setNumber("10");
+	ball11->setNumber("11");
+	ball12->setNumber("12");
+	ball13->setNumber("13");
+	ball14->setNumber("14");
+	ball15->setNumber("15");
+
+	playerBall->setPlayable(true);
+	ball1->setPlayable(false);
+	ball2->setPlayable(false);
+	ball3->setPlayable(false);
+	ball4->setPlayable(false);
+	ball5->setPlayable(false);
+	ball6->setPlayable(false);
+	ball7->setPlayable(false);
+	ball8->setPlayable(false);
+	ball9->setPlayable(false);
+	ball10->setPlayable(false);
+	ball11->setPlayable(false);
+	ball12->setPlayable(false);
+	ball13->setPlayable(false);
+	ball14->setPlayable(false);
+	ball15->setPlayable(false);
+
+	gameObjects.push_back(playerBall);
 	gameObjects.push_back(ball1);
 	gameObjects.push_back(ball2);
+	gameObjects.push_back(ball3);
+	gameObjects.push_back(ball4);
+	gameObjects.push_back(ball5);
+	gameObjects.push_back(ball6);
+	gameObjects.push_back(ball7);
+	gameObjects.push_back(ball8);
+	gameObjects.push_back(ball9);
+	gameObjects.push_back(ball10);
+	gameObjects.push_back(ball11);
+	gameObjects.push_back(ball12);
+	gameObjects.push_back(ball13);
+	gameObjects.push_back(ball14);
+	gameObjects.push_back(ball15);
 
 }
 
