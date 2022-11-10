@@ -38,12 +38,11 @@ SampleBilliardBoard::~SampleBilliardBoard(void)
 }
 void SampleBilliardBoard::getHole()
 {
-	return Hole;
 }
 
 bool SampleBilliardBoard::isHole()
 {
-	if (//공 드가면)
+	if (false)    //공 들어가면
 		return true;
 	else
 		return false;

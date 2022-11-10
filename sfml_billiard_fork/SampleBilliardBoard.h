@@ -29,11 +29,11 @@ public:
 	class Hole 
 	{
 	public:
-		Hole(float radius, float a1, float a2, float b1, float b2);
+		Hole(float radius, float a1, float a2, float b1, float b2)
 		{
 			this->points.setPrimitiveType(sf::LineStrip);
 			this->points.append(sf::Vertex(sf::Vector2f(a1, b1)));
-			this->points.append(sf::Vertex(sf::Vector2f(a2, yb)));
+			this->points.append(sf::Vertex(sf::Vector2f(a2, b2)));
 			this->points.append(sf::Vertex(sf::Vector2f(a2, b2)));
 		}
 		~Hole(void) { points.clear(); }
