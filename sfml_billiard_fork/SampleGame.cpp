@@ -176,7 +176,7 @@ void SampleGame::update(void)
 	clock.restart();
 
 	//게임 끝났을 시
-	if (true && endNum == 0) {
+	if (false && endNum == 0) {
 		LoadImage* end = new LoadImage("end.png", 800, 250, 125, 400);
 		gameObjects.push_back(end); 
 		endNum = 1;
