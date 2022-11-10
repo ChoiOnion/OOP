@@ -135,7 +135,7 @@ void SampleGame::handle(sf::Event& ev)
 		break;
 	case sf::Event::KeyPressed:
 		// 키보드 이벤트                                            
-		if (ev.key.code == sf::Keyboard::Escape && pauseNum == 0)							//같은 키로 하면 안먹ㅇ므 ㅠㅠ
+		if (ev.key.code == sf::Keyboard::Escape && pauseNum == 0)							//같은 키로 하면 안먹음!! 키 따로 설정해야 될 거 같아요
 		{
 			// TODO: game paused 
 			gameObjects.push_back(new LoadImage("pause.png", 800, 250, 125, 400));
