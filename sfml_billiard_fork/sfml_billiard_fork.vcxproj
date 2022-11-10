@@ -147,6 +147,7 @@
     <ClCompile Include="SampleBilliardBall.cpp" />
     <ClCompile Include="SampleBilliardBoard.cpp" />
     <ClCompile Include="SampleBilliardGameBall.cpp" />
+    <ClCompile Include="SampleBilliardStripeBall.cpp" />
     <ClCompile Include="SampleGame.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,7 @@
     <ClInclude Include="SampleBilliardBoard.h" />
     <ClInclude Include="SampleBilliardGameBall.h" />
     <ClInclude Include="SampleBilliardObject.h" />
+    <ClInclude Include="SampleBilliardStripeBall.h" />
     <ClInclude Include="SampleGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
