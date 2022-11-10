@@ -11,7 +11,7 @@ SampleBilliardBall::SampleBilliardBall(void)
 SampleBilliardBall::SampleBilliardBall(sf::Vector2f position, float radius, sf::Color color) 
 	: VISCOSITY(1.0f), NUMVERTICES(20)
 {
-	// 공의 물리적 특성 
+	// 공의 물리적 특성 qq
 	this->position = position;
 	this->radius = radius;
 	this->angle = 0.f;
