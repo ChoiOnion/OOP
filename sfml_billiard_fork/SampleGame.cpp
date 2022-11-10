@@ -1,6 +1,5 @@
 #include "SampleGame.h"
 #include "SampleBilliardBoard.h"
-#include "SampleBilliardPlayerBall.h"
 #include "SampleBilliardGameBall.h"
 #include "SampleBilliardBlackBall.h"
 #include "SampleBilliardStripeBall.h"
@@ -32,7 +31,7 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(new SampleBilliardBoard());
 
 	// SampleGame을 위한 당구공 생성 및 등록 
-	SampleBilliardPlayerBall* playerBall = new SampleBilliardPlayerBall(sf::Vector2f(800, 600), 12, sf::Color::White);
+	SampleBilliardGameBall* playerBall = new SampleBilliardGameBall(sf::Vector2f(800, 600), 12, sf::Color::White);
 	SampleBilliardGameBall* ball1 = new SampleBilliardGameBall(sf::Vector2f(800, 300), 12, sf::Color::Yellow);
 	SampleBilliardGameBall* ball2 = new SampleBilliardGameBall(sf::Vector2f(785, 280), 12, sf::Color::Blue);
 	SampleBilliardGameBall* ball3 = new SampleBilliardGameBall(sf::Vector2f(815, 280), 12, sf::Color::Red);
