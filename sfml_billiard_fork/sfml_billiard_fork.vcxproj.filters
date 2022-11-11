@@ -92,11 +92,5 @@
     <ClInclude Include="SampleBilliardSolidBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardHole.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="BilliardGameHole.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
