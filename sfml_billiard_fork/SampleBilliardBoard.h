@@ -25,30 +25,12 @@ public:
 		const sf::VertexArray& getPoints(void) const { return points; }
 		sf::VertexArray points;
 	};
-	//구멍
-	class Hole 
-	{
-	public:
-		Hole(float radius, float a1, float a2, float b1, float b2)
-		{
-			this->points.setPrimitiveType(sf::LineStrip);
-			this->points.append(sf::Vertex(sf::Vector2f(a1, b1)));
-			this->points.append(sf::Vertex(sf::Vector2f(a2, b2)));
-			this->points.append(sf::Vertex(sf::Vector2f(a2, b2)));
-		}
-		~Hole(void) { points.clear(); }
-		const sf::VertexArray& getPoints(void) const { return points; }
-		sf::VertexArray points;
-	}; //d ///ddd
+
 public: 
 	// 생성자 
 	SampleBilliardBoard(void);
 	// 소멸자 
 	~SampleBilliardBoard(void);
-	//hole에 공 들어가면 1 반환 아니면 0
-	virtual bool isHole();
-	virtual void getHole();
-	virtual void setHole();
 	
 	// Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
 	virtual void update(float timeElapsed);

@@ -21,13 +21,18 @@ SampleBilliardBoard::SampleBilliardBoard(void)
 	borderLines.push_back(lineBottom);
 	borderLines.push_back(lineLeft);
 	borderLines.push_back(lineRight);
-	//좌표랑 구멍 크기 찾아야댐...
-	SampleBilliardBoard::Hole Hole1();
-	SampleBilliardBoard::Hole Hole2();
-	SampleBilliardBoard::Hole Hole3();
-	SampleBilliardBoard::Hole Hole4();
-	SampleBilliardBoard::Hole Hole5();
-	SampleBilliardBoard::Hole Hole6();
+	BilliardGameHole* Hole1 = new BilliardGameHole(sf::Vector2f(900, 900), 10, sf::Color::Black);
+	BilliardGameHole* Hole2 = new BilliardGameHole(sf::Vector2f(900, 450), 10, sf::Color::Black);
+	BilliardGameHole* Hole3 = new BilliardGameHole(sf::Vector2f(900, 100), 10, sf::Color::Black);
+	BilliardGameHole* Hole4 = new BilliardGameHole(sf::Vector2f(100, 900), 10, sf::Color::Black);
+	BilliardGameHole* Hole5 = new BilliardGameHole(sf::Vector2f(450, 900), 10, sf::Color::Black);
+	BilliardGameHole* Hole6 = new BilliardGameHole(sf::Vector2f(100, 900), 10, sf::Color::Black);
+	gameObjects.push_back(Hole1);
+	gameObjects.push_back(Hole2);
+	gameObjects.push_back(Hole3);
+	gameObjects.push_back(Hole4);
+	gameObjects.push_back(Hole5);
+	gameObjects.push_back(Hole6);
 
 }
 
@@ -36,22 +41,7 @@ SampleBilliardBoard::~SampleBilliardBoard(void)
 {
 	borderLines.clear();
 }
-void SampleBilliardBoard::getHole()
-{
-}
 
-bool SampleBilliardBoard::isHole()
-{
-	if (false)    //공 들어가면
-		return true;
-	else
-		return false;
-}
-void SampleBilliardBoard::setHole()
-{
-
-// Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
-}
 void SampleBilliardBoard::update(float timeElapsed)
 {
 	// Sample Game의 당구대는 상태 갱신 X 
