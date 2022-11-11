@@ -39,7 +39,7 @@ public:
 		~Hole(void) { points.clear(); }
 		const sf::VertexArray& getPoints(void) const { return points; }
 		sf::VertexArray points;
-	};
+	}; //d ///ddd
 public: 
 	// 생성자 
 	SampleBilliardBoard(void);
