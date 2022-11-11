@@ -193,6 +193,11 @@ void SampleBilliardBall::collide(SampleBilliardObject& other)
 	}
 
 	// ...
+	if (dynamic_cast<SampleBilliardBoard*>(&other) != nullptr)
+	{
+		SampleBilliardBoard& Hole = *dynamic_cast<SampleBilliardBoard*>(&other);
+		collideWithHole(Hole);
+	}
 }
 
 // Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
@@ -279,4 +284,37 @@ void SampleBilliardBall::collideWithBoard(SampleBilliardBoard& other)
 			}
 		}
 	}
+}
+
+void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
+{
+	for (SampleBilliardBoard::Border border : other.getBorders())
+	{
+		sf::Vector2f p = getPosition();
+		sf::Vector2f s(border.getPoints()[0].position);
+		sf::Vector2f e = border.getPoints()[1].position;
+		sf::Vector2f ps = p - s;
+		sf::Vector2f se = e - s;
+
+		float lineLength = (e.x - s.x) * (e.x - s.x) + (e.y - s.y) * (e.y - s.y);
+		float t = ((ps.x * se.x) + (ps.y * se.y)) / lineLength;
+		sf::Vector2f st(s.x + t * se.x, s.y + t * se.y);
+
+		sf::Vector2f distance = p - st;
+		float distanceBetween = sqrtf((distance.x * distance.x) + (distance.y * distance.y));
+
+		if (distanceBetween <= getRadius())
+		{
+			if (t > -0.f && t < 1.f)
+			{
+				goal = true;
+				static int pos = 0;
+				setPosition(radius + pos, radius);
+				setVelocity(sf::Vector2f(0.f, 0.f));
+				pos += 2 * radius;
+			}
+		}
+	}
+
+
 }

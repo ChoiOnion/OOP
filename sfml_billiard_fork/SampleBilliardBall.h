@@ -53,6 +53,7 @@ public:
 	void setRadius(float radius);
 	void setMass(float mass);
 	void setColor(sf::Color color);
+	bool goal;
 
 	// getter 
 	sf::Vector2f	getPosition(void) const;
@@ -70,6 +71,9 @@ private:
 	
 	// 당구대와 충돌한 경우 
 	void collideWithBoard(SampleBilliardBoard& other);
+
+	//공이 들어갔을 경우
+	void collideWithHole(SampleBilliardBoard& other);
 
 private:
 	sf::Vector2f position;
