@@ -25,7 +25,7 @@ public:
 	void render(sf::RenderTarget& window);
 
 	//플레이어 공격권 표시
-	int ismyball(std::string ball); // 다른 객체를 어떻게 판별할 것인지 
+	int ismyturn(std::string ball); // 다른 객체를 어떻게 판별할 것인지 
 
 private:
 	std::string owner;

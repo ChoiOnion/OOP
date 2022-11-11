@@ -14,12 +14,14 @@ std::string SampleBilliardPlayer::getOwner(void) {
 	return owner;
 };
 
-int SampleBilliardPlayer::ismyball(std::string ball) {
+int SampleBilliardPlayer::ismyturn(std::string ball) {
 	if (turn1p == true) {
-		if (ball1p == "스트라이프") {
+		if (ball1p == "스트라이프") 
+		{
 			if (ball == "스트라이프")		// soild,stripe... 등등에게서 get number 함수라던가,,, 구분 할 수있는 변수를 가져올 수 있도록 할 수 있는지 묻기
 			{
-
+				GameText::GameText("당신의 턴",10,20,10,sf::Color::Red,3);
+				
 			}
 			else if (ball == "솔리드")
 			{
@@ -30,7 +32,8 @@ int SampleBilliardPlayer::ismyball(std::string ball) {
 				//패배함수
 			}
 		}
-		else if (ball1p == "솔리드") {
+		else if (ball1p == "솔리드") 
+		{
 			if (ball == "스트라이프")
 			{
 
