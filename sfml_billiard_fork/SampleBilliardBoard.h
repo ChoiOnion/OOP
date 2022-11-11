@@ -64,5 +64,5 @@ private:
 	// 당구대 텍스처 데이터
 	sf::Texture			texture;
 	// 당구대 물리적 경계
-	std::vector<SampleBilliardBoard::Border>	borderLines;
+	std::vector<SampleBilliardBoard::Border>	borderLines; //test
 };
