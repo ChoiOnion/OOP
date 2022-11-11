@@ -154,9 +154,9 @@
     <ClCompile Include="SampleGame.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\sfml_billiard_fork\BilliardGameHole.h" />
-    <ClInclude Include="..\..\sfml_billiard_fork\BilliardHole.h" />
     <ClInclude Include="BaseGame.h" />
+    <ClInclude Include="BilliardGameHole.h" />
+    <ClInclude Include="BilliardHole.h" />
     <ClInclude Include="GameText.h" />
     <ClInclude Include="LoadImage.h" />
     <ClInclude Include="SampleBilliardBall.h" />
