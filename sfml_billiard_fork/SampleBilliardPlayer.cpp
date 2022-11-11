@@ -1,6 +1,9 @@
 #include "SampleBilliardPlayer.h"
 #include "SampleGame.h"
 #include "SampleBilliardBall.h"
+#include "SampleBilliardBlackBall.h"
+#include "SampleBilliardSolidBall.h"
+#include "SampleBilliardStripeBall.h"
 #include "GameText.h"
 
 //getter,setter
