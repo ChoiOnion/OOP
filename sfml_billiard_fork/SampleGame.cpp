@@ -5,6 +5,8 @@
 #include "SampleBilliardBlackBall.h"
 #include "SampleBilliardStripeBall.h"
 #include "SampleBilliardObject.h"
+#include "BilliardGameHole.h"
+#include "BilliardHole.h"
 #include "GameText.h"
 #include "LoadImage.h"
 
@@ -99,6 +101,20 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(ball13);
 	gameObjects.push_back(ball14);
 	gameObjects.push_back(ball15);
+
+	//Ȧ
+	BilliardGameHole* Hole1 = new BilliardGameHole(sf::Vector2f(900, 900), 10, sf::Color::Black);
+	BilliardGameHole* Hole2 = new BilliardGameHole(sf::Vector2f(900, 450), 10, sf::Color::Black);
+	BilliardGameHole* Hole3 = new BilliardGameHole(sf::Vector2f(900, 100), 10, sf::Color::Black);
+	BilliardGameHole* Hole4 = new BilliardGameHole(sf::Vector2f(100, 900), 10, sf::Color::Black);
+	BilliardGameHole* Hole5 = new BilliardGameHole(sf::Vector2f(450, 900), 10, sf::Color::Black);
+	BilliardGameHole* Hole6 = new BilliardGameHole(sf::Vector2f(100, 900), 10, sf::Color::Black);
+	gameObjects.push_back(Hole1);
+	gameObjects.push_back(Hole2);
+	gameObjects.push_back(Hole3);
+	gameObjects.push_back(Hole4);
+	gameObjects.push_back(Hole5);
+	gameObjects.push_back(Hole6);
 
 }
 

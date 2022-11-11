@@ -1,5 +1,6 @@
 #include "SampleBilliardBoard.h"
 
+
 SampleBilliardBoard::SampleBilliardBoard(void)
 {
 	// Sample Game을 위한 당구대 텍스처 이미지 로드 
@@ -21,18 +22,6 @@ SampleBilliardBoard::SampleBilliardBoard(void)
 	borderLines.push_back(lineBottom);
 	borderLines.push_back(lineLeft);
 	borderLines.push_back(lineRight);
-	BilliardGameHole* Hole1 = new BilliardGameHole(sf::Vector2f(900, 900), 10, sf::Color::Black);
-	BilliardGameHole* Hole2 = new BilliardGameHole(sf::Vector2f(900, 450), 10, sf::Color::Black);
-	BilliardGameHole* Hole3 = new BilliardGameHole(sf::Vector2f(900, 100), 10, sf::Color::Black);
-	BilliardGameHole* Hole4 = new BilliardGameHole(sf::Vector2f(100, 900), 10, sf::Color::Black);
-	BilliardGameHole* Hole5 = new BilliardGameHole(sf::Vector2f(450, 900), 10, sf::Color::Black);
-	BilliardGameHole* Hole6 = new BilliardGameHole(sf::Vector2f(100, 900), 10, sf::Color::Black);
-	gameObjects.push_back(Hole1);
-	gameObjects.push_back(Hole2);
-	gameObjects.push_back(Hole3);
-	gameObjects.push_back(Hole4);
-	gameObjects.push_back(Hole5);
-	gameObjects.push_back(Hole6);
 
 }
 
