@@ -15,7 +15,7 @@ std::string SampleBilliardPlayer::getOwner(void) {
 };
 
 int SampleBilliardPlayer::ismyturn(std::string ball) {
-
+	return 0;
 }
 
 
