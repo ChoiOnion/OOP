@@ -53,6 +53,7 @@ public:
 	void setRadius(float radius);
 	void setMass(float mass);
 	void setColor(sf::Color color);
+	//공 들어가는지 확인 더 추가필요
 	bool goal;
 
 	// getter 

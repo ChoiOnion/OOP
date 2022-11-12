@@ -49,5 +49,5 @@ private:
 	// 당구대 물리적 경계
 	std::vector<SampleBilliardBoard::Border>	borderLines; //test
 
-	std::vector <SampleBilliardBoard::Border>  Holes;
+	std::vector<SampleBilliardBoard::Border>  Holes;
 };

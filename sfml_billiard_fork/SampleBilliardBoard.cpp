@@ -12,16 +12,48 @@ SampleBilliardBoard::SampleBilliardBoard(void)
 	sprite.setTexture(texture);
 	sprite.setPosition(572.5f, 25.f);
 
-	// 당구대 경계 초기화 - 상하좌우 
-	// 당구대 경계 초기화 - 상하좌우 
-	SampleBilliardBoard::Border lineTop(602.5f, 55.f, 998.5f, 55.f);
-	SampleBilliardBoard::Border lineLeft(602.5f, 55.f, 602.5f, 830.5f);
-	SampleBilliardBoard::Border lineBottom(602.5f, 830.5f, 998.5f, 830.5f);
-	SampleBilliardBoard::Border lineRight(998.5f, 55.f, 998.5f, 830.5f);
+	// 당구대 경계 초기화 - 상하좌우
+	SampleBilliardBoard::Border lineTopL(602.5f, 40.f, 617.f, 55.f);
+	SampleBilliardBoard::Border lineTop(617.f, 55.f, 983.5, 55.f);
+	SampleBilliardBoard::Border lineTopR(983.5f, 55.f, 998.5f, 40.f);
+	borderLines.push_back(lineTopL);
 	borderLines.push_back(lineTop);
-	borderLines.push_back(lineBottom);
-	borderLines.push_back(lineLeft);
-	borderLines.push_back(lineRight);
+	borderLines.push_back(lineTopR);
+
+	SampleBilliardBoard::Border lineTopRightL(1012.5f, 54.f, 997.5f, 69.5f);
+	SampleBilliardBoard::Border lineTopRight(997.5f, 69.5f, 997.5f, 433.5f);
+	SampleBilliardBoard::Border lineTopRightR(997.5f, 433.5f, 1012.5f, 442.f);
+	borderLines.push_back(lineTopRightL);
+	borderLines.push_back(lineTopRight);
+	borderLines.push_back(lineTopRightR);
+
+	SampleBilliardBoard::Border lineDownRightL(1012.5f, 458.5f, 997.5f, 466.5f);
+	SampleBilliardBoard::Border lineDownRight(997.5f, 466.5f, 997.5f, 830.5f);
+	SampleBilliardBoard::Border lineDownRightR(997.5f, 830.5f, 1012.5f, 846.f);
+	borderLines.push_back(lineDownRightL);
+	borderLines.push_back(lineDownRight);
+	borderLines.push_back(lineDownRightR);
+
+	SampleBilliardBoard::Border lineDownL(998.5f, 860.f, 983.5f, 845.f);
+	SampleBilliardBoard::Border lineDown(983.5f, 845.f, 616.5f, 845.f);
+	SampleBilliardBoard::Border lineDownR(616.5f, 845.f, 602.5f, 860.5f);
+	borderLines.push_back(lineDownL);
+	borderLines.push_back(lineDown);
+	borderLines.push_back(lineDownR);
+
+	SampleBilliardBoard::Border lineDownLeftL(587.5f, 846.f, 602.5f, 830.5f);
+	SampleBilliardBoard::Border lineDownLeft(602.5f, 830.5f, 602.5f, 466.5f);
+	SampleBilliardBoard::Border lineDownLeftR(602.5f, 466.5f, 587.5f, 458.5f);
+	borderLines.push_back(lineDownLeftL);
+	borderLines.push_back(lineDownLeft);
+	borderLines.push_back(lineDownLeftR);
+
+	SampleBilliardBoard::Border lineTopLeftL(587.5f, 442.5f, 602.5f, 433.5f);
+	SampleBilliardBoard::Border lineTopLeft(602.5f, 433.5f, 602.5f, 69.5f);
+	SampleBilliardBoard::Border lineTopLeftR(602.5f, 69.5f, 587.5f, 54.f);
+	borderLines.push_back(lineTopLeftL);
+	borderLines.push_back(lineTopLeft);
+	borderLines.push_back(lineTopLeftR);
 
 	SampleBilliardBoard::Border holeTopLeft(582.5f, 49.f, 596.5f, 35.f);
 	SampleBilliardBoard::Border holeTopRight(1003.5f, 35.f, 1017.5f, 49.f);

@@ -192,11 +192,11 @@ void SampleBilliardBall::collide(SampleBilliardObject& other)
 		collideWithBoard(board);
 	}
 
-	// ...
+	// 공이 홀과 충돌할 경우
 	if (dynamic_cast<SampleBilliardBoard*>(&other) != nullptr)
 	{
-		SampleBilliardBoard& Hole = *dynamic_cast<SampleBilliardBoard*>(&other);
-		collideWithHole(Hole);
+		SampleBilliardBoard& hole = *dynamic_cast<SampleBilliardBoard*>(&other);
+		collideWithHole(hole);
 	}
 }
 
@@ -288,11 +288,11 @@ void SampleBilliardBall::collideWithBoard(SampleBilliardBoard& other)
 
 void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 {
-	for (SampleBilliardBoard::Border border : other.getBorders())
+	for (SampleBilliardBoard::Border hole : other.getHoles())
 	{
 		sf::Vector2f p = getPosition();
-		sf::Vector2f s(border.getPoints()[0].position);
-		sf::Vector2f e = border.getPoints()[1].position;
+		sf::Vector2f s(hole.getPoints()[0].position);
+		sf::Vector2f e = hole.getPoints()[1].position;
 		sf::Vector2f ps = p - s;
 		sf::Vector2f se = e - s;
 
