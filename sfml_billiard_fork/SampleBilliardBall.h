@@ -53,8 +53,11 @@ public:
 	void setRadius(float radius);
 	void setMass(float mass);
 	void setColor(sf::Color color);
-	//공 들어가는지 확인 더 추가필요
 	bool goal;
+	bool isSolidBall();
+	bool isStripeBall();
+	bool isEightBall();
+	bool isPlayerBall();
 
 	// getter 
 	sf::Vector2f	getPosition(void) const;
@@ -84,7 +87,7 @@ private:
 	float angle;
 	float radius;
 	float mass;
-
+	
 	sf::VertexArray vertices;
 	sf::Color color;
 };

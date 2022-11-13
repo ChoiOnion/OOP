@@ -1,5 +1,9 @@
 #include "SampleBilliardBall.h"
 #include "SampleBilliardBoard.h"
+#include "SampleBilliardGameBall.h"
+#include "SampleBilliardSolidBall.h"
+#include "SampleBilliardBlackBall.h"
+#include "SampleBilliardStripeBall.h"
 
 SampleBilliardBall::SampleBilliardBall(void) 
 	: SampleBilliardBall(sf::Vector2f(100, 100), 10, sf::Color::Red)
@@ -151,6 +155,51 @@ const sf::VertexArray& SampleBilliardBall::getVertices(void) const
 	return vertices; 
 }
 
+/*
+bool SampleBilliardBall::isPlayerBall()
+{
+	
+	if ()
+		return true;
+	else
+		return false;
+	
+}
+*/
+/*
+bool SampleBilliardBall::isEightBall()
+{
+	
+	if ()
+		return true;
+	else
+		return false;
+	
+}
+*/
+/*
+bool SampleBilliardBall::isSolidBall()
+{
+	
+	if ()
+		return true;
+	else
+		return false;
+	
+}
+*/
+
+/*
+bool SampleBilliardBall::isStripeBall()
+{
+	
+	if ()
+		return true;
+	else
+		return false;
+	
+}
+*/
 
 // Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
 void SampleBilliardBall::update(float timeElapsed)
