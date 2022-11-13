@@ -55,6 +55,7 @@ SampleBilliardBoard::SampleBilliardBoard(void)
 	borderLines.push_back(lineTopLeft);
 	borderLines.push_back(lineTopLeftR);
 
+	//홀 경계 초기화
 	SampleBilliardBoard::Border holeTopLeft(582.5f, 49.f, 596.5f, 35.f);
 	SampleBilliardBoard::Border holeTopRight(1003.5f, 35.f, 1017.5f, 49.f);
 	SampleBilliardBoard::Border holeLeft(587.5f, 458.5f, 587.5f, 442.5f);
