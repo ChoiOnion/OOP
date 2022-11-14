@@ -43,11 +43,7 @@ void SampleBilliardStripeBall::setNumber(std::string number)
 {
 	this->number = number;
 }
-/*
-void setStripe(float x, float y, sf::Color color) {
 
-}
-*/
 void SampleBilliardStripeBall::render(sf::RenderTarget& target)
 {
 	// 공 형태 그림 
@@ -63,5 +59,6 @@ void SampleBilliardStripeBall::render(sf::RenderTarget& target)
 	ballText.setPosition(getPosition() - sf::Vector2f(8, 10));
 	target.draw(ballText);
 	
+	//sf::Shape::setOutlineColor(sf::Color::Red);
 	
 }
