@@ -20,10 +20,19 @@ std::string SampleBilliardPlayer::getOwner(void) {
 //return 값은 임의로 0(1p의 턴), 1(2p)의 턴 으로 합니다. 추후 브레이크 샷이나 게임이 돌아가는 함수가 완성될 때 맞춰서 변경할 필요가 있을 수도 있습니다.
 //switch문은 정수형이거나 열거형 형식이여야 한다고 오류가 떠서 좀 복잡하지만 if else문으로 처리했습니다.
 //혹시 해결방법을 아시는 분이 있다면 알려주심 감사합니다...
+//비정적 멤버 참조는 특정 개체에 상대적이어야 합니다 오류가 뜨길래 일단 인스턴스를 생성했지만... 잘 안될수도 있습니다.
 int SampleBilliardPlayer::ismyturn(std::string ball) {
+	SampleBilliardStripeBall *isStripe;
+	isStripe->isOwner(ball);
+	SampleBilliardSolidBall* isSolide;
+	isSolide->isOwner(ball);
+	SampleBilliardBlackBall* isBlack;
+	isBlack->isOwner(ball);
+	SampleBilliardGameBall* isGame;
+	isGame->isOwner(ball);
 	if (turn1p == true) {
-		if (ball == "stripe") {
-			if (ball1p=="stripe")
+		if (isStripe == 0) {
+			if (ball1p == "stripe")
 			{
 				return 0;
 			}
@@ -34,7 +43,7 @@ int SampleBilliardPlayer::ismyturn(std::string ball) {
 				return 1;
 			}
 		}
-		else if (ball == "solide") {
+		else if (isSolide == 0) {
 			if (ball1p == "stripe")
 			{
 				turn1p = false;
@@ -46,10 +55,10 @@ int SampleBilliardPlayer::ismyturn(std::string ball) {
 				return 0;
 			}
 		}
-		else if (ball == "player") {
+		else if (isGame == 0) {
 			//패배함수
 		}
-		else if (ball == "black") {			//8번 공이 들어갔을 때
+		else if (isBlack == 0) {			//8번 공이 들어갔을 때
 			if (alldone(ball) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
 				//승리함수
 			}
@@ -57,14 +66,14 @@ int SampleBilliardPlayer::ismyturn(std::string ball) {
 				//패배함수
 			}
 		}
-		else if (ball == "nothing(=null)") {		//아직 어떻게 넘어와야 할지몰라 null을 해도 되는지... 
+		else if (ball == "nothing(=null)") {		//아무것도 안들어왔을때의 처리가 어떻게 될지 그냥 else로 해도 될려나 싶습니다.
 			turn1p = false;
 			turn2p = true;
 			return 1;
 		}
 	}
 	if (turn2p == true) {
-		if (ball == "stripe") {
+		if (isStripe == 0) {
 			if (ball2p == "stripe")
 			{
 				return 1;
@@ -76,7 +85,7 @@ int SampleBilliardPlayer::ismyturn(std::string ball) {
 				return 0;
 			}
 		}
-		else if (ball == "solide") {
+		else if (isSolide == 0) {
 			if (ball2p == "stripe")
 			{
 				turn1p = true;
@@ -88,10 +97,10 @@ int SampleBilliardPlayer::ismyturn(std::string ball) {
 				return 1;
 			}
 		}
-		else if (ball == "player") {
+		else if (isGame == 0) {
 			//패배함수
 		}
-		else if (ball == "black") {			//8번 공이 들어갔을 때
+		else if (isBlack == 0) {			//8번 공이 들어갔을 때
 			if (alldone(ball) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
 				//승리함수
 			}
