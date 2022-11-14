@@ -19,6 +19,8 @@ void GameText::collide(SampleBilliardObject& other) {
 
 }
 
+
+
 void GameText::render(sf::RenderTarget& target)
 {
 	// 공 형태 그림 

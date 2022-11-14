@@ -16,8 +16,6 @@ class SampleBilliardPlayer : public SampleBilliardBall
 {
 public:
 	using SampleBilliardBall::SampleBilliardBall;
-	SampleBilliardPlayer();
-	SampleBilliardPlayer(sf::Vector2f center);
 
 	void setOwner(std::string owner);
 	bool isOwner(std::string owner);
@@ -28,6 +26,9 @@ public:
 
 	//플레이어 공격권 표시
 	int ismyturn(std::string ball); // 다른 객체를 어떻게 판별할 것인지 
+
+	//자신이 넣어야 할 공을 다 넣었는지 판별하는 함수
+	bool alldone(std::string ball);
 
 private:
 	std::string owner;
