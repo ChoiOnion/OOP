@@ -41,15 +41,15 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	SampleBilliardSolidBall* ball6 = new SampleBilliardSolidBall(sf::Vector2f(830, 260), 12, sf::Color::Green);
 	SampleBilliardSolidBall* ball7 = new SampleBilliardSolidBall(sf::Vector2f(755, 240), 12, sf::Color::Yellow);
 	SampleBilliardBlackBall* ball8 = new SampleBilliardBlackBall(sf::Vector2f(785, 240), 12, sf::Color::Black);
-	SampleBilliardStripeBall* ball9 = new SampleBilliardStripeBall(sf::Vector2f(815, 240), 12, sf::Color::Yellow);
+	SampleBilliardStripeBall* ball9 = new SampleBilliardStripeBall(sf::Vector2f(815, 240), 12, sf::Color::White);
 	SampleBilliardStripeBall* ball10 = new SampleBilliardStripeBall(sf::Vector2f(845, 240), 12, sf::Color::Blue);
 	SampleBilliardStripeBall* ball11 = new SampleBilliardStripeBall(sf::Vector2f(740, 220), 12, sf::Color::Red);
 	SampleBilliardStripeBall* ball12 = new SampleBilliardStripeBall(sf::Vector2f(770, 220), 12, sf::Color::Magenta);
 	SampleBilliardStripeBall* ball13 = new SampleBilliardStripeBall(sf::Vector2f(800, 220), 12, sf::Color::Cyan);
 	SampleBilliardStripeBall* ball14 = new SampleBilliardStripeBall(sf::Vector2f(830, 220), 12, sf::Color::Green);
-	SampleBilliardStripeBall* ball15 = new SampleBilliardStripeBall(sf::Vector2f(860, 220), 12, sf::Color::Blue);
-
-	playerBall->setNumber(" ");
+	SampleBilliardStripeBall* ball15 = new SampleBilliardStripeBall(sf::Vector2f(860, 220), 12, sf::Color::White);
+	
+	playerBall->setNumber("*");
 	ball1->setNumber("1");
 	ball2->setNumber("2");
 	ball3->setNumber("3");
@@ -207,6 +207,7 @@ void SampleGame::handle(sf::Event& ev)
 		}
 		break;
 	}
+
 }
 
 // 상속 클래스는 반드시 게임 상태 갱신 함수 구현해야 함 

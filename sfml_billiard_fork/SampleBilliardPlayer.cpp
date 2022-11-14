@@ -21,7 +21,7 @@ std::string SampleBilliardPlayer::getOwner(void) {
 //switch문은 정수형이거나 열거형 형식이여야 한다고 오류가 떠서 좀 복잡하지만 if else문으로 처리했습니다.
 //혹시 해결방법을 아시는 분이 있다면 알려주심 감사합니다...
 //비정적 멤버 참조는 특정 개체에 상대적이어야 합니다 오류가 뜨길래 일단 인스턴스를 생성했지만... 잘 안될수도 있습니다.
-int SampleBilliardPlayer::ismyturn(std::string ball) {
+/*int SampleBilliardPlayer::ismyturn(std::string ball) {
 	SampleBilliardStripeBall *isStripe;
 	isStripe->isOwner(ball);
 	SampleBilliardSolidBall* isSolide;
@@ -116,7 +116,7 @@ int SampleBilliardPlayer::ismyturn(std::string ball) {
 	}
 	return 0;
 }
-
+*/
 bool SampleBilliardPlayer::alldone(std::string ball) {
 	//제가 정말... 생각나는게 하나도 없어서 잠깐 미루겠습니다...
 	//되도록이면 큐같은걸로 처리하고 싶은데 되돌아오는 값보고 결정하겠습니다.

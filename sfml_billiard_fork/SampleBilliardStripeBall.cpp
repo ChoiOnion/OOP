@@ -60,6 +60,8 @@ void SampleBilliardStripeBall::render(sf::RenderTarget& target)
 	ballText.setOutlineThickness(2);
 	ballText.setString(number);
 	ballText.setCharacterSize(15);
-	ballText.setPosition(getPosition() - sf::Vector2f(7, 10));
+	ballText.setPosition(getPosition() - sf::Vector2f(8, 10));
 	target.draw(ballText);
+	
+	
 }

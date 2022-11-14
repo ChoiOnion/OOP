@@ -52,11 +52,11 @@ void SampleBilliardGameBall::render(sf::RenderTarget& target)
 	// SampleGame에서는 각 공에 플레이어 문자 표시 
 	sf::Text ballText;
 	ballText.setFont(SampleGame::getFont());
-	ballText.setFillColor(sf::Color::Black);
+	ballText.setFillColor(sf::Color::Red);
 	ballText.setOutlineColor(sf::Color::White);
 	ballText.setOutlineThickness(2);
 	ballText.setString(number);
 	ballText.setCharacterSize(15);
-	ballText.setPosition(getPosition() - sf::Vector2f(7, 10));
+	ballText.setPosition(getPosition() - sf::Vector2f(3, 6));
 	target.draw(ballText);
 }
