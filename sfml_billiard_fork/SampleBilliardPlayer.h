@@ -16,8 +16,6 @@ class SampleBilliardPlayer : public SampleBilliardBall
 {
 public:
 	using SampleBilliardBall::SampleBilliardBall;
-	SampleBilliardPlayer();
-	SampleBilliardPlayer(sf::Vector2f center);
 
 	void setOwner(std::string owner);
 	bool isOwner(std::string owner);
