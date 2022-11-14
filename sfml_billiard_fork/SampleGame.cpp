@@ -290,3 +290,24 @@ void SampleGame::renderDragpower(sf::RenderTarget& target)
 		target.draw(points);
 	}
 }
+
+bool SampleBilliardBall::isPlayerBall()
+{
+	return new SampleBilliardGameBall;
+}
+
+bool SampleBilliardBall::isEightBall()
+{
+	return new SampleBilliardBlackBall;
+}
+
+
+bool SampleBilliardBall::isSolidBall()
+{
+	return new SampleBilliardSolidBall;
+}
+
+bool SampleBilliardBall::isStripeBall()
+{
+	return new SampleBilliardStripeBall;
+}
