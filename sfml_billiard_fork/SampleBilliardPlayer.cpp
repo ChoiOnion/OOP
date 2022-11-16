@@ -16,12 +16,28 @@ bool SampleBilliardPlayer::isOwner(std::string owner) {
 std::string SampleBilliardPlayer::getOwner(void) {
 	return owner;
 };
+void SampleBilliardPlayer :: setBall1p(std::string ball) {
+	if (ball == "stripe") {
+		this->ball1p = "stripe";
+	}
+	else {
+		this->ball1p = "solide";
+	}
+}
+void SampleBilliardPlayer::setBall2p(std::string ball) {
+	if (ball == "stripe") {
+		this->ball2p = "stripe";
+	}
+	else {
+		this->ball2p = "solide";
+	}
+}
+
 
 //return 값은 임의로 0(1p의 턴), 1(2p)의 턴 으로 합니다. 추후 브레이크 샷이나 게임이 돌아가는 함수가 완성될 때 맞춰서 변경할 필요가 있을 수도 있습니다.
-//switch문은 정수형이거나 열거형 형식이여야 한다고 오류가 떠서 좀 복잡하지만 if else문으로 처리했습니다.
-//혹시 해결방법을 아시는 분이 있다면 알려주심 감사합니다...
-//비정적 멤버 참조는 특정 개체에 상대적이어야 합니다 오류가 뜨길래 일단 인스턴스를 생성했지만... 잘 안될수도 있습니다.
-/*int SampleBilliardPlayer::ismyturn(std::string ball) {
+//bool로 변경했습니다.
+//무슨 공인지 판별식 완성되면 이것도 setball1p..등등과 함께 바꾸겠습니다.
+bool SampleBilliardPlayer:: isMyTurn(std::string ball) {
 	SampleBilliardStripeBall *isStripe;
 	isStripe->isOwner(ball);
 	SampleBilliardSolidBall* isSolide;
@@ -59,7 +75,7 @@ std::string SampleBilliardPlayer::getOwner(void) {
 			//패배함수
 		}
 		else if (isBlack == 0) {			//8번 공이 들어갔을 때
-			if (alldone(ball) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
+			if (allDone(turn1p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
 				//승리함수
 			}
 			else {
@@ -101,7 +117,7 @@ std::string SampleBilliardPlayer::getOwner(void) {
 			//패배함수
 		}
 		else if (isBlack == 0) {			//8번 공이 들어갔을 때
-			if (alldone(ball) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
+			if (allDone(turn2p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
 				//승리함수
 			}
 			else {
@@ -114,13 +130,48 @@ std::string SampleBilliardPlayer::getOwner(void) {
 			return 0;
 		}
 	}
-	return 0;
 }
-*/
-bool SampleBilliardPlayer::alldone(std::string ball) {
-	//제가 정말... 생각나는게 하나도 없어서 잠깐 미루겠습니다...
-	//되도록이면 큐같은걸로 처리하고 싶은데 되돌아오는 값보고 결정하겠습니다.
-	return false;
+
+
+bool SampleBilliardPlayer::allDone(bool who) {
+	if (turn1p == true) {
+		if (ball1p=="stripe")
+		{
+			if (remainStripe==0) {	// 다 넣었을 때 0이 된다
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			if (remainSolide==0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	else if (turn2p == true) {
+		if (ball2p == "stripe")
+		{
+			if (remainStripe == 0) {	// 다 넣었을 때 0이 된다
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			if (remainSolide == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
 };
 
 

@@ -17,18 +17,21 @@ class SampleBilliardPlayer : public SampleBilliardBall
 public:
 	using SampleBilliardBall::SampleBilliardBall;
 
+	//getter,setter
 	void setOwner(std::string owner);
 	bool isOwner(std::string owner);
 	std::string getOwner(void);
+	void setBall1p(std::string ball);	//아직 들어온 공 판별식이 나오지 않았으니 나오면 추후 변경
+	void setBall2p(std::string ball);
 
 	// 게임 공에 숫자를 그리기 위해 virtual 함수 재정의 
 	void render(sf::RenderTarget& window);
 
 	//플레이어 공격권 표시
-	int ismyturn(std::string ball); // 다른 객체를 어떻게 판별할 것인지 
+	bool isMyTurn(std::string ball); 
 
 	//자신이 넣어야 할 공을 다 넣었는지 판별하는 함수
-	bool alldone(std::string ball);
+	bool allDone(bool who);
 
 private:
 	std::string owner;
@@ -39,4 +42,7 @@ private:
 	//서로 어떤 공을 넣어야하는지 판별하는 변수(타입은 임시)
 	std::string ball1p;
 	std::string ball2p;
+	//각각볼이 몇개 남았는지 판별(어차피 둘다 7개니깐 턴에서 넣을때마다 하나씩 빼는걸로 하겠습니다.)
+	int remainStripe = 7;
+	int remainSolide = 7;
 };
