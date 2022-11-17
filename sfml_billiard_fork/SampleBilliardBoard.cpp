@@ -21,7 +21,7 @@ SampleBilliardBoard::SampleBilliardBoard(void)
 	borderLines.push_back(lineTopR);
 
 	SampleBilliardBoard::Border lineTopRightL(1012.5f, 54.f, 997.5f, 69.5f);
-	SampleBilliardBoard::Border lineTopRight(997.5f, 67.5f, 997.5f, 440.5f);
+	SampleBilliardBoard::Border lineTopRight(997.5f, 69.5f, 997.5f, 440.5f);
 	SampleBilliardBoard::Border lineTopRightR(997.5f, 433.5f, 1012.5f, 442.f);
 	borderLines.push_back(lineTopRightL);
 	borderLines.push_back(lineTopRight);
