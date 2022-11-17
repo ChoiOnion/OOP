@@ -38,13 +38,13 @@ void SampleBilliardPlayer::setBall2p(std::string ball) {
 //bool로 변경했습니다.
 //무슨 공인지 판별식 완성되면 이것도 setball1p..등등과 함께 바꾸겠습니다.
 bool SampleBilliardPlayer:: isMyTurn(std::string ball) {
-	SampleBilliardStripeBall *isStripe;
+	SampleBilliardStripeBall* isStripe{};
 	isStripe->isOwner(ball);
-	SampleBilliardSolidBall* isSolide;
+	SampleBilliardSolidBall* isSolide{};
 	isSolide->isOwner(ball);
-	SampleBilliardBlackBall* isBlack;
+	SampleBilliardBlackBall* isBlack{};
 	isBlack->isOwner(ball);
-	SampleBilliardGameBall* isGame;
+	SampleBilliardGameBall* isGame{};
 	isGame->isOwner(ball);
 	if (turn1p == true) {
 		if (isStripe == 0) {
