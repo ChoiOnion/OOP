@@ -294,25 +294,25 @@ void SampleGame::renderDragpower(sf::RenderTarget& target)
 
 bool SampleBilliardBall::isPlayerBall()
 {
-	if (typeid(collideWithHole) == typeid(SampleBilliardGameBall))
+	if (typeid(goal) == typeid(SampleBilliardGameBall))
 		return true;
 }
 
 bool SampleBilliardBall::isEightBall()
 {
-	if (typeid(collideWithHole) == typeid(SampleBilliardBlackBall))
+	if (typeid(goal) == typeid(SampleBilliardBlackBall))
 		return true;
 }
 
 
 bool SampleBilliardBall::isSolidBall()
 {
-	if (typeid(collideWithHole) == typeid(SampleBilliardSolidBall))
+	if (typeid(goal) == typeid(SampleBilliardSolidBall))
 		return true;
 }
 
 bool SampleBilliardBall::isStripeBall()
 {
-	if (typeid(collideWithHole) == typeid(SampleBilliardStripeBall))
+	if (typeid(goal) == typeid(SampleBilliardStripeBall))
 		return true;
 }
