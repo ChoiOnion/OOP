@@ -55,7 +55,7 @@ void SampleBilliardStripeBall::render(sf::RenderTarget& target)
 	ballText.setOutlineColor(sf::Color::White);
 	ballText.setOutlineThickness(2);
 	ballText.setString(number);
-	ballText.setCharacterSize(15);
+	ballText.setCharacterSize(13);
 	ballText.setPosition(getPosition() - sf::Vector2f(8, 10));
 	target.draw(ballText);
 	
