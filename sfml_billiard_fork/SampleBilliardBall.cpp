@@ -319,6 +319,29 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 			}
 		}
 	}
+}
+
+void SampleBilliardBall::isPlayerBall()
+{
+	if (typeid(goal) == typeid(SampleBilliardGameBall))
+		return;
+}
+
+void SampleBilliardBall::isEightBall()
+{
+	if (typeid(goal) == typeid(SampleBilliardBlackBall))
+		return;
+}
 
 
+void SampleBilliardBall::isSolidBall()
+{
+	if (typeid(goal) == typeid(SampleBilliardSolidBall))
+		return;
+}
+
+void SampleBilliardBall::isStripeBall()
+{
+	if (typeid(goal) == typeid(SampleBilliardStripeBall))
+		return;
 }

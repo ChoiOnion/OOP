@@ -291,28 +291,3 @@ void SampleGame::renderDragpower(sf::RenderTarget& target)
 		target.draw(points);
 	}
 }
-
-bool SampleBilliardBall::isPlayerBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardGameBall))
-		return true;
-}
-
-bool SampleBilliardBall::isEightBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardBlackBall))
-		return true;
-}
-
-
-bool SampleBilliardBall::isSolidBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardSolidBall))
-		return true;
-}
-
-bool SampleBilliardBall::isStripeBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardStripeBall))
-		return true;
-}

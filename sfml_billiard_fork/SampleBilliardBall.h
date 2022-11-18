@@ -54,10 +54,11 @@ public:
 	void setMass(float mass);
 	void setColor(sf::Color color);
 	bool goal;
-	bool isSolidBall(void);
-	bool isStripeBall(void);
-	bool isEightBall(void);
-	bool isPlayerBall(void);
+	
+	void isSolidBall();
+	void isStripeBall();
+	void isEightBall();
+	void isPlayerBall();
 
 	// getter 
 	sf::Vector2f	getPosition(void) const;
