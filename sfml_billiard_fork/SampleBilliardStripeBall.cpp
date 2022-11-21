@@ -62,3 +62,10 @@ void SampleBilliardStripeBall::render(sf::RenderTarget& target)
 	//sf::Shape::setOutlineColor(sf::Color::Red);
 	
 }
+
+bool SampleBilliardStripeBall::isStripeBall(SampleBilliardBall& other)
+{
+	if (typeid(other) == typeid(SampleBilliardStripeBall)) {
+		return true;
+	}
+}

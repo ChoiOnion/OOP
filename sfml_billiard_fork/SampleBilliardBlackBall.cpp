@@ -60,3 +60,10 @@ void SampleBilliardBlackBall::render(sf::RenderTarget& target)
 	target.draw(ballText);
 
 }
+
+bool SampleBilliardBlackBall::isEightBall(SampleBilliardBall& other)
+{
+	if (typeid(other) == typeid(SampleBilliardBlackBall)) {
+		return true;
+	}
+}

@@ -53,12 +53,6 @@ public:
 	void setRadius(float radius);
 	void setMass(float mass);
 	void setColor(sf::Color color);
-	bool goal;
-	
-	void isSolidBall();
-	void isStripeBall();
-	void isEightBall();
-	void isPlayerBall();
 
 	// getter 
 	sf::Vector2f	getPosition(void) const;
@@ -89,6 +83,8 @@ private:
 	float radius;
 	float mass;
 	
+	bool goal{};
+
 	sf::VertexArray vertices;
 	sf::Color color;
 };

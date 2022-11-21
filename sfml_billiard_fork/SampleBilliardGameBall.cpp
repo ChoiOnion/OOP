@@ -60,3 +60,10 @@ void SampleBilliardGameBall::render(sf::RenderTarget& target)
 	ballText.setPosition(getPosition() - sf::Vector2f(3, 6));
 	target.draw(ballText);
 }
+
+bool SampleBilliardGameBall::isPlayerBall(SampleBilliardBall &other)
+{
+	if (typeid(other) == typeid(SampleBilliardGameBall)) {
+		return true;
+	}
+}

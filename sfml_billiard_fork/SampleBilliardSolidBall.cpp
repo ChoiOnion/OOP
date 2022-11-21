@@ -59,3 +59,10 @@ void SampleBilliardSolidBall::render(sf::RenderTarget& target)
 	ballText.setPosition(getPosition() - sf::Vector2f(8, 10));
 	target.draw(ballText);
 }
+
+bool SampleBilliardSolidBall::isSolidBall(SampleBilliardBall& other)
+{
+	if (typeid(other) == typeid(SampleBilliardSolidBall)) {
+		return true;
+	}
+}

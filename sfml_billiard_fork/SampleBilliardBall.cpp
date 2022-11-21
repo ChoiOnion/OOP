@@ -318,30 +318,24 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 				pos += 2 * radius;
 			}
 		}
+		if (goal) {
+			SampleBilliardGameBall a;
+			SampleBilliardBlackBall b;
+			SampleBilliardSolidBall c;
+			SampleBilliardStripeBall d;
+			if (a.isPlayerBall(*this)) {
+				this->setPosition(200, 200);
+			}
+			else if (b.isEightBall(*this)) {
+				this->setPosition(300, 300);
+			}
+			else if (c.isSolidBall(*this)) {
+				this->setPosition(400, 400);
+			}
+			else if (d.isStripeBall(*this)) {
+				this->setPosition(500, 500);
+			}
+		}
 	}
-}
 
-void SampleBilliardBall::isPlayerBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardGameBall))
-		return;
-}
-
-void SampleBilliardBall::isEightBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardBlackBall))
-		return;
-}
-
-
-void SampleBilliardBall::isSolidBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardSolidBall))
-		return;
-}
-
-void SampleBilliardBall::isStripeBall()
-{
-	if (typeid(goal) == typeid(SampleBilliardStripeBall))
-		return;
 }

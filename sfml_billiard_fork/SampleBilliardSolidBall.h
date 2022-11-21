@@ -33,6 +33,8 @@ public:
 
 	void setNumber(std::string number);
 
+	bool isSolidBall(SampleBilliardBall& other);
+
 private:
 	bool playable;
 	std::string owner;

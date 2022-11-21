@@ -25,6 +25,8 @@ public:
 
 	void setNumber(std::string number);
 
+	bool isPlayerBall(SampleBilliardBall& other);
+
 private:
 	bool playable;
 	std::string owner;
