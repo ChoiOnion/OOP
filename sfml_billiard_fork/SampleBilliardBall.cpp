@@ -155,6 +155,10 @@ const sf::VertexArray& SampleBilliardBall::getVertices(void) const
 	return vertices; 
 }
 
+int SampleBilliardBall::getWhatball() {  //턴 판별을 위한 whatBall의 getter
+	return whatBall;
+};
+
 
 // Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
 void SampleBilliardBall::update(float timeElapsed)
@@ -318,15 +322,19 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 					SampleBilliardStripeBall d;
 					if (a.isPlayerBall(*this)) {
 						goal = true;
+						whatBall = 3;
 					}
 					else if (b.isEightBall(*this)) {
 						goal = true;
+						whatBall = 4;
 					}
 					else if (c.isSolidBall(*this)) {
 						goal = true;
+						whatBall = 2;
 					}
 					else if (d.isStripeBall(*this)) {
 						goal = true;
+						whatBall = 1;
 					}
 				}
 				static int pos = 0;

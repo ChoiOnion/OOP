@@ -33,7 +33,7 @@ public:
 	void render(sf::RenderTarget& window);
 
 	//플레이어 공격권 표시
-	bool isMyTurn(SampleBilliardBoard& other);
+	bool isMyTurn();
 
 	//자신이 넣어야 할 공을 다 넣었는지 판별하는 함수
 	bool allDone(bool who);

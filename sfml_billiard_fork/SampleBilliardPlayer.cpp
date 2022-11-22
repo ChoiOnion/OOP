@@ -59,15 +59,11 @@ bool SampleBilliardPlayer::getturn2p() {
 //bool로 변경했습니다.
 //무슨 공인지 판별식 완성되면 이것도 setball1p..등등과 함께 바꾸겠습니다.
 //한번 지금 판별식 처럼 바꿨습니다(대입x) 안될거 같아서 일단 주석 걸어둘게요.
-/*
-bool SampleBilliardPlayer:: isMyTurn(SampleBilliardBoard& other) {
-	SampleBilliardGameBall a;
-	SampleBilliardBlackBall b;
-	SampleBilliardSolidBall c;
-	SampleBilliardStripeBall d;
 
+bool SampleBilliardPlayer:: isMyTurn() {
+	int ballDist = SampleBilliardBall::getWhatball();
 	if (turn1p == true) {
-		if (d.isStripeBall(*this)==true) {
+		if (ballDist ==1) {
 			if (ball1p == "stripe")
 			{
 				remainStripe -= 1;
@@ -77,14 +73,16 @@ bool SampleBilliardPlayer:: isMyTurn(SampleBilliardBoard& other) {
 			{
 				turn1p = false;
 				turn2p = true;
+				remainSolide -= 1;
 				return 1;
 			}
 		}
-		else if (c.isSolidBall(*this) == true) {
+		else if (ballDist ==2) {
 			if (ball1p == "stripe")
 			{
 				turn1p = false;
 				turn2p = true;
+				remainStripe -= 1;
 				return 1;
 			}
 			else if (ball1p == "solide")
@@ -93,10 +91,10 @@ bool SampleBilliardPlayer:: isMyTurn(SampleBilliardBoard& other) {
 				return 0;
 			}
 		}
-		else if (a.isPlayerBall(*this) == true) {
+		else if (ballDist == 3) {
 			//공 불러오기? 일단 턴을 바꾼다.
 		}
-		else if (b.isEightBall(*this) == true) {			//8번 공이 들어갔을 때
+		else if (ballDist==4) {			//8번 공이 들어갔을 때
 			if (allDone(turn1p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
 				//승리함수
 			}
@@ -105,7 +103,7 @@ bool SampleBilliardPlayer:: isMyTurn(SampleBilliardBoard& other) {
 			}
 		}
 	}
-	else if (turn2p == true) {
+	else if (ballDist == 1) {
 		if (d.isStripeBall(*this) == true) {
 			if (ball2p == "stripe")
 			{
@@ -116,14 +114,16 @@ bool SampleBilliardPlayer:: isMyTurn(SampleBilliardBoard& other) {
 			{
 				turn2p = false;
 				turn1p = true;
+				remainSolide -= 1;
 				return 0;
 			}
 		}
 		else if (c.isSolidBall(*this) == true) {
-			if (ball1p == "stripe")
+			if (ballDist == 2)
 			{
 				turn2p = false;
 				turn1p = true;
+				remainStripe -= 1;
 				return 0;
 			}
 			else if (ball1p == "solide")
@@ -132,10 +132,10 @@ bool SampleBilliardPlayer:: isMyTurn(SampleBilliardBoard& other) {
 				return 1;
 			}
 		}
-		else if (a.isPlayerBall(*this) == true) {
+		else if (ballDist == 3) {
 			//공 불러오기? 일단 턴을 바꾼다.
 		}
-		else if (b.isEightBall(*this) == true) {			//8번 공이 들어갔을 때
+		else if (ballDist == 4) {			//8번 공이 들어갔을 때
 			if (allDone(turn1p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
 				//승리함수
 			}
@@ -145,7 +145,6 @@ bool SampleBilliardPlayer:: isMyTurn(SampleBilliardBoard& other) {
 		}
 	}
 }
-*/
 
 bool SampleBilliardPlayer::allDone(bool who) {
 	if (turn1p == true) {

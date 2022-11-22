@@ -63,6 +63,8 @@ public:
 	float getMass(void) const;
 	sf::Color getColor(void) const; 
 	const sf::VertexArray& getVertices(void) const; 
+	//턴 판별을 위한 whatBall의 getter
+	int getWhatball();
 
 private:
 	// 공과 충돌한 경우 
@@ -87,4 +89,6 @@ private:
 
 	sf::VertexArray vertices;
 	sf::Color color;
+
+	int whatBall; //판별을 위한 변수
 };
