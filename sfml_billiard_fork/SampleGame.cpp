@@ -192,6 +192,10 @@ void SampleGame::handle(sf::Event& ev)
 				if (!gameBall->isPlayable()) {
 					continue;
 				}
+				//드래그 할 때마다 턴이 바뀌어야 함
+				
+
+
 				// 드래그 가능한 공 임시 저장 
 				draggedBall = gameBall;
 				isDraggingBall = true;
@@ -206,6 +210,8 @@ void SampleGame::handle(sf::Event& ev)
 			isDraggingBall = false;
 		}
 		break;
+		
+		case sf::Event::
 	}
 
 }

@@ -335,7 +335,7 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 				pos += 2 * radius;
 			}
 		}
-		/*
+	/*
 		if (goal) {
 			SampleBilliardGameBall a;
 			SampleBilliardBlackBall b;
@@ -354,7 +354,7 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 				goal = true;
 			}
 		}
-		*/
+	*/
 		
 	}
 

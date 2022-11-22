@@ -21,14 +21,19 @@ public:
 	void setOwner(std::string owner);
 	bool isOwner(std::string owner);
 	std::string getOwner(void);
-	void setBall1p(std::string ball);	//아직 들어온 공 판별식이 나오지 않았으니 나오면 추후 변경
-	void setBall2p(std::string ball);
+	void setBall1p(SampleBilliardBoard& other);	//아직 들어온 공 판별식이 나오지 않았으니 나오면 추후 변경
+	void setBall2p(SampleBilliardBoard& other);
+	//혹시몰라 만드는 1p와 2p의 턴 getter,setter
+	void setturn1p();
+	bool getturn1p();
+	void setturn2p();
+	bool getturn2p();
 
 	// 게임 공에 숫자를 그리기 위해 virtual 함수 재정의 
 	void render(sf::RenderTarget& window);
 
 	//플레이어 공격권 표시
-	bool isMyTurn(std::string ball); 
+	bool isMyTurn(SampleBilliardBoard& other);
 
 	//자신이 넣어야 할 공을 다 넣었는지 판별하는 함수
 	bool allDone(bool who);
