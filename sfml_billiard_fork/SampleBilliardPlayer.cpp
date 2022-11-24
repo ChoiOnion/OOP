@@ -104,7 +104,7 @@ bool SampleBilliardPlayer:: isMyTurn() {
 		}
 	}
 	else if (ballDist == 1) {
-		if (d.isStripeBall(*this) == true) {
+		if (ballDist == 1) {
 			if (ball2p == "stripe")
 			{
 				remainStripe -= 1;
@@ -118,7 +118,7 @@ bool SampleBilliardPlayer:: isMyTurn() {
 				return 0;
 			}
 		}
-		else if (c.isSolidBall(*this) == true) {
+		else if (ballDist == 2) {
 			if (ballDist == 2)
 			{
 				turn2p = false;
