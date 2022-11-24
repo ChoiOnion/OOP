@@ -18,11 +18,11 @@ class SampleBilliardBall : public SampleBilliardObject
 public:
 	// 마찰에 따른 감속 상수 
 	const float VISCOSITY;
-	
+
 	// 렌더링을 위한 버텍스 상수 
 	const int NUMVERTICES;
 
-public: 
+public:
 	// 생성자 
 	SampleBilliardBall(void);
 	SampleBilliardBall(sf::Vector2f center, float radius, sf::Color color);
@@ -59,17 +59,17 @@ public:
 	sf::Vector2f	getAcceleration(void) const;
 	sf::Vector2f	getVelocity(void) const;
 	float getAngle(void) const;
-	float getRadius(void) const; 
+	float getRadius(void) const;
 	float getMass(void) const;
-	sf::Color getColor(void) const; 
-	const sf::VertexArray& getVertices(void) const; 
+	sf::Color getColor(void) const;
+	const sf::VertexArray& getVertices(void) const;
 	//턴 판별을 위한 whatBall의 getter
 	int getWhatball();
 
 private:
 	// 공과 충돌한 경우 
 	void collideWithBall(SampleBilliardBall& other);
-	
+
 	// 당구대와 충돌한 경우 
 	void collideWithBoard(SampleBilliardBoard& other);
 
@@ -84,7 +84,7 @@ private:
 	float angle;
 	float radius;
 	float mass;
-	
+
 	bool goal{};
 
 	sf::VertexArray vertices;
