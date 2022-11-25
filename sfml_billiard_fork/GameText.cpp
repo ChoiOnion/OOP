@@ -1,6 +1,7 @@
 #include "SampleBilliardGameBall.h"
 #include "SampleGame.h"
 #include "GameText.h"
+#include "SampleBilliardPlayer.h"
 
 GameText::GameText(std::string text, float x, float y,int size,sf::Color bgColor,int lineSize) {
 	this->text = text;
@@ -12,7 +13,13 @@ GameText::GameText(std::string text, float x, float y,int size,sf::Color bgColor
 }
 
 void GameText::update(float timeElapsed) {
-
+	SampleBilliardPlayer p{};
+	if (p.getturn1p()) {
+		t.setPosition(150, 600);
+	}
+	else if (p.getturn2p()) {
+		t.setPosition(150, 800);
+	}
 }
 
 void GameText::collide(SampleBilliardObject& other) {
@@ -26,13 +33,12 @@ void GameText::render(sf::RenderTarget& target)
 	// 공 형태 그림 
 
 	// SampleGame에서는 각 공에 플레이어 문자 표시 
-	sf::Text t;
 	t.setFont(SampleGame::getFont());
 	t.setFillColor(sf::Color::Black);
 	t.setOutlineColor(bgColor);
 	t.setOutlineThickness(lineSize);
 	t.setString(text);
-	t.setCharacterSize(20);
+	t.setCharacterSize(size);
 	t.setPosition(x, y);
 	target.draw(t);
 }
