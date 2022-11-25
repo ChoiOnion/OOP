@@ -13,8 +13,8 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	:BaseGame(width, height, fpsLimit), isDraggingBall(false), draggedBall(nullptr)
 {
 	// SampleGame을 위한 인터페이스 생성 및 등록 
-	GameText* playerText1 = new GameText("Player1", 50, 600, 50, sf::Color::White, 3);
-	GameText* playerText2 = new GameText("Player2", 50, 800, 50, sf::Color::White, 3);
+	GameText* playerText1 = new GameText("Player1", 50, 610, 20, sf::Color::White, 3);
+	GameText* playerText2 = new GameText("Player2", 50, 810, 20, sf::Color::White, 3);
 	gameObjects.push_back(playerText1);
 	gameObjects.push_back(playerText2);
 
@@ -24,7 +24,7 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(player1);
 	gameObjects.push_back(player2);
 
-	GameText* help = new GameText("Press H : help", 40, 40, 40, sf::Color::White, 3);
+	GameText* help = new GameText("Press H : help", 20, 20, 30, sf::Color::White, 3);
 	gameObjects.push_back(help);
 
 
@@ -104,6 +104,9 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(ball14);
 	gameObjects.push_back(ball15);
 
+
+	GameText* playerTurn = new GameText("My Turn!", 150, 600, 50, sf::Color::Yellow, 3);
+	gameObjects.push_back(playerTurn);
 }
 
 SampleGame::~SampleGame(void)
@@ -270,6 +273,7 @@ void SampleGame::render(sf::RenderTarget& target)
 	renderDragpower(target);
 
 	// 게임 UI 렌더링 
+	
 	
 }
 
