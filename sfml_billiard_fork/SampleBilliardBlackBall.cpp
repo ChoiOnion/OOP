@@ -56,7 +56,7 @@ void SampleBilliardBlackBall::render(sf::RenderTarget& target)
 	ballText.setOutlineThickness(2);
 	ballText.setString(number);
 	ballText.setCharacterSize(13);
-	ballText.setPosition(getPosition() - sf::Vector2f(8, 10));
+	ballText.setPosition(getPosition() - sf::Vector2f(5, 8));
 	target.draw(ballText);
 
 }
