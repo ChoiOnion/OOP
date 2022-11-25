@@ -1,6 +1,6 @@
 #include "SampleBilliardBlackBall.h"
 #include "SampleGame.h"
-#define RGB(r,g,b)          ((COLORREF)(((BYTE)(r)|((WORD)((BYTE)(g))<<8))|(((DWORD)(BYTE)(b))<<16)))
+
 bool SampleBilliardBlackBall::isIntersecting(sf::Vector2f mouse)
 {
 	// mouse의 XY가 radius 안에 들어오는지 검사 

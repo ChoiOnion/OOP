@@ -1,6 +1,6 @@
 #include "SampleBilliardSolidBall.h"
 #include "SampleGame.h"
-#define RGB(r,g,b)          
+
 bool SampleBilliardSolidBall::isIntersecting(sf::Vector2f mouse)
 {
 	// mouse의 XY가 radius 안에 들어오는지 검사 
