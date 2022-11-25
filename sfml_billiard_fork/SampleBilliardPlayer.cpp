@@ -126,7 +126,7 @@ bool SampleBilliardPlayer:: isMyTurn() {
 				remainStripe -= 1;
 				return 0;
 			}
-			else if (ball2p == "solide")
+			else if (ball2p == "stripe")
 			{
 				remainSolide -= 1;
 				return 1;
