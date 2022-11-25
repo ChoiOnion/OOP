@@ -36,7 +36,7 @@ public:
 	bool isSolidBall(SampleBilliardBall& other);
 
 private:
-	bool playable;
+	bool playable{};
 	std::string owner;
 	std::string number;
 };

@@ -90,5 +90,5 @@ private:
 	sf::VertexArray vertices;
 	sf::Color color;
 
-	int whatBall; //판별을 위한 변수
+	int whatBall{}; //판별을 위한 변수
 };
