@@ -61,6 +61,7 @@ bool SampleBilliardPlayer::getturn2p() {
 //한번 지금 판별식 처럼 바꿨습니다(대입x) 안될거 같아서 일단 주석 걸어둘게요.
 
 bool SampleBilliardPlayer:: isMyTurn() {
+	int breakshot = 0;
 	int ballDist = SampleBilliardBall::getWhatball();
 	if (turn1p == true) {
 		if (ballDist ==1) {
@@ -143,6 +144,9 @@ bool SampleBilliardPlayer:: isMyTurn() {
 				//패배함수
 			}
 		}
+	}
+	else {
+		//상대에게 턴 넘김
 	}
 }
 
