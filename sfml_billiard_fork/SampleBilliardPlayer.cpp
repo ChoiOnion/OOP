@@ -16,39 +16,32 @@ bool SampleBilliardPlayer::isOwner(std::string owner) {
 std::string SampleBilliardPlayer::getOwner(void) {
 	return owner;
 };
-//이건... 브레이크 샷까지 봐야겠네요 아님 스프라이트로 설정할지 솔리드로 설정할지를 나눠둔다던가...
-void SampleBilliardPlayer :: setBall1p(SampleBilliardBoard& other) {
-	SampleBilliardStripeBall a;
-	if (a.isStripeBall(* this) == true) {
-		this->ball1p = "stripe";
-	}
-	else {
-		
-		this->ball1p = "solide";
-	}
+
+void SampleBilliardPlayer::setBall1p(std::string whatBall) {
+	this->ball1p = whatBall;
 }
-void SampleBilliardPlayer::setBall2p(SampleBilliardBoard& other) {
-	SampleBilliardSolidBall b;
-	if (b.isSolidBall(*this) == true) {
-		this->ball2p = "stripe";
-	}
-	else {
-		this->ball2p = "solide";
-	}
+void SampleBilliardPlayer::setBall2p(std::string whatBall) {
+	this->ball2p = whatBall;
+}
+std::string SampleBilliardPlayer::getBall1p() {
+	return ball1p;
+}
+std::string SampleBilliardPlayer::getBall2p() {
+	return ball2p;
 }
 
 //이건 혹시 몰라서 만든 1p와 2p 턴 세팅 함수입니다. 아무것도 안들어갔을때 쓰기 좋을거 같아요
 //보니깐 만든 판별식이 홀에 들어갔을때를 전제로 하는거 같아서 만들었어요.
 void SampleBilliardPlayer::setturn1p() {
-	turn1p = true;
-	turn2p = false;
+	this->turn1p = true;
+	this->turn2p = false;
 };
 bool SampleBilliardPlayer::getturn1p() {
 	return turn1p;
 };
 void SampleBilliardPlayer::setturn2p() {
-	turn2p = true;
-	turn1p = false;
+	this -> turn2p = true;
+	this->turn1p = false;
 };
 bool SampleBilliardPlayer::getturn2p() {
 	return turn2p;
@@ -62,85 +55,158 @@ bool SampleBilliardPlayer::getturn2p() {
 
 bool SampleBilliardPlayer:: isMyTurn() {
 	int ballDist = SampleBilliardBall::getWhatball();
+	//그러고 보니 두개 들어오는건 어떻게 해야할지 모르겠네요
 	if (turn1p == true) {
-		if (ballDist ==1) {
-			if (ball1p == "stripe")
-			{
-				remainStripe -= 1;
+		if (breakShot == true) {
+			if (ballDist == 1) {
+				this->ball1p = "stripe";
 				return 0;
+				this->breakShot = false;
 			}
-			else if (ball1p == "solide")
-			{
-				turn1p = false;
+			else if (ballDist == 2) {
+				this->ball1p = "solide";
+				return 0;
+				this->breakShot = false;
+			}
+			else if (ballDist == 3) {
+				//다시 공 놓는 함수로(혹은 제작해 두심 읽고 변경하겠습니다)
 				turn2p = true;
-				remainSolide -= 1;
+				turn1p = false;
 				return 1;
 			}
-		}
-		else if (ballDist ==2) {
-			if (ball1p == "stripe")
-			{
-				turn1p = false;
-				turn2p = true;
-				remainStripe -= 1;
-				return 1;
-			}
-			else if (ball1p == "solide")
-			{
-				remainSolide -= 1;
-				return 0;
-			}
-		}
-		else if (ballDist == 3) {
-			//공 불러오기? 일단 턴을 바꾼다.
-		}
-		else if (ballDist==4) {			//8번 공이 들어갔을 때
-			if (allDone(turn1p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
-				//승리함수
+			else if (ballDist == 4) {
+				//패배함수
 			}
 			else {
-				//패배함수
+				turn2p = true;
+				turn1p = false;
+				return 1;
+			}
+		}
+		else {
+			if (ballDist == 1) {
+				if (ball1p == "stripe")
+				{
+					this->remainStripe -= 1;
+					return 0;
+				}
+				else if (ball1p == "solide")
+				{
+					this->turn1p = false;
+					this->turn2p = true;
+					this->remainSolide -= 1;
+					return 1;
+				}
+			}
+			else if (ballDist == 2) {
+				if (ball1p == "stripe")
+				{
+					this->turn1p = false;
+					this->turn2p = true;
+					this->remainStripe -= 1;
+					return 1;
+				}
+				else if (ball1p == "solide")
+				{
+					this->remainSolide -= 1;
+					return 0;
+				}
+			}
+			else if (ballDist == 3) {
+				//공 불러오기? 일단 턴을 바꾼다.
+				turn2p = true;
+				turn1p = false;
+				return 1;
+			}
+			else if (ballDist == 4) {			//8번 공이 들어갔을 때
+				if (allDone(turn1p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
+					//승리함수
+				}
+				else {
+					//패배함수
+				}
+			}
+			else {							//아무것도 들어오지 않았을때
+				this->turn1p = false;
+				this->turn2p = true;
+				return 1;
 			}
 		}
 	}
-	else if (turn2p== true) {
-		if (ballDist == 1) {
-			if (ball2p == "stripe")
-			{
-				remainStripe -= 1;
+	else if (turn2p == true) {
+
+		if (breakShot == true) {
+			if (ballDist == 1) {
+				this->ball2p = "stripe";
 				return 1;
+				this->breakShot = false;
 			}
-			else if (ball2p == "solide")
-			{
-				turn2p = false;
+			else if (ballDist == 2) {
+				this->ball2p = "solide";
+				return 1;
+				this->breakShot = false;
+			}
+			else if (ballDist == 3) {
 				turn1p = true;
-				remainSolide -= 1;
+				turn2p = false;
 				return 0;
 			}
-		}
-		else if (ballDist == 2) {
-			if (ball2p=="solide")
-			{
-				turn2p = false;
-				turn1p = true;
-				remainStripe -= 1;
-				return 0;
-			}
-			else if (ball2p == "stripe")
-			{
-				remainSolide -= 1;
-				return 1;
-			}
-		}
-		else if (ballDist == 3) {
-			//공 불러오기? 일단 턴을 바꾼다.
-		}
-		else if (ballDist == 4) {			//8번 공이 들어갔을 때
-			if (allDone(turn1p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
-				//승리함수
+			else if (ballDist == 4) {
+
 			}
 			else {
-				//패배함수
+				turn1p = true;
+				turn2p = false;
+				return 0;
+			}
+		}
+		else {
+			if (ballDist == 1) {
+				if (ball2p == "stripe")
+				{
+					this->remainStripe -= 1;
+					return 1;
+				}
+				else if (ball2p == "solide")
+				{
+					this->turn2p = false;
+					this->turn1p = true;
+					this->remainSolide -= 1;
+					return 0;
+				}
+			}
+			else if (ballDist == 2) {
+				if (ball2p == "solide")
+				{
+					this->turn2p = false;
+					this->turn1p = true;
+					this->remainStripe -= 1;
+					return 0;
+				}
+				else if (ball2p == "stripe")
+				{
+					this->remainSolide -= 1;
+					return 1;
+				}
+			}
+			else if (ballDist == 3) {
+				//공 불러오기? 일단 턴을 바꾼다.
+				turn1p = true;
+				turn2p = false;
+				return 0;
+			}
+			else if (ballDist == 4) {			//8번 공이 들어갔을 때
+				if (allDone(turn1p) == true) {	//모든 공이 들어간 후 넣는 공이므로 자동 승리 판정입니다.
+					//승리함수
+				}
+				else {
+					//패배함수
+				}
+			}
+			else {							//아무것도 들어오지 않았을때
+				this->turn2p = false;
+				this->turn1p = true;
+				return 1;
 			}
 		}
 	}
