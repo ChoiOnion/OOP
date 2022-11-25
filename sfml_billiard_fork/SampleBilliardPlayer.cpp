@@ -103,7 +103,7 @@ bool SampleBilliardPlayer:: isMyTurn() {
 			}
 		}
 	}
-	else if (ballDist == 1) {
+	else if (turn2p== true) {
 		if (ballDist == 1) {
 			if (ball2p == "stripe")
 			{
@@ -119,14 +119,14 @@ bool SampleBilliardPlayer:: isMyTurn() {
 			}
 		}
 		else if (ballDist == 2) {
-			if (ballDist == 2)
+			if (ball2p=="solide")
 			{
 				turn2p = false;
 				turn1p = true;
 				remainStripe -= 1;
 				return 0;
 			}
-			else if (ball1p == "solide")
+			else if (ball2p == "solide")
 			{
 				remainSolide -= 1;
 				return 1;
