@@ -54,6 +54,7 @@ bool SampleBilliardPlayer::getturn2p() {
 //한번 지금 판별식 처럼 바꿨습니다(대입x) 안될거 같아서 일단 주석 걸어둘게요.
 
 bool SampleBilliardPlayer:: isMyTurn() {
+	int breakshot = 0;
 	int ballDist = SampleBilliardBall::getWhatball();
 	//그러고 보니 두개 들어오는건 어떻게 해야할지 모르겠네요
 	if (turn1p == true) {
@@ -209,6 +210,9 @@ bool SampleBilliardPlayer:: isMyTurn() {
 				return 1;
 			}
 		}
+	}
+	else {
+		//상대에게 턴 넘김
 	}
 }
 
