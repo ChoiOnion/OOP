@@ -327,13 +327,14 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 					SampleBilliardStripeBall d;
 					if (a.isPlayerBall(*this)) {
 						whatBall = 3;
-						this->setPosition(100, 100);
+						this->setPosition(800, 680);
 					}
 					else if (b.isEightBall(*this)) {
 						whatBall = 4;
 					}
 					else if (c.isSolidBall(*this)) {
 						whatBall = 2;
+						this->setPosition(165, 695);
 					}
 					else if (d.isStripeBall(*this)) {
 						whatBall = 1;
