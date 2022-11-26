@@ -28,7 +28,7 @@ public:
 	bool isPlayerBall(SampleBilliardBall& other);
 
 private:
-	bool playable;
-	std::string owner;
-	std::string number;
+	bool playable{};
+	std::string owner{};
+	std::string number{};
 };

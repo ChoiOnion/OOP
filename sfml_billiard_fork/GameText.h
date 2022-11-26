@@ -29,4 +29,6 @@ private:
 	int size{};
 	sf::Color bgColor{};
 	int lineSize{};
+
+	sf::Text t{};
 };

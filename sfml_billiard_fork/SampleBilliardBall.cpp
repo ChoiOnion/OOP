@@ -315,32 +315,31 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 		{
 			if (t > -0.f && t < 1.f)
 			{
+				goal = true;
+				static int pos = 0;
+				setPosition(radius + pos, radius);
+				setVelocity(sf::Vector2f(0.f, 0.f));
+				pos += 2 * radius;
 				if (goal) {
 					SampleBilliardGameBall a;
 					SampleBilliardBlackBall b;
 					SampleBilliardSolidBall c;
 					SampleBilliardStripeBall d;
 					if (a.isPlayerBall(*this)) {
-						goal = true;
 						whatBall = 3;
+						this->setPosition(800, 680);
 					}
 					else if (b.isEightBall(*this)) {
-						goal = true;
 						whatBall = 4;
 					}
 					else if (c.isSolidBall(*this)) {
-						goal = true;
 						whatBall = 2;
+						this->setPosition(165, 695);
 					}
 					else if (d.isStripeBall(*this)) {
-						goal = true;
 						whatBall = 1;
 					}
 				}
-				static int pos = 0;
-				setPosition(radius + pos, radius);
-				setVelocity(sf::Vector2f(0.f, 0.f));
-				pos += 2 * radius;
 			}
 		}
 	/*

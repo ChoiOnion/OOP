@@ -13,8 +13,8 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	:BaseGame(width, height, fpsLimit), isDraggingBall(false), draggedBall(nullptr)
 {
 	// SampleGame을 위한 인터페이스 생성 및 등록 
-	GameText* playerText1 = new GameText("Player1", 50, 600, 50, sf::Color::White, 3);
-	GameText* playerText2 = new GameText("Player2", 50, 800, 50, sf::Color::White, 3);
+	GameText* playerText1 = new GameText("Player1", 50, 610, 20, sf::Color::White, 3);
+	GameText* playerText2 = new GameText("Player2", 50, 810, 20, sf::Color::White, 3);
 	gameObjects.push_back(playerText1);
 	gameObjects.push_back(playerText2);
 
@@ -24,24 +24,28 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(player1);
 	gameObjects.push_back(player2);
 
-	GameText* help = new GameText("Press H : help", 40, 40, 40, sf::Color::White, 3);
-
+	GameText* help = new GameText("Press H : help", 20, 20, 30, sf::Color::White, 3);
 	gameObjects.push_back(help);
+
+
+	// 공 들어갈 자리 표시
+	LoadImage* ballPosition1 = new LoadImage("ballposition.png", 250, 250, 120, 650);
+	gameObjects.push_back(ballPosition1);
 
 	// SampleGame을 위한 당구대 생성 및 등록 
 	gameObjects.push_back(new SampleBilliardBoard());
 
 	// SampleGame을 위한 당구공 생성 및 등록 
-	SampleBilliardGameBall* playerBall = new SampleBilliardGameBall(sf::Vector2f(800, 600), 10, sf::Color::White);
+	SampleBilliardGameBall* playerBall = new SampleBilliardGameBall(sf::Vector2f(800, 680), 10, sf::Color::White);
 	SampleBilliardSolidBall* ball1 = new SampleBilliardSolidBall(sf::Vector2f(800, 300), 10, sf::Color::Yellow);
 	SampleBilliardSolidBall* ball2 = new SampleBilliardSolidBall(sf::Vector2f(785, 280), 10, sf::Color::Blue);
 	SampleBilliardSolidBall* ball3 = new SampleBilliardSolidBall(sf::Vector2f(815, 280), 10, sf::Color::Red);
 	SampleBilliardSolidBall* ball4 = new SampleBilliardSolidBall(sf::Vector2f(770, 260), 10, sf::Color::Magenta);
 	SampleBilliardSolidBall* ball5 = new SampleBilliardSolidBall(sf::Vector2f(800, 260), 10, sf::Color::Cyan);
 	SampleBilliardSolidBall* ball6 = new SampleBilliardSolidBall(sf::Vector2f(830, 260), 10, sf::Color::Green);
-	SampleBilliardSolidBall* ball7 = new SampleBilliardSolidBall(sf::Vector2f(755, 240), 10, sf::Color::Yellow);
+	SampleBilliardSolidBall* ball7 = new SampleBilliardSolidBall(sf::Vector2f(755, 240), 10, sf::Color::White);
 	SampleBilliardBlackBall* ball8 = new SampleBilliardBlackBall(sf::Vector2f(785, 240), 10, sf::Color::Black);
-	SampleBilliardStripeBall* ball9 = new SampleBilliardStripeBall(sf::Vector2f(815, 240), 10, sf::Color::White);
+	SampleBilliardStripeBall* ball9 = new SampleBilliardStripeBall(sf::Vector2f(815, 240), 10, sf::Color::Yellow);
 	SampleBilliardStripeBall* ball10 = new SampleBilliardStripeBall(sf::Vector2f(845, 240), 10, sf::Color::Blue);
 	SampleBilliardStripeBall* ball11 = new SampleBilliardStripeBall(sf::Vector2f(740, 220), 10, sf::Color::Red);
 	SampleBilliardStripeBall* ball12 = new SampleBilliardStripeBall(sf::Vector2f(770, 220), 10, sf::Color::Magenta);
@@ -100,6 +104,9 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(ball14);
 	gameObjects.push_back(ball15);
 
+
+	GameText* playerTurn = new GameText("My Turn!", 150, 600, 50, sf::Color::Yellow, 3);
+	gameObjects.push_back(playerTurn);
 }
 
 SampleGame::~SampleGame(void)
@@ -266,6 +273,7 @@ void SampleGame::render(sf::RenderTarget& target)
 	renderDragpower(target);
 
 	// 게임 UI 렌더링 
+	
 	
 }
 

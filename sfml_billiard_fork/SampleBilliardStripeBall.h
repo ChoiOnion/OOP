@@ -34,7 +34,7 @@ public:
 	bool isStripeBall(SampleBilliardBall& other);
 
 private:
-	bool playable;
+	bool playable{};
 	std::string owner;
 	std::string number;
 };
