@@ -23,8 +23,8 @@ public:
 	std::string getOwner(void);
 	void setBall1p(std::string whatBall);	//아직 들어온 공 판별식이 나오지 않았으니 나오면 추후 변경
 	void setBall2p(std::string whatBall);
-	std::string getBall1p();
-	std::string getBall2p();
+	static std::string getBall1p();
+	static std::string getBall2p();
 	//혹시몰라 만드는 1p와 2p의 턴 getter,setter
 	void setturn1p();
 	bool getturn1p();
@@ -47,8 +47,8 @@ private:
 	bool turn1p = true;
 	bool turn2p = false;
 	//서로 어떤 공을 넣어야하는지 판별하는 변수(타입은 임시)
-	std::string ball1p;
-	std::string ball2p;
+	static std::string ball1p;
+	static std::string ball2p;
 	//각각볼이 몇개 남았는지 판별(어차피 둘다 7개니깐 턴에서 넣을때마다 하나씩 빼는걸로 하겠습니다.)
 	int remainStripe = 7;
 	int remainSolide = 7;
