@@ -15,6 +15,8 @@
 class SampleBilliardPlayer : public SampleBilliardBall
 {
 public:
+	SampleBilliardPlayer();
+
 	using SampleBilliardBall::SampleBilliardBall;
 
 	//getter,setter

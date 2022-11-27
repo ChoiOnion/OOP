@@ -6,6 +6,8 @@
 #include "SampleBilliardStripeBall.h"
 #include "GameText.h"
 
+SampleBilliardPlayer::SampleBilliardPlayer(){}
+
 //getter,setter
 void SampleBilliardPlayer::setOwner(std::string owner) {
 	this->owner = owner;

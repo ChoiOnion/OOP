@@ -13,13 +13,6 @@ GameText::GameText(std::string text, float x, float y,int size,sf::Color bgColor
 }
 
 void GameText::update(float timeElapsed) {
-	SampleBilliardPlayer p{};
-	if (p.getturn1p()) {
-		t.setPosition(150, 600);
-	}
-	else if (p.getturn2p()) {
-		t.setPosition(150, 800);
-	}
 }
 
 void GameText::collide(SampleBilliardObject& other) {
