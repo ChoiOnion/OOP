@@ -4,6 +4,7 @@
 #include "SampleBilliardSolidBall.h"
 #include "SampleBilliardBlackBall.h"
 #include "SampleBilliardStripeBall.h"
+#include "SampleBilliardPlayer.h"
 
 SampleBilliardBall::SampleBilliardBall(void) 
 	: SampleBilliardBall(sf::Vector2f(100, 100), 10, sf::Color::Red)
@@ -320,6 +321,7 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 				setPosition(radius + pos, radius);
 				setVelocity(sf::Vector2f(0.f, 0.f));
 				pos += 2 * radius;
+				
 				if (goal) {
 					SampleBilliardGameBall a;
 					SampleBilliardBlackBall b;
