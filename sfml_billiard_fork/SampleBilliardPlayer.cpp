@@ -17,6 +17,7 @@ std::string SampleBilliardPlayer::getOwner(void) {
 	return owner;
 };
 
+/*
 void SampleBilliardPlayer::setBall1p(std::string whatBall) {
 	this->ball1p = whatBall;
 }
@@ -29,9 +30,11 @@ std::string SampleBilliardPlayer::getBall1p() {
 std::string SampleBilliardPlayer::getBall2p() {
 	return ball2p;
 }
+*/
 
 //이건 혹시 몰라서 만든 1p와 2p 턴 세팅 함수입니다. 아무것도 안들어갔을때 쓰기 좋을거 같아요
 //보니깐 만든 판별식이 홀에 들어갔을때를 전제로 하는거 같아서 만들었어요.
+
 void SampleBilliardPlayer::setturn1p() {
 	this->turn1p = true;
 	this->turn2p = false;
@@ -45,6 +48,31 @@ void SampleBilliardPlayer::setturn2p() {
 };
 bool SampleBilliardPlayer::getturn2p() {
 	return turn2p;
+};
+
+
+
+bool SampleBilliardPlayer::is1pStripe() {
+	if (ball1p == "stripe") {
+		return true;
+	}
+
+};
+bool SampleBilliardPlayer::is2pStripe() {
+	if (ball2p == "stripe") {
+		return true;
+	}
+};
+bool SampleBilliardPlayer::is1pSolide() {
+	if (ball1p == "solide") {
+		return true;
+	}
+
+};
+bool SampleBilliardPlayer::is2pSolide() {
+	if (ball2p == "solide") {
+		return true;
+	}
 };
 
 

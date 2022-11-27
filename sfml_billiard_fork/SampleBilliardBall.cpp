@@ -297,6 +297,13 @@ void SampleBilliardBall::collideWithBoard(SampleBilliardBoard& other)
 
 void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 {
+	//is1pStripe... 등등의 사용 예시 밑의 판별식이랑 비슷하게 만들었어요!
+	SampleBilliardPlayer a;
+	if (a.is1pStripe()) {
+
+	}
+
+
 	for (SampleBilliardBoard::Border hole : other.getHoles())
 	{
 		sf::Vector2f p = getPosition();
