@@ -328,6 +328,7 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 				setPosition(radius + pos, radius);
 				setVelocity(sf::Vector2f(0.f, 0.f));
 				pos += 2 * radius;
+				
 				if (goal) {
 					SampleBilliardGameBall a;
 					SampleBilliardBlackBall b;
