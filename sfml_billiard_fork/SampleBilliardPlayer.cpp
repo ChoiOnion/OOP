@@ -76,11 +76,13 @@ bool SampleBilliardPlayer::is2pSolide() {
 }
 
 
-//return 값은 임의로 0(1p의 턴), 1(2p)의 턴 으로 합니다. 추후 브레이크 샷이나 게임이 돌아가는 함수가 완성될 때 맞춰서 변경할 필요가 있을 수도 있습니다.
-//bool로 변경했습니다.
-//무슨 공인지 판별식 완성되면 이것도 setball1p..등등과 함께 바꾸겠습니다.
-//한번 지금 판별식 처럼 바꿨습니다(대입x) 안될거 같아서 일단 주석 걸어둘게요.
 
+//한번 지금 판별식 처럼 바꿨습니다(대입x) 안될거 같아서 일단 주석 걸어둘게요.
+//부모 클래스 Object로 변경했고, 기존 isMyTurn 함수를 update함수로 옮겨뒀습니다.
+//else 부분 수정 필요합니다. 마우스 클릭마다 update함수가 작동하는 게 아니고, 시간을 기준으로
+//반응하기 때문에 else로 두면 턴이 계속 넘어가요.
+//제가 많이 바꿔둬서 헷갈릴 수도 있는데 혹시 다른 방법 있거나, 다른 방식이 편할 거 같으면
+//수정해도 됩니다!.
 void SampleBilliardPlayer::update(float timeElapsed) {
 	SampleBilliardBall ball;
 	int ballDist = ball.getWhatball();
