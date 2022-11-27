@@ -106,10 +106,6 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(ball13);
 	gameObjects.push_back(ball14);
 	gameObjects.push_back(ball15);
-
-
-	GameText* playerTurn = new GameText("My Turn!", 150, 600, 50, sf::Color::Yellow, 3);
-	gameObjects.push_back(playerTurn);
 }
 
 SampleGame::~SampleGame(void)
