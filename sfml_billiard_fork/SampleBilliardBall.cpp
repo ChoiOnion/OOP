@@ -347,7 +347,12 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 					}
 					else if (c.isSolidBall(*this)) {
 						this->setWhatBall(2);
-						this->setPosition(165, 695);
+						//player1
+						this->setPosition(163, 720); //첫번째 들어온 공 위치
+						this->setPosition(193, 720); //2
+						//player2
+						this->setPosition(163, 920); //첫번째 들어온 공 위치
+						this->setPosition(193, 920); //2
 					}
 					else if (d.isStripeBall(*this)) {
 						this->setWhatBall(1);
