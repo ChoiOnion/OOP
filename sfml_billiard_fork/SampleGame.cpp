@@ -32,8 +32,12 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 
 
 	// 공 들어갈 자리 표시
-	LoadImage* ballPosition1 = new LoadImage("ball.png", 250, 250, 120, 650);
+	LoadImage* ballPosition1 = new LoadImage("ballposition.png", 250, 250, 120, 670);
 	gameObjects.push_back(ballPosition1);
+
+	LoadImage* ballPosition2 = new LoadImage("ballposition.png", 250, 250, 120, 870);
+	gameObjects.push_back(ballPosition2);
+	
 
 	// SampleGame을 위한 당구대 생성 및 등록 
 	gameObjects.push_back(new SampleBilliardBoard());
