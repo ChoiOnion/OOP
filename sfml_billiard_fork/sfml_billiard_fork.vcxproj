@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGame.cpp" />
+    <ClCompile Include="BilliardHole.cpp" />
     <ClCompile Include="GameText.cpp" />
     <ClCompile Include="LoadImage.cpp" />
     <ClCompile Include="main.cpp" />
@@ -155,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseGame.h" />
+    <ClInclude Include="BilliardHole.h" />
     <ClInclude Include="GameText.h" />
     <ClInclude Include="LoadImage.h" />
     <ClInclude Include="SampleBilliardBall.h" />

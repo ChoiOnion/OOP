@@ -12,6 +12,7 @@
 
 #include "SampleBilliardObject.h"
 #include "SampleBilliardBoard.h"
+#include "BilliardHole.h"
 
 class SampleBilliardBall : public SampleBilliardObject
 {
@@ -75,7 +76,7 @@ private:
 	void collideWithBoard(SampleBilliardBoard& other);
 
 	//공이 들어갔을 경우
-	void collideWithHole(SampleBilliardBoard& other);
+	void collideWithHole(SampleBilliardHole& other);
 
 private:
 	sf::Vector2f position;

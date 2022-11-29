@@ -1,6 +1,7 @@
 #include "SampleBilliardBoard.h"
 
 
+
 SampleBilliardBoard::SampleBilliardBoard(void)
 {
 	// Sample Game을 위한 당구대 텍스처 이미지 로드 
@@ -56,28 +57,14 @@ SampleBilliardBoard::SampleBilliardBoard(void)
 	borderLines.push_back(lineTopLeftR);
 
 	//홀 경계 초기화
-	SampleBilliardBoard::Border holeTopLeft(582.5f, 49.f, 596.5f, 35.f);
-	SampleBilliardBoard::Border holeTopRight(1003.5f, 35.f, 1017.5f, 49.f);
-	SampleBilliardBoard::Border holeLeft(587.5f, 458.5f, 587.5f, 442.5f);
-	SampleBilliardBoard::Border holeRight(1012.5f, 442.f, 1012.5f, 458.5f);
-	SampleBilliardBoard::Border holeDownLeft(596.5f, 865.5f, 582.5f, 851.f);
-	SampleBilliardBoard::Border holeDownRight(1017.5f, 851.f, 1003.5f, 865.f);
-	Holes.push_back(holeTopLeft);
-	Holes.push_back(holeTopRight);
-	Holes.push_back(holeLeft);
-	Holes.push_back(holeRight);
-	Holes.push_back(holeDownLeft);
-	Holes.push_back(holeDownRight);
-
-
-}	//공이 어디로 들어가는지 확인
+	
+}	
 
 
 // 소멸자 
 SampleBilliardBoard::~SampleBilliardBoard(void)
 {
 	borderLines.clear();
-	Holes.clear();
 }
 
 void SampleBilliardBoard::update(float timeElapsed)
@@ -103,7 +90,4 @@ const std::vector<SampleBilliardBoard::Border>& SampleBilliardBoard::getBorders(
 	return borderLines;
 }
 
-const std::vector<SampleBilliardBoard::Border>& SampleBilliardBoard::getHoles(void) const
-{
-	return Holes;
-}
+

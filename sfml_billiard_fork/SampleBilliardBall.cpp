@@ -5,6 +5,7 @@
 #include "SampleBilliardBlackBall.h"
 #include "SampleBilliardStripeBall.h"
 #include "SampleBilliardPlayer.h"
+#include "BilliardHole.h"
 
 SampleBilliardBall::SampleBilliardBall(void) 
 	: SampleBilliardBall(sf::Vector2f(100, 100), 10, sf::Color::Red)
@@ -205,9 +206,9 @@ void SampleBilliardBall::collide(SampleBilliardObject& other)
 	}
 
 	// 공이 홀과 충돌할 경우
-	if (dynamic_cast<SampleBilliardBoard*>(&other) != nullptr)
+	if (dynamic_cast<SampleBilliardHole*>(&other) != nullptr)
 	{
-		SampleBilliardBoard& hole = *dynamic_cast<SampleBilliardBoard*>(&other);
+		SampleBilliardHole& hole = *dynamic_cast<SampleBilliardHole*>(&other);
 		collideWithHole(hole);
 	}
 }
@@ -298,17 +299,17 @@ void SampleBilliardBall::collideWithBoard(SampleBilliardBoard& other)
 	}
 }
 
-void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
+void SampleBilliardBall::collideWithHole(SampleBilliardHole& other)
 {
+	std::cout << this->getWhatball();
 	//is1pStripe... 등등의 사용 예시 밑의 판별식이랑 비슷하게 만들었어요!
 	SampleBilliardPlayer a;
 	if (a.is1pStripe()) {
 
 	}
 
-	setWhatBall(0);
 
-	for (SampleBilliardBoard::Border hole : other.getHoles())
+	for (SampleBilliardHole::Hole hole : other.getHoles())
 	{
 		sf::Vector2f p = getPosition();
 		sf::Vector2f s(hole.getPoints()[0].position);
@@ -328,8 +329,8 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 			if (t > -0.f && t < 1.f)
 			{
 				goal = true;
-				//static int pos = 0;
-				setPosition(radius,radius);
+				static int pos = 1;
+				setPosition(radius + pos,radius);
 				setVelocity(sf::Vector2f(0.f, 0.f));
 				pos += 2 * radius;
 				if (goal) {

@@ -40,7 +40,6 @@ public:
 	virtual void render(sf::RenderTarget& target);
 	// 당구대를 구성하는 경계 요소 반환 
 	const std::vector<SampleBilliardBoard::Border>& getBorders(void) const;
-	const std::vector<SampleBilliardBoard::Border>& getHoles(void) const;
 private:
 	// 당구대를 나타내는 스프라이트 이미지 
 	sf::Sprite			sprite;
@@ -49,5 +48,4 @@ private:
 	// 당구대 물리적 경계
 	std::vector<SampleBilliardBoard::Border>	borderLines; //test
 
-	std::vector<SampleBilliardBoard::Border>  Holes;
 };
