@@ -53,6 +53,7 @@ public:
 	void setRadius(float radius);
 	void setMass(float mass);
 	void setColor(sf::Color color);
+	void setWhatBall(int param);
 
 	// getter 
 	sf::Vector2f	getPosition(void) const;
@@ -90,5 +91,5 @@ private:
 	sf::VertexArray vertices;
 	sf::Color color;
 
-	int whatBall{}; //판별을 위한 변수
+	int whatBall = 0; //판별을 위한 변수
 };

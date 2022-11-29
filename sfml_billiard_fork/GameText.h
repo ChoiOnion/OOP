@@ -13,6 +13,8 @@ class GameText : public SampleBilliardObject
 public:
 	GameText(std::string text, float x, float y, int size, sf::Color bgColor,int lineSize);
 	
+	void setPosition(float x, float y);
+
 	// Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
 	 void update(float timeElapsed);
 

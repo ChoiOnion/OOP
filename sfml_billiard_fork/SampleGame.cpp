@@ -7,6 +7,7 @@
 #include "SampleBilliardObject.h"
 #include "GameText.h"
 #include "LoadImage.h"
+#include "SampleBilliardPlayer.h"
 
 // 123112
 SampleGame::SampleGame(int width, int height, int fpsLimit)
@@ -18,19 +19,25 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(playerText1);
 	gameObjects.push_back(playerText2);
 
-
 	LoadImage* player1 = new LoadImage("player.png", 250, 250, 40, 650);
 	LoadImage* player2 = new LoadImage("player.png", 250, 250, 40, 850);
 	gameObjects.push_back(player1);
 	gameObjects.push_back(player2);
+
+	SampleBilliardPlayer* player = new SampleBilliardPlayer();
+	gameObjects.push_back(player);
 
 	GameText* help = new GameText("Press H : help", 20, 20, 30, sf::Color::White, 3);
 	gameObjects.push_back(help);
 
 
 	// 공 들어갈 자리 표시
-	LoadImage* ballPosition1 = new LoadImage("ballposition.png", 250, 250, 120, 650);
+	LoadImage* ballPosition1 = new LoadImage("ballposition.png", 250, 250, 120, 670);
 	gameObjects.push_back(ballPosition1);
+
+	LoadImage* ballPosition2 = new LoadImage("ballposition.png", 250, 250, 120, 870);
+	gameObjects.push_back(ballPosition2);
+	
 
 	// SampleGame을 위한 당구대 생성 및 등록 
 	gameObjects.push_back(new SampleBilliardBoard());
@@ -103,10 +110,6 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(ball13);
 	gameObjects.push_back(ball14);
 	gameObjects.push_back(ball15);
-
-
-	GameText* playerTurn = new GameText("My Turn!", 150, 600, 50, sf::Color::Yellow, 3);
-	gameObjects.push_back(playerTurn);
 }
 
 SampleGame::~SampleGame(void)
@@ -201,8 +204,6 @@ void SampleGame::handle(sf::Event& ev)
 				}
 				//드래그 할 때마다 턴이 바뀌어야 함
 
-
-
 				// 드래그 가능한 공 임시 저장 
 				draggedBall = gameBall;
 				isDraggingBall = true;
@@ -237,7 +238,6 @@ void SampleGame::update(void)
 			obj1->collide(*obj2);
 		}
 	}
-
 	
 	// 끌었다가 놓은 공에 속도를 지정하고 표시 해제 
 	if (!isDraggingBall && draggedBall != nullptr)

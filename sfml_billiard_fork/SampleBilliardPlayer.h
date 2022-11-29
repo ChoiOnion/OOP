@@ -12,10 +12,10 @@
 
 #include "SampleBilliardBall.h"
 
-class SampleBilliardPlayer : public SampleBilliardBall
+class SampleBilliardPlayer:public SampleBilliardObject
 {
 public:
-	using SampleBilliardBall::SampleBilliardBall;
+	SampleBilliardPlayer();
 
 	//getter,setter
 	void setOwner(std::string owner);
@@ -30,10 +30,10 @@ public:
 	*/
 
 	//혹시몰라 만드는 1p와 2p의 턴 getter,setter
-	void setturn1p();
-	bool getturn1p();
-	void setturn2p();
-	bool getturn2p();
+	void setTurn1p();
+	bool getTurn1p();
+	void setTurn2p();
+	bool getTurn2p();
 
 
 	//이거 안되면 판별식 부터 안되는거니깐 연락주세요
@@ -42,14 +42,17 @@ public:
 	bool is1pSolide();
 	bool is2pSolide();
 
-	// 게임 공에 숫자를 그리기 위해 virtual 함수 재정의 
-	void render(sf::RenderTarget& window);
-
-	//플레이어 공격권 표시
-	bool isMyTurn();
-
 	//자신이 넣어야 할 공을 다 넣었는지 판별하는 함수
 	bool allDone(bool who);
+
+	// Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
+	virtual void update(float timeElapsed);
+
+	// Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
+	virtual void collide(SampleBilliardObject& other);
+
+	// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
+	virtual void render(sf::RenderTarget& target);
 
 private:
 	std::string owner;

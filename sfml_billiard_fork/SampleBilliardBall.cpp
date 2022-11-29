@@ -160,6 +160,9 @@ int SampleBilliardBall::getWhatball() {  //턴 판별을 위한 whatBall의 getter
 	return whatBall;
 };
 
+void SampleBilliardBall::setWhatBall(int param) {
+	this->whatBall = param;
+}
 
 // Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
 void SampleBilliardBall::update(float timeElapsed)
@@ -303,6 +306,7 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 
 	}
 
+	setWhatBall(0);
 
 	for (SampleBilliardBoard::Border hole : other.getHoles())
 	{
@@ -327,25 +331,30 @@ void SampleBilliardBall::collideWithHole(SampleBilliardBoard& other)
 				//static int pos = 0;
 				setPosition(radius,radius);
 				setVelocity(sf::Vector2f(0.f, 0.f));
-				//pos += 2 * radius;
+				pos += 2 * radius;
 				if (goal) {
 					SampleBilliardGameBall a;
 					SampleBilliardBlackBall b;
 					SampleBilliardSolidBall c;
 					SampleBilliardStripeBall d;
 					if (a.isPlayerBall(*this)) {
-						whatBall = 3;
+						this->setWhatBall(3);
 						this->setPosition(800, 680);
 					}
 					else if (b.isEightBall(*this)) {
-						whatBall = 4;
+						this->setWhatBall(4);
 					}
 					else if (c.isSolidBall(*this)) {
-						whatBall = 2;
-						this->setPosition(165, 695);
+						this->setWhatBall(2);
+						//player1
+						this->setPosition(163, 720); //첫번째 들어온 공 위치
+						this->setPosition(193, 720); //2
+						//player2
+						this->setPosition(163, 920); //첫번째 들어온 공 위치
+						this->setPosition(193, 920); //2
 					}
 					else if (d.isStripeBall(*this)) {
-						whatBall = 1;
+						this->setWhatBall(1);
 					}
 				}
 			}
