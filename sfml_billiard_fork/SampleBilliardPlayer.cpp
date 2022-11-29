@@ -89,7 +89,6 @@ void SampleBilliardPlayer::update(float timeElapsed) {
 	//그러고 보니 두개 들어오는건 어떻게 해야할지 모르겠네요
 	//두 개가 다른 종류면 그때 키보드 이용해서 선택하기로 했었어요!
 	if (getTurn1p()) {
-		std::cout << "1p";
 		if (breakShot == true) {
 			if (ballDist == 1) {
 				this->ball1p = "stripe";
@@ -152,7 +151,6 @@ void SampleBilliardPlayer::update(float timeElapsed) {
 		}
 	}
 	else if (getTurn2p()) {
-		std::cout << "2p";
 		if (breakShot == true) {
 			if (ballDist == 1) {
 				this->ball2p = "stripe";
