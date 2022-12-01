@@ -8,6 +8,7 @@
 #include "GameText.h"
 #include "LoadImage.h"
 #include "SampleBilliardPlayer.h"
+#include "BilliardHole.h"
 
 // 123112
 SampleGame::SampleGame(int width, int height, int fpsLimit)
@@ -41,6 +42,7 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 
 	// SampleGame을 위한 당구대 생성 및 등록 
 	gameObjects.push_back(new SampleBilliardBoard());
+	gameObjects.push_back(new SampleBilliardHole());
 
 	// SampleGame을 위한 당구공 생성 및 등록 
 	SampleBilliardGameBall* playerBall = new SampleBilliardGameBall(sf::Vector2f(800, 680), 10, sf::Color::White);

@@ -1,6 +1,6 @@
 #include "BilliardHole.h"
 
-SampleBilliardHole::SampleBilliardHole(void)
+SampleBilliardHole::SampleBilliardHole()
 {
 	texture.loadFromFile("textureBoard.png", sf::IntRect(1, 1, 454, 848));
 

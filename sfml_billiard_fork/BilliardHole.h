@@ -27,7 +27,7 @@ public:
 		sf::VertexArray points;
 	};
 public:
-	SampleBilliardHole(void);
+	SampleBilliardHole();
 	// 소멸자 
 	~SampleBilliardHole(void);
 	// Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
