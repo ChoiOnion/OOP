@@ -16,7 +16,7 @@ class SampleBilliardPlayer:public SampleBilliardObject
 {
 public:
 	SampleBilliardPlayer();
-
+	~SampleBilliardPlayer();
 	//getter,setter
 	void setOwner(std::string owner);
 	bool isOwner(std::string owner);
@@ -53,6 +53,8 @@ public:
 
 	// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
 	virtual void render(sf::RenderTarget& target);
+
+	void moveBall(SampleBilliardBall ball);
 
 private:
 	std::string owner;

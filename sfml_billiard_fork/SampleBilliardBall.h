@@ -67,7 +67,7 @@ public:
 	const sf::VertexArray& getVertices(void) const;
 	//턴 판별을 위한 whatBall의 getter
 	int getWhatball();
-
+	bool getGoal();
 private:
 	// 공과 충돌한 경우 
 	void collideWithBall(SampleBilliardBall& other);
@@ -87,7 +87,7 @@ private:
 	float radius;
 	float mass;
 
-	bool goal{};
+	bool goal = true;
 
 	sf::VertexArray vertices;
 	sf::Color color;

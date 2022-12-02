@@ -165,6 +165,12 @@ void SampleBilliardBall::setWhatBall(int param) {
 	this->whatBall = param;
 }
 
+bool SampleBilliardBall::getGoal() {
+	std::cout << "aaa  " << this->goal << "  a";
+	return goal;
+}
+
+
 // Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
 void SampleBilliardBall::update(float timeElapsed)
 {
@@ -301,7 +307,6 @@ void SampleBilliardBall::collideWithBoard(SampleBilliardBoard& other)
 
 void SampleBilliardBall::collideWithHole(SampleBilliardHole& other)
 {
-	std::cout << this->getWhatball();
 	//is1pStripe... 등등의 사용 예시 밑의 판별식이랑 비슷하게 만들었어요!
 	SampleBilliardPlayer a;
 	if (a.is1pStripe()) {
@@ -311,6 +316,7 @@ void SampleBilliardBall::collideWithHole(SampleBilliardHole& other)
 
 	for (SampleBilliardHole::Hole hole : other.getHoles())
 	{
+		goal = false;
 		sf::Vector2f p = getPosition();
 		sf::Vector2f s(hole.getPoints()[0].position);
 		sf::Vector2f e = hole.getPoints()[1].position;
@@ -324,7 +330,7 @@ void SampleBilliardBall::collideWithHole(SampleBilliardHole& other)
 		sf::Vector2f distance = p - st;
 		float distanceBetween = sqrtf((distance.x * distance.x) + (distance.y * distance.y));
 
-		if (distanceBetween <= getRadius())
+		if (distanceBetween <= getRadius()*2)
 		{
 			if (t > -0.f && t < 1.f)
 			{
@@ -360,27 +366,5 @@ void SampleBilliardBall::collideWithHole(SampleBilliardHole& other)
 				}
 			}
 		}
-	/*
-		if (goal) {
-			SampleBilliardGameBall a;
-			SampleBilliardBlackBall b;
-			SampleBilliardSolidBall c;
-			SampleBilliardStripeBall d;
-			if (a.isPlayerBall(*this)) {
-				goal = false;
-			}
-			else if (b.isEightBall(*this)) {
-				goal = true;
-			}
-			else if (c.isSolidBall(*this)) {
-				goal = true;
-			}
-			else if (d.isStripeBall(*this)) {
-				goal = true;
-			}
-		}
-	*/
-		
 	}
-
 }

@@ -191,6 +191,7 @@ void SampleGame::handle(sf::Event& ev)
 			{
 				// SampleBilliardBall의 인스턴스가 아닌 경우 pass
 				SampleBilliardGameBall* gameBall = dynamic_cast<SampleBilliardGameBall*>(obj);
+				SampleBilliardBall* ball = dynamic_cast<SampleBilliardBall*>(obj);
 				if (gameBall == nullptr)
 				{
 					continue;

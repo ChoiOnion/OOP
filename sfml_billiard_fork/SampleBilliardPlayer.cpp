@@ -6,8 +6,11 @@
 #include "SampleBilliardStripeBall.h"
 #include "GameText.h"
 
-SampleBilliardPlayer::SampleBilliardPlayer(){}
-
+SampleBilliardPlayer::SampleBilliardPlayer() {
+	this->turn1p = true;
+	this->turn2p = false;
+}
+SampleBilliardPlayer::~SampleBilliardPlayer() {}
 //getter,setter
 void SampleBilliardPlayer::setOwner(std::string owner) {
 	this->owner = owner;
@@ -84,11 +87,21 @@ bool SampleBilliardPlayer::is2pSolide() {
 //제가 많이 바꿔둬서 헷갈릴 수도 있는데 혹시 다른 방법 있거나, 다른 방식이 편할 거 같으면
 //수정해도 됩니다!.
 void SampleBilliardPlayer::update(float timeElapsed) {
-	SampleBilliardBall ball;
-	int ballDist = ball.getWhatball();
+
+}
+
+void SampleBilliardPlayer::moveBall(SampleBilliardBall ball){
+	int ballDist{};
+	std::cout << ball.getGoal();
+	if (ball.getGoal()) {
+		ballDist = ball.getWhatball();
+		std::cout << "  x" << ballDist << "x  ";
+	}
+	if (ballDist != 0)
+		std::cout << "  b" << ballDist << "b  ";
 	//그러고 보니 두개 들어오는건 어떻게 해야할지 모르겠네요
 	//두 개가 다른 종류면 그때 키보드 이용해서 선택하기로 했었어요!
-	if (getTurn1p()) {
+	if (this->getTurn1p()==true) {
 		if (breakShot == true) {
 			if (ballDist == 1) {
 				this->ball1p = "stripe";
@@ -145,12 +158,12 @@ void SampleBilliardPlayer::update(float timeElapsed) {
 					//패배함수
 				}
 			}
-			else  {							//아무것도 들어오지 않았을때
+			else {							//아무것도 들어오지 않았을때
 				//setTurn2p();
 			}
 		}
 	}
-	else if (getTurn2p()) {
+	else if (this->getTurn2p()==true) {
 		if (breakShot == true) {
 			if (ballDist == 1) {
 				this->ball2p = "stripe";
