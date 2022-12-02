@@ -205,7 +205,6 @@ void SampleGame::handle(sf::Event& ev)
 
 				if (ball != nullptr) {
 					if (ball->getGoal()) {
-						for(ball)
 						std::cout << ball->getWhatball();
 					}
 				}
