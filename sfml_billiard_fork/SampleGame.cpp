@@ -192,6 +192,7 @@ void SampleGame::handle(sf::Event& ev)
 				// SampleBilliardBall의 인스턴스가 아닌 경우 pass
 				SampleBilliardGameBall* gameBall = dynamic_cast<SampleBilliardGameBall*>(obj);
 				SampleBilliardBall* ball = dynamic_cast<SampleBilliardBall*>(obj);
+				SampleBilliardPlayer* player = dynamic_cast<SampleBilliardPlayer*>(obj);
 				if (gameBall == nullptr)
 				{
 					continue;
@@ -204,6 +205,9 @@ void SampleGame::handle(sf::Event& ev)
 				// 공이 Playable이 아닌 경우 pass 
 				if (!gameBall->isPlayable()) {
 					continue;
+				}
+				if (player != nullptr) {
+					std::cout << "a";
 				}
 				//드래그 할 때마다 턴이 바뀌어야 함
 
