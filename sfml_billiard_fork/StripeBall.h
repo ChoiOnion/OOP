@@ -10,12 +10,12 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-#include "SampleBilliardBall.h"
+#include "Ball.h"
 
-class SampleBilliardStripeBall : public SampleBilliardBall
+class StripeBall : public Ball
 {
 public:
-	using SampleBilliardBall::SampleBilliardBall;
+	using Ball::Ball;
 
 	bool isIntersecting(sf::Vector2f point);
 
@@ -31,7 +31,7 @@ public:
 
 	void setNumber(std::string number);
 
-	bool isStripeBall(SampleBilliardBall& other);
+	bool isStripeBall(Ball& other);
 
 private:
 	bool playable{};

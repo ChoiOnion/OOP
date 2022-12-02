@@ -7,11 +7,11 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
-#include "SampleBilliardBall.h"
-class SampleBilliardGameBall : public SampleBilliardBall
+#include "Ball.h"
+class GameBall : public Ball
 {
 public: 
-	using SampleBilliardBall::SampleBilliardBall;
+	using Ball::Ball;
 	bool isIntersecting(sf::Vector2f point);
 	bool isPlayable(void);
 	void setPlayable(bool playable);
@@ -25,7 +25,7 @@ public:
 
 	void setNumber(std::string number);
 
-	bool isPlayerBall(SampleBilliardBall& other);
+	bool isPlayerBall(Ball& other);
 
 private:
 	bool playable{};

@@ -1,9 +1,9 @@
-#include " Player.h"
+#include "Player.h"
 #include "SampleGame.h"
-#include " Ball.h"
-#include " BlackBall.h"
-#include " SolidBall.h"
-#include " StripeBall.h"
+#include "Ball.h"
+#include "BlackBall.h"
+#include "SolidBall.h"
+#include "StripeBall.h"
 #include "GameText.h"
 
  Player:: Player() {
@@ -30,7 +30,8 @@ void  Player::update(float timeElapsed) {
 
 }
 
-void  Player::moveBall( Ball ball){
+void  Player::moveBall(Ball ball){
+/*
 	int ballDist{};
 	std::cout << ball.getGoal();
 	if (ball.getGoal()) {
@@ -207,7 +208,9 @@ bool  Player::allDone(bool who) {
 			}
 		}
 	}
+	*/
 }
+
 
 void  Player::collide( Object& other) {
 

@@ -1,7 +1,7 @@
-#include "SampleBilliardGameBall.h"
+#include "GameBall.h"
 #include "SampleGame.h"
 #include "GameText.h"
-#include "SampleBilliardPlayer.h"
+#include "Player.h"
 
 GameText::GameText(std::string text, float x, float y,int size,sf::Color bgColor,int lineSize) {
 	this->text = text;
@@ -15,7 +15,7 @@ GameText::GameText(std::string text, float x, float y,int size,sf::Color bgColor
 void GameText::update(float timeElapsed) {
 }
 
-void GameText::collide(SampleBilliardObject& other) {
+void GameText::collide(Object& other) {
 
 }
 

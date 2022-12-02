@@ -13,8 +13,8 @@
 #include <SFML/Window.hpp>
 
 #include "BaseGame.h"
-#include " Object.h"
-#include " GameBall.h"
+#include "Object.h"
+#include "GameBall.h"
 
 class SampleGame : public BaseGame
 {

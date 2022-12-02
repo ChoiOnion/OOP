@@ -10,9 +10,9 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-#include " Object.h"
-#include " Board.h"
-#include "BilliardHole.h"
+#include "Object.h"
+#include "Board.h"
+#include "Hole.h"
 
 class  Ball : public  Object
 {

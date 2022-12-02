@@ -95,7 +95,7 @@
     <ClInclude Include="SolidBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="BilliardHole.h">
+    <ClInclude Include="Hole.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

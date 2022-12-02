@@ -1,11 +1,11 @@
-#include " Ball.h"
-#include " Board.h"
-#include " GameBall.h"
-#include " SolidBall.h"
-#include " BlackBall.h"
-#include " StripeBall.h"
-#include " Player.h"
-#include "BilliardHole.h"
+#include "Ball.h"
+#include "Board.h"
+#include "GameBall.h"
+#include "SolidBall.h"
+#include "BlackBall.h"
+#include "StripeBall.h"
+#include "Player.h"
+#include "Hole.h"
 
  Ball:: Ball(void) 
 	:  Ball(sf::Vector2f(100, 100), 10, sf::Color::Red)
@@ -307,14 +307,15 @@ void  Ball::collideWithBoard( Board& other)
 
 void  Ball::collideWithHole( Hole& other)
 {
-	//is1pStripe... 등등의 사용 예시 밑의 판별식이랑 비슷하게 만들었어요!
+	/*is1pStripe... 등등의 사용 예시 밑의 판별식이랑 비슷하게 만들었어요!
 	 Player a;
 	if (a.is1pStripe()) {
 
 	}
+	*/
 
 
-	for ( Hole::Hole hole : other.getHoles())
+	for ( Hole::HoleIn hole : other.getHoles())
 	{
 		goal = false;
 		sf::Vector2f p = getPosition();

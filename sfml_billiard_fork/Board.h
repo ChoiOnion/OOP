@@ -7,8 +7,8 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
-#include " Object.h"
-class  Board : public  Object
+#include "Object.h"
+class  Board : public Object
 {
 public:
 	// 내부클래스 - 당구대 물리적 경계

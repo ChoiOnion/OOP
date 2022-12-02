@@ -1,4 +1,4 @@
-#include " GameBall.h"
+#include "GameBall.h"
 #include "SampleGame.h"
 
 bool  GameBall::isIntersecting(sf::Vector2f mouse)

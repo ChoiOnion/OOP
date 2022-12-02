@@ -1,14 +1,14 @@
 #include "SampleGame.h"
-#include " Board.h"
-#include " GameBall.h"
-#include " SolidBall.h"
-#include " BlackBall.h"
-#include " StripeBall.h"
-#include " Object.h"
+#include "Board.h"
+#include "GameBall.h"
+#include "SolidBall.h"
+#include "BlackBall.h"
+#include "StripeBall.h"
+#include "Object.h"
 #include "GameText.h"
 #include "LoadImage.h"
-#include " Player.h"
-#include "BilliardHole.h"
+#include "Player.h"
+#include "Hole.h"
 
 // 123112
 SampleGame::SampleGame(int width, int height, int fpsLimit)

@@ -1,7 +1,7 @@
-#include "SampleBilliardStripeBall.h"
+#include "StripeBall.h"
 #include "SampleGame.h"
 
-bool SampleBilliardStripeBall::isIntersecting(sf::Vector2f mouse)
+bool StripeBall::isIntersecting(sf::Vector2f mouse)
 {
 	// mouse의 XY가 radius 안에 들어오는지 검사 
 
@@ -14,37 +14,37 @@ bool SampleBilliardStripeBall::isIntersecting(sf::Vector2f mouse)
 	return false;
 }
 
-bool SampleBilliardStripeBall::isPlayable(void)
+bool StripeBall::isPlayable(void)
 {
 	return playable;
 }
 
-void SampleBilliardStripeBall::setPlayable(bool playable)
+void StripeBall::setPlayable(bool playable)
 {
 	this->playable = playable;
 }
 
-void SampleBilliardStripeBall::setOwner(std::string owner)
+void StripeBall::setOwner(std::string owner)
 {
 	this->owner = owner;
 }
 
-bool SampleBilliardStripeBall::isOwner(std::string owner)
+bool StripeBall::isOwner(std::string owner)
 {
 	return owner.compare(this->owner) == 0;
 }
 
-std::string SampleBilliardStripeBall::getOwner(void)
+std::string StripeBall::getOwner(void)
 {
 	return owner;
 }
 
-void SampleBilliardStripeBall::setNumber(std::string number)
+void StripeBall::setNumber(std::string number)
 {
 	this->number = number;
 }
 
-void SampleBilliardStripeBall::render(sf::RenderTarget& target)
+void StripeBall::render(sf::RenderTarget& target)
 {
 	// 공 형태 그림 
 	target.draw(getVertices());
@@ -62,9 +62,9 @@ void SampleBilliardStripeBall::render(sf::RenderTarget& target)
 	//sf::Shape::setOutlineColor(sf::Color::Red);
 }
 
-bool SampleBilliardStripeBall::isStripeBall(SampleBilliardBall& other)
+bool StripeBall::isStripeBall(Ball& other)
 {
-	if (typeid(other) == typeid(SampleBilliardStripeBall)) {
+	if (typeid(other) == typeid(StripeBall)) {
 		return true;
 	}
 }

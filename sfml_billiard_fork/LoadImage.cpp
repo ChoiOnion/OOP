@@ -19,7 +19,7 @@ void LoadImage::update(float timeElapsed)
 }
 
 // Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
-void LoadImage::collide(SampleBilliardObject& other)
+void LoadImage::collide(Object& other)
 {
 }
 

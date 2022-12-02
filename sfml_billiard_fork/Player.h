@@ -10,9 +10,9 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-#include " Ball.h"
+#include "Object.h"
 
-class  Player:public  Object
+class  Player:public Object
 {
 public:
 	 Player();
@@ -28,12 +28,12 @@ public:
 	virtual void update(float timeElapsed);
 
 	// Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
-	virtual void collide( Object& other);
+	virtual void collide(Object& other);
 
 	// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
 	virtual void render(sf::RenderTarget& target);
 
-	void moveBall( Ball ball);
+	void moveBall(Ball ball);
 
 private:
 	std::string owner;

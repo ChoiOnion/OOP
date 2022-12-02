@@ -10,9 +10,9 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-#include "SampleBilliardObject.h"
+#include "Object.h"
 
-class LoadImage : public SampleBilliardObject
+class LoadImage : public Object
 {
 public:
 	// 생성자 
@@ -24,7 +24,7 @@ public:
 	virtual void update(float timeElapsed);
 
 	// Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
-	virtual void collide(SampleBilliardObject& other);
+	virtual void collide(Object& other);
 
 	// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
 	virtual void render(sf::RenderTarget& target);

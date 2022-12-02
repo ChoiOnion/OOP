@@ -8,7 +8,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-class GameText : public SampleBilliardObject
+class GameText : public Object
 {
 public:
 	GameText(std::string text, float x, float y, int size, sf::Color bgColor,int lineSize);
@@ -19,7 +19,7 @@ public:
 	 void update(float timeElapsed);
 
 	// Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
-	 void collide(SampleBilliardObject& other);
+	 void collide(Object& other);
 	  
 	// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
 	 void render(sf::RenderTarget& target);

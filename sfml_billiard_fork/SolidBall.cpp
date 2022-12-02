@@ -1,7 +1,7 @@
-#include "SampleBilliardSolidBall.h"
+#include "SolidBall.h"
 #include "SampleGame.h"
 
-bool SampleBilliardSolidBall::isIntersecting(sf::Vector2f mouse)
+bool SolidBall::isIntersecting(sf::Vector2f mouse)
 {
 	// mouse의 XY가 radius 안에 들어오는지 검사 
 
@@ -14,37 +14,37 @@ bool SampleBilliardSolidBall::isIntersecting(sf::Vector2f mouse)
 	return false;
 }
 
-bool SampleBilliardSolidBall::isPlayable(void)
+bool SolidBall::isPlayable(void)
 {
 	return playable;
 }
 
-void SampleBilliardSolidBall::setPlayable(bool playable)
+void SolidBall::setPlayable(bool playable)
 {
 	this->playable = playable;
 }
 
-void SampleBilliardSolidBall::setOwner(std::string owner)
+void SolidBall::setOwner(std::string owner)
 {
 	this->owner = owner;
 }
 
-bool SampleBilliardSolidBall::isOwner(std::string owner)
+bool SolidBall::isOwner(std::string owner)
 {
 	return owner.compare(this->owner) == 0;
 }
 
-std::string SampleBilliardSolidBall::getOwner(void)
+std::string SolidBall::getOwner(void)
 {
 	return owner;
 }
 
-void SampleBilliardSolidBall::setNumber(std::string number)
+void SolidBall::setNumber(std::string number)
 {
 	this->number = number;
 }
 
-void SampleBilliardSolidBall::render(sf::RenderTarget& target)
+void SolidBall::render(sf::RenderTarget& target)
 {
 	// 공 형태 그림 
 	target.draw(getVertices());
@@ -58,9 +58,9 @@ void SampleBilliardSolidBall::render(sf::RenderTarget& target)
 	target.draw(ballText);
 }
 
-bool SampleBilliardSolidBall::isSolidBall(SampleBilliardBall& other)
+bool SolidBall::isSolidBall(Ball& other)
 {
-	if (typeid(other) == typeid(SampleBilliardSolidBall)) {
+	if (typeid(other) == typeid(SolidBall)) {
 		return true;
 	}
 }
