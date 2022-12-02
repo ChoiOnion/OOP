@@ -206,16 +206,14 @@ void SampleGame::handle(sf::Event& ev)
 				if (!gameBall->isPlayable()) {
 					continue;
 				}
-				if (player != nullptr) {
-					std::cout << "a";
-				}
-
 				if (gameBall != nullptr) {
 					std::cout << "b";
+					gameBall->setOwner("1p");
 				}
 
 				if (ball != nullptr) {
 					std::cout << "c";
+					std::cout << gameBall->getOwner();
 				}
 				//드래그 할 때마다 턴이 바뀌어야 함
 
