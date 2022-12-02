@@ -13,8 +13,8 @@
 #include <SFML/Window.hpp>
 
 #include "BaseGame.h"
-#include "SampleBilliardObject.h"
-#include "SampleBilliardGameBall.h"
+#include " Object.h"
+#include " GameBall.h"
 
 class SampleGame : public BaseGame
 {
@@ -44,7 +44,7 @@ private:
 
 private:
 	// Sample Game에서 관리하는 게임 오브젝트들 (공, 당구대 등) 
-	std::vector<SampleBilliardObject*> gameObjects;
+	std::vector< Object*> gameObjects;
 
 	// 게임 UI 
 	sf::Text explanation;  //설명
@@ -59,7 +59,7 @@ private:
 
 	// 공 발사용 
 	bool isDraggingBall;
-	SampleBilliardGameBall* draggedBall;
+	 GameBall* draggedBall;
 
 	// 게임 전역 폰트 
 	static sf::Font* font;

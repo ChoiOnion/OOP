@@ -1,81 +1,21 @@
-#include "SampleBilliardPlayer.h"
+#include " Player.h"
 #include "SampleGame.h"
-#include "SampleBilliardBall.h"
-#include "SampleBilliardBlackBall.h"
-#include "SampleBilliardSolidBall.h"
-#include "SampleBilliardStripeBall.h"
+#include " Ball.h"
+#include " BlackBall.h"
+#include " SolidBall.h"
+#include " StripeBall.h"
 #include "GameText.h"
 
-SampleBilliardPlayer::SampleBilliardPlayer() {
-	this->turn1p = true;
-	this->turn2p = false;
+ Player:: Player() {
 }
-SampleBilliardPlayer::~SampleBilliardPlayer() {}
+ Player::~ Player() {}
 //getter,setter
-void SampleBilliardPlayer::setOwner(std::string owner) {
-	this->owner = owner;
-}
-bool SampleBilliardPlayer::isOwner(std::string owner) {
-	return owner.compare(this->owner) == 0;
-}
-std::string SampleBilliardPlayer::getOwner(void) {
-	return owner;
-}
 
-/*
-void SampleBilliardPlayer::setBall1p(std::string whatBall) {
-	this->ball1p = whatBall;
+void  Player::setTurn(bool param) {
+	this->turn = param;
 }
-void SampleBilliardPlayer::setBall2p(std::string whatBall) {
-	this->ball2p = whatBall;
-}
-std::string SampleBilliardPlayer::getBall1p() {
-	return ball1p;
-}
-std::string SampleBilliardPlayer::getBall2p() {
-	return ball2p;
-}
-*/
-
-//이건 혹시 몰라서 만든 1p와 2p 턴 세팅 함수입니다. 아무것도 안들어갔을때 쓰기 좋을거 같아요
-//보니깐 만든 판별식이 홀에 들어갔을때를 전제로 하는거 같아서 만들었어요.
-
-void SampleBilliardPlayer::setTurn1p() {
-	this->turn1p = true;
-	this->turn2p = false;
-}
-bool SampleBilliardPlayer::getTurn1p() {
-	return turn1p;
-}
-void SampleBilliardPlayer::setTurn2p() {
-	this->turn2p = true;
-	this->turn1p = false;
-}
-bool SampleBilliardPlayer::getTurn2p() {
-	return turn2p;
-}
-
-
-
-bool SampleBilliardPlayer::is1pStripe() {
-	if (ball1p == "stripe") {
-		return true;
-	}
-}
-bool SampleBilliardPlayer::is2pStripe() {
-	if (ball2p == "stripe") {
-		return true;
-	}
-}
-bool SampleBilliardPlayer::is1pSolide() {
-	if (ball1p == "solide") {
-		return true;
-	}
-}
-bool SampleBilliardPlayer::is2pSolide() {
-	if (ball2p == "solide") {
-		return true;
-	}
+bool  Player::getTurn() {
+	return turn;
 }
 
 
@@ -86,11 +26,11 @@ bool SampleBilliardPlayer::is2pSolide() {
 //반응하기 때문에 else로 두면 턴이 계속 넘어가요.
 //제가 많이 바꿔둬서 헷갈릴 수도 있는데 혹시 다른 방법 있거나, 다른 방식이 편할 거 같으면
 //수정해도 됩니다!.
-void SampleBilliardPlayer::update(float timeElapsed) {
+void  Player::update(float timeElapsed) {
 
 }
 
-void SampleBilliardPlayer::moveBall(SampleBilliardBall ball){
+void  Player::moveBall( Ball ball){
 	int ballDist{};
 	std::cout << ball.getGoal();
 	if (ball.getGoal()) {
@@ -228,7 +168,7 @@ void SampleBilliardPlayer::moveBall(SampleBilliardBall ball){
 	}
 }
 
-bool SampleBilliardPlayer::allDone(bool who) {
+bool  Player::allDone(bool who) {
 	if (turn1p == true) {
 		if (ball1p=="stripe")
 		{
@@ -269,10 +209,10 @@ bool SampleBilliardPlayer::allDone(bool who) {
 	}
 }
 
-void SampleBilliardPlayer::collide(SampleBilliardObject& other) {
+void  Player::collide( Object& other) {
 
 }
 
-void SampleBilliardPlayer::render(sf::RenderTarget& target) {
+void  Player::render(sf::RenderTarget& target) {
 
 }

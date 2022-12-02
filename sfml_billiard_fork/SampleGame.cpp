@@ -1,13 +1,13 @@
 #include "SampleGame.h"
-#include "SampleBilliardBoard.h"
-#include "SampleBilliardGameBall.h"
-#include "SampleBilliardSolidBall.h"
-#include "SampleBilliardBlackBall.h"
-#include "SampleBilliardStripeBall.h"
-#include "SampleBilliardObject.h"
+#include " Board.h"
+#include " GameBall.h"
+#include " SolidBall.h"
+#include " BlackBall.h"
+#include " StripeBall.h"
+#include " Object.h"
 #include "GameText.h"
 #include "LoadImage.h"
-#include "SampleBilliardPlayer.h"
+#include " Player.h"
 #include "BilliardHole.h"
 
 // 123112
@@ -25,7 +25,7 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(player1);
 	gameObjects.push_back(player2);
 
-	SampleBilliardPlayer* player = new SampleBilliardPlayer();
+	 Player* player = new  Player();
 	gameObjects.push_back(player);
 
 	GameText* help = new GameText("Press H : help", 20, 20, 30, sf::Color::White, 3);
@@ -41,26 +41,26 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	
 
 	// SampleGame을 위한 당구대 생성 및 등록 
-	gameObjects.push_back(new SampleBilliardBoard());
-	gameObjects.push_back(new SampleBilliardHole());
+	gameObjects.push_back(new  Board());
+	gameObjects.push_back(new  Hole());
 
 	// SampleGame을 위한 당구공 생성 및 등록 
-	SampleBilliardGameBall* playerBall = new SampleBilliardGameBall(sf::Vector2f(800, 680), 10, sf::Color::White);
-	SampleBilliardSolidBall* ball1 = new SampleBilliardSolidBall(sf::Vector2f(800, 300), 10, sf::Color::Yellow);
-	SampleBilliardSolidBall* ball2 = new SampleBilliardSolidBall(sf::Vector2f(785, 280), 10, sf::Color::Blue);
-	SampleBilliardSolidBall* ball3 = new SampleBilliardSolidBall(sf::Vector2f(815, 280), 10, sf::Color::Red);
-	SampleBilliardSolidBall* ball4 = new SampleBilliardSolidBall(sf::Vector2f(770, 260), 10, sf::Color::Magenta);
-	SampleBilliardSolidBall* ball5 = new SampleBilliardSolidBall(sf::Vector2f(800, 260), 10, sf::Color::Cyan);
-	SampleBilliardSolidBall* ball6 = new SampleBilliardSolidBall(sf::Vector2f(830, 260), 10, sf::Color::Green);
-	SampleBilliardSolidBall* ball7 = new SampleBilliardSolidBall(sf::Vector2f(755, 240), 10, sf::Color::White);
-	SampleBilliardBlackBall* ball8 = new SampleBilliardBlackBall(sf::Vector2f(785, 240), 10, sf::Color::Black);
-	SampleBilliardStripeBall* ball9 = new SampleBilliardStripeBall(sf::Vector2f(815, 240), 10, sf::Color::Yellow);
-	SampleBilliardStripeBall* ball10 = new SampleBilliardStripeBall(sf::Vector2f(845, 240), 10, sf::Color::Blue);
-	SampleBilliardStripeBall* ball11 = new SampleBilliardStripeBall(sf::Vector2f(740, 220), 10, sf::Color::Red);
-	SampleBilliardStripeBall* ball12 = new SampleBilliardStripeBall(sf::Vector2f(770, 220), 10, sf::Color::Magenta);
-	SampleBilliardStripeBall* ball13 = new SampleBilliardStripeBall(sf::Vector2f(800, 220), 10, sf::Color::Cyan);
-	SampleBilliardStripeBall* ball14 = new SampleBilliardStripeBall(sf::Vector2f(830, 220), 10, sf::Color::Green);
-	SampleBilliardStripeBall* ball15 = new SampleBilliardStripeBall(sf::Vector2f(860, 220), 10, sf::Color::White);
+	 GameBall* playerBall = new  GameBall(sf::Vector2f(800, 680), 10, sf::Color::White);
+	 SolidBall* ball1 = new  SolidBall(sf::Vector2f(800, 300), 10, sf::Color::Yellow);
+	 SolidBall* ball2 = new  SolidBall(sf::Vector2f(785, 280), 10, sf::Color::Blue);
+	 SolidBall* ball3 = new  SolidBall(sf::Vector2f(815, 280), 10, sf::Color::Red);
+	 SolidBall* ball4 = new  SolidBall(sf::Vector2f(770, 260), 10, sf::Color::Magenta);
+	 SolidBall* ball5 = new  SolidBall(sf::Vector2f(800, 260), 10, sf::Color::Cyan);
+	 SolidBall* ball6 = new  SolidBall(sf::Vector2f(830, 260), 10, sf::Color::Green);
+	 SolidBall* ball7 = new  SolidBall(sf::Vector2f(755, 240), 10, sf::Color::White);
+	 BlackBall* ball8 = new  BlackBall(sf::Vector2f(785, 240), 10, sf::Color::Black);
+	 StripeBall* ball9 = new  StripeBall(sf::Vector2f(815, 240), 10, sf::Color::Yellow);
+	 StripeBall* ball10 = new  StripeBall(sf::Vector2f(845, 240), 10, sf::Color::Blue);
+	 StripeBall* ball11 = new  StripeBall(sf::Vector2f(740, 220), 10, sf::Color::Red);
+	 StripeBall* ball12 = new  StripeBall(sf::Vector2f(770, 220), 10, sf::Color::Magenta);
+	 StripeBall* ball13 = new  StripeBall(sf::Vector2f(800, 220), 10, sf::Color::Cyan);
+	 StripeBall* ball14 = new  StripeBall(sf::Vector2f(830, 220), 10, sf::Color::Green);
+	 StripeBall* ball15 = new  StripeBall(sf::Vector2f(860, 220), 10, sf::Color::White);
 	
 	playerBall->setNumber("*");
 	ball1->setNumber("1");
@@ -119,7 +119,7 @@ SampleGame::~SampleGame(void)
 	// UI 인스턴스 해제  
 
 	// 게임 오브젝트들 해제 
-	for (SampleBilliardObject* obj : gameObjects)
+	for ( Object* obj : gameObjects)
 	{
 		delete obj;
 	}
@@ -187,12 +187,12 @@ void SampleGame::handle(sf::Event& ev)
 		// 마우스 버튼 누름 이벤트 
 		if (ev.mouseButton.button == sf::Mouse::Left)
 		{
-			for (SampleBilliardObject* obj : gameObjects)
+			for ( Object* obj : gameObjects)
 			{
-				// SampleBilliardBall의 인스턴스가 아닌 경우 pass
-				SampleBilliardGameBall* gameBall = dynamic_cast<SampleBilliardGameBall*>(obj);
-				SampleBilliardBall* ball = dynamic_cast<SampleBilliardBall*>(obj);
-				SampleBilliardPlayer* player = dynamic_cast<SampleBilliardPlayer*>(obj);
+				//  Ball의 인스턴스가 아닌 경우 pass
+				 GameBall* gameBall = dynamic_cast< GameBall*>(obj);
+				 Ball* ball = dynamic_cast< Ball*>(obj);
+				 Player* player = dynamic_cast< Player*>(obj);
 				if (gameBall == nullptr)
 				{
 					continue;
@@ -241,15 +241,15 @@ void SampleGame::handle(sf::Event& ev)
 void SampleGame::update(void)
 {
 	// 게임 오브젝트 업데이트 
-	for (SampleBilliardObject* obj : gameObjects)
+	for ( Object* obj : gameObjects)
 	{
 		obj->update(clock.getElapsedTime().asSeconds());
 	}
 
 	// 게임 오브젝트 충돌 검사
-	for (SampleBilliardObject* obj1 : gameObjects)
+	for ( Object* obj1 : gameObjects)
 	{
-		for (SampleBilliardObject* obj2 : gameObjects)
+		for ( Object* obj2 : gameObjects)
 		{
 			obj1->collide(*obj2);
 		}
@@ -280,7 +280,7 @@ void SampleGame::render(sf::RenderTarget& target)
 	window->clear(sf::Color(75, 103, 163));
 
 	// 게임 오브젝트 렌더링 
-	for (SampleBilliardObject* obj : gameObjects)
+	for ( Object* obj : gameObjects)
 	{
 		obj->render(target);
 	}

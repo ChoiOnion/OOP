@@ -142,17 +142,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGame.cpp" />
-    <ClCompile Include="BilliardHole.cpp" />
+    <ClCompile Include="Hole.cpp" />
     <ClCompile Include="GameText.cpp" />
     <ClCompile Include="LoadImage.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SampleBilliardBall.cpp" />
-    <ClCompile Include="SampleBilliardBlackBall.cpp" />
-    <ClCompile Include="SampleBilliardBoard.cpp" />
-    <ClCompile Include="SampleBilliardGameBall.cpp" />
-    <ClCompile Include="SampleBilliardSolidBall.cpp" />
-    <ClCompile Include="SampleBilliardStripeBall.cpp" />
-    <ClCompile Include="SampleBilliardPlayer.cpp" />
+    <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="BlackBall.cpp" />
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="GameBall.cpp" />
+    <ClCompile Include="SolidBall.cpp" />
+    <ClCompile Include="StripeBall.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SampleGame.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,14 +160,14 @@
     <ClInclude Include="BilliardHole.h" />
     <ClInclude Include="GameText.h" />
     <ClInclude Include="LoadImage.h" />
-    <ClInclude Include="SampleBilliardBall.h" />
-    <ClInclude Include="SampleBilliardBlackBall.h" />
-    <ClInclude Include="SampleBilliardBoard.h" />
-    <ClInclude Include="SampleBilliardGameBall.h" />
-    <ClInclude Include="SampleBilliardObject.h" />
-    <ClInclude Include="SampleBilliardSolidBall.h" />
-    <ClInclude Include="SampleBilliardStripeBall.h" />
-    <ClInclude Include="SampleBilliardPlayer.h" />
+    <ClInclude Include="Ball.h" />
+    <ClInclude Include="BlackBall.h" />
+    <ClInclude Include="Board.h" />
+    <ClInclude Include="GameBall.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="SolidBall.h" />
+    <ClInclude Include="StripeBall.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="SampleGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

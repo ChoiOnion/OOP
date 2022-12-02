@@ -24,13 +24,13 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardBall.cpp">
+    <ClCompile Include="Ball.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardBoard.cpp">
+    <ClCompile Include="Board.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardGameBall.cpp">
+    <ClCompile Include="GameBall.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="SampleGame.cpp">
@@ -42,19 +42,19 @@
     <ClCompile Include="LoadImage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardPlayer.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardStripeBall.cpp">
+    <ClCompile Include="StripeBall.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardBlackBall.cpp">
+    <ClCompile Include="BlackBall.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SampleBilliardSolidBall.cpp">
+    <ClCompile Include="SolidBall.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="BilliardHole.cpp">
+    <ClCompile Include="Hole.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -62,16 +62,16 @@
     <ClInclude Include="BaseGame.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardBall.h">
+    <ClInclude Include="Ball.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardBoard.h">
+    <ClInclude Include="Board.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardGameBall.h">
+    <ClInclude Include="GameBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardObject.h">
+    <ClInclude Include="Object.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="SampleGame.h">
@@ -83,16 +83,16 @@
     <ClInclude Include="LoadImage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardPlayer.h">
+    <ClInclude Include="Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardStripeBall.h">
+    <ClInclude Include="StripeBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardBlackBall.h">
+    <ClInclude Include="BlackBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SampleBilliardSolidBall.h">
+    <ClInclude Include="SolidBall.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="BilliardHole.h">

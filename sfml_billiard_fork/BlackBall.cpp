@@ -1,7 +1,7 @@
-#include "SampleBilliardBlackBall.h"
+#include " BlackBall.h"
 #include "SampleGame.h"
 
-bool SampleBilliardBlackBall::isIntersecting(sf::Vector2f mouse)
+bool  BlackBall::isIntersecting(sf::Vector2f mouse)
 {
 	// mouse의 XY가 radius 안에 들어오는지 검사 
 
@@ -14,37 +14,37 @@ bool SampleBilliardBlackBall::isIntersecting(sf::Vector2f mouse)
 	return false;
 }
 
-bool SampleBilliardBlackBall::isPlayable(void)
+bool  BlackBall::isPlayable(void)
 {
 	return playable;
 }
 
-void SampleBilliardBlackBall::setPlayable(bool playable)
+void  BlackBall::setPlayable(bool playable)
 {
 	this->playable = playable;
 }
 
-void SampleBilliardBlackBall::setOwner(std::string owner)
+void  BlackBall::setOwner(std::string owner)
 {
 	this->owner = owner;
 }
 
-bool SampleBilliardBlackBall::isOwner(std::string owner)
+bool  BlackBall::isOwner(std::string owner)
 {
 	return owner.compare(this->owner) == 0;
 }
 
-std::string SampleBilliardBlackBall::getOwner(void)
+std::string  BlackBall::getOwner(void)
 {
 	return owner;
 }
 
-void SampleBilliardBlackBall::setNumber(std::string number)
+void  BlackBall::setNumber(std::string number)
 {
 	this->number = number;
 }
 
-void SampleBilliardBlackBall::render(sf::RenderTarget& target)
+void  BlackBall::render(sf::RenderTarget& target)
 {
 	// 공 형태 그림 
 	target.draw(getVertices());
@@ -61,9 +61,9 @@ void SampleBilliardBlackBall::render(sf::RenderTarget& target)
 
 }
 
-bool SampleBilliardBlackBall::isEightBall(SampleBilliardBall& other)
+bool  BlackBall::isEightBall( Ball& other)
 {
-	if (typeid(other) == typeid(SampleBilliardBlackBall)) {
+	if (typeid(other) == typeid( BlackBall)) {
 		return true;
 	}
 }
