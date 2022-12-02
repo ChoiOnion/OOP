@@ -10,6 +10,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
+#include "Ball.h"
 #include "Object.h"
 
 class  Player:public Object
