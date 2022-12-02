@@ -202,19 +202,18 @@ void SampleGame::handle(sf::Event& ev)
 				{
 					continue;
 				}
+
+				if (ball != nullptr) {
+					if (ball->getGoal()) {
+						for(ball)
+						std::cout << ball->getWhatball();
+					}
+				}
 				// 공이 Playable이 아닌 경우 pass 
 				if (!gameBall->isPlayable()) {
 					continue;
 				}
-				if (gameBall != nullptr) {
-					std::cout << "b";
-					gameBall->setOwner("1p");
-				}
 
-				if (ball != nullptr) {
-					std::cout << "c";
-					std::cout << gameBall->getOwner();
-				}
 				//드래그 할 때마다 턴이 바뀌어야 함
 
 				// 드래그 가능한 공 임시 저장 
@@ -223,7 +222,6 @@ void SampleGame::handle(sf::Event& ev)
 			}
 		}
 		break;
-
 	case sf::Event::MouseButtonReleased:
 		// 마우스 버튼 뗌 이벤트 
 		if (ev.mouseButton.button == sf::Mouse::Left && isDraggingBall)

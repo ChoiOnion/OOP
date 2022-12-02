@@ -166,7 +166,6 @@ void  Ball::setWhatBall(int param) {
 }
 
 bool  Ball::getGoal() {
-	std::cout << "aaa  " << this->goal << "  a";
 	return goal;
 }
 
@@ -317,7 +316,6 @@ void  Ball::collideWithHole( Hole& other)
 
 	for ( Hole::HoleIn hole : other.getHoles())
 	{
-		goal = false;
 		sf::Vector2f p = getPosition();
 		sf::Vector2f s(hole.getPoints()[0].position);
 		sf::Vector2f e = hole.getPoints()[1].position;

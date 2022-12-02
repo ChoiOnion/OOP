@@ -27,8 +27,11 @@ public:
 
 	bool isPlayerBall(Ball& other);
 
+	void moveBall(int ballType);
+
 private:
 	bool playable{};
 	std::string owner{};
 	std::string number{};
+	int turn = 1;
 };
