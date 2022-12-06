@@ -198,7 +198,25 @@ void SampleGame::handle(sf::Event& ev)
 				if (b != nullptr) {
 					if (b->getGoal()&&b->check==0) {
 						std::cout << b->getWhatball();
-						b->moveBall(b->getWhatball());
+						for (Object* obj : gameObjects) {
+							Player* player = dynamic_cast<Player*>(obj);
+							player->checkTurn(b->getWhatball());
+							/*
+							Ball->moveBall
+Player->checkTurn
+
+넘어가야 하는 정보: 브레이크샷 여부 / 즉시 승리 혹은 패배 / 남은 공 / 턴 넘어감 여부 / 플레이어의 공인지
+
+moveBall
+->필요없을 거 같기도 하네용..
+
+checkTurn
+->플레이어 공인지, 승리 혹은 패배 판별, 브레이크샷 후 공 종류 설정, 남은 공 차감
+
+턴 넘어가는 건 SampleGame에서 set하기.
+->판별할 리턴값 필요, checkTurn에서 리턴할 것
+							*/
+						}
 						b->check++;
 					}
 				}
@@ -299,15 +317,14 @@ void SampleGame::render(sf::RenderTarget& target)
 		b->render(target);
 	}
 
-	for (LoadImage* img : images) {
-		img->render(target);
-	}
 
 	// 공을 드래그 하면 세기 표시 (길이 및 색)
 	renderDragpower(target);
 
 	// 게임 UI 렌더링 
-	
+	for (LoadImage* img : images) {
+		img->render(target);
+	}
 	
 }
 
