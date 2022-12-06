@@ -27,8 +27,6 @@ public:
 
 	bool isPlayerBall(Ball& other);
 
-	void moveBall(int ballType);
-
 private:
 	bool playable{};
 	std::string owner{};

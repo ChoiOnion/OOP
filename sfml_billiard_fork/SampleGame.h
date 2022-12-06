@@ -46,6 +46,8 @@ private:
 	// Sample Game에서 관리하는 게임 오브젝트들 (공, 당구대 등) 
 	std::vector< Object*> gameObjects;
 
+	std::vector< Ball*> balls;
+
 	// 게임 UI 
 	sf::Text explanation;  //설명
 	sf::Text player1;

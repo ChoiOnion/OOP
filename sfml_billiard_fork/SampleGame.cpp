@@ -20,13 +20,15 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(playerText1);
 	gameObjects.push_back(playerText2);
 
-	LoadImage* player1 = new LoadImage("player.png", 250, 250, 40, 650);
-	LoadImage* player2 = new LoadImage("player.png", 250, 250, 40, 850);
-	gameObjects.push_back(player1);
-	gameObjects.push_back(player2);
+	LoadImage* player1img = new LoadImage("player.png", 250, 250, 40, 650);
+	LoadImage* player2img = new LoadImage("player.png", 250, 250, 40, 850);
+	gameObjects.push_back(player1img);
+	gameObjects.push_back(player2img);
 
-	 Player* player = new  Player();
-	gameObjects.push_back(player);
+	Player* player1 = new  Player();
+	gameObjects.push_back(player1);
+	Player* player2 = new  Player();
+	gameObjects.push_back(player2);
 
 	GameText* help = new GameText("Press H : help", 20, 20, 30, sf::Color::White, 3);
 	gameObjects.push_back(help);
@@ -96,22 +98,22 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	ball14->setPlayable(false);
 	ball15->setPlayable(false);
 
-	gameObjects.push_back(playerBall);
-	gameObjects.push_back(ball1);
-	gameObjects.push_back(ball2);
-	gameObjects.push_back(ball3);
-	gameObjects.push_back(ball4);
-	gameObjects.push_back(ball5);
-	gameObjects.push_back(ball6);
-	gameObjects.push_back(ball7);
-	gameObjects.push_back(ball8);
-	gameObjects.push_back(ball9);
-	gameObjects.push_back(ball10);
-	gameObjects.push_back(ball11);
-	gameObjects.push_back(ball12);
-	gameObjects.push_back(ball13);
-	gameObjects.push_back(ball14);
-	gameObjects.push_back(ball15);
+	balls.push_back(playerBall);
+	balls.push_back(ball1);
+	balls.push_back(ball2);
+	balls.push_back(ball3);
+	balls.push_back(ball4);
+	balls.push_back(ball5);
+	balls.push_back(ball6);
+	balls.push_back(ball7);
+	balls.push_back(ball8);
+	balls.push_back(ball9);
+	balls.push_back(ball10);
+	balls.push_back(ball11);
+	balls.push_back(ball12);
+	balls.push_back(ball13);
+	balls.push_back(ball14);
+	balls.push_back(ball15);
 }
 
 SampleGame::~SampleGame(void)
@@ -123,6 +125,11 @@ SampleGame::~SampleGame(void)
 	{
 		delete obj;
 	}
+
+	for (Ball* b : balls) {
+		delete b;
+	}
+
 }
 
 sf::Font* SampleGame::font = nullptr;
@@ -152,8 +159,7 @@ void SampleGame::handle(sf::Event& ev)
 			// TODO: game paused 
 			gameObjects.push_back(new LoadImage("pause.png", 800, 250, 125, 400));
 			pauseNum = 1;
-			//플레이어 볼 false 설정
-			// TODO: call sample GUI 
+			
 		}
 		if (ev.key.code == sf::Keyboard::P && pauseNum == 1)
 		{
@@ -187,12 +193,16 @@ void SampleGame::handle(sf::Event& ev)
 		// 마우스 버튼 누름 이벤트 
 		if (ev.mouseButton.button == sf::Mouse::Left)
 		{
-			for ( Object* obj : gameObjects)
+			for ( Ball* b : balls)
 			{
-				//  Ball의 인스턴스가 아닌 경우 pass
-				 GameBall* gameBall = dynamic_cast< GameBall*>(obj);
-				 Ball* ball = dynamic_cast< Ball*>(obj);
-				 Player* player = dynamic_cast< Player*>(obj);
+				if (b != nullptr) {
+					if (b->getGoal()&&b->check==0) {
+						std::cout << b->getWhatball();
+						b->moveBall(b->getWhatball());
+						b->check++;
+					}
+				}
+				 GameBall* gameBall = dynamic_cast< GameBall*>(b);
 				if (gameBall == nullptr)
 				{
 					continue;
@@ -201,12 +211,6 @@ void SampleGame::handle(sf::Event& ev)
 				if (!gameBall->isIntersecting(mouseXY))
 				{
 					continue;
-				}
-
-				if (ball != nullptr) {
-					if (ball->getGoal()) {
-						std::cout << ball->getWhatball();
-					}
 				}
 				// 공이 Playable이 아닌 경우 pass 
 				if (!gameBall->isPlayable()) {
@@ -242,12 +246,22 @@ void SampleGame::update(void)
 	}
 
 	// 게임 오브젝트 충돌 검사
-	for ( Object* obj1 : gameObjects)
+	for ( Ball* obj1 : balls)
 	{
 		for ( Object* obj2 : gameObjects)
 		{
 			obj1->collide(*obj2);
 		}
+	}
+
+	for (Ball* b : balls) {
+		for (Ball* b2 : balls) {
+			b->collide(*b2);
+		}
+	}
+
+	for (Ball* b : balls) {
+		b->update(clock.getElapsedTime().asSeconds());
 	}
 	
 	// 끌었다가 놓은 공에 속도를 지정하고 표시 해제 
@@ -256,6 +270,7 @@ void SampleGame::update(void)
 		draggedBall->setVelocity(draggedBall->getPosition().x - mouseXY.x, draggedBall->getPosition().y - mouseXY.y);
 		draggedBall = nullptr;
 	}
+
 
 	// 다음 단위 시간을 위해 초기화 
 	clock.restart();
@@ -278,6 +293,10 @@ void SampleGame::render(sf::RenderTarget& target)
 	for ( Object* obj : gameObjects)
 	{
 		obj->render(target);
+	}
+
+	for (Ball* b : balls) {
+		b->render(target);
 	}
 
 	// 공을 드래그 하면 세기 표시 (길이 및 색)

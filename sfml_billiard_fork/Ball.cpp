@@ -367,3 +367,44 @@ void  Ball::collideWithHole( Hole& other)
 		}
 	}
 }
+
+
+void Ball::moveBall(int ballType) {
+	int a = 0;
+	if (turn == 1) {
+		std::cout << "1p" << std::endl;
+		if (ballType == 1) {
+
+		}
+		else if (ballType == 2) {
+
+		}
+		else if (ballType == 3) {
+
+		}
+		else if (ballType == 4) {
+
+		}
+		else if (ballType == 0) {
+			turn = 2;
+		}
+	}
+	else if (turn == 2) {
+		std::cout << "2p" << std::endl;
+		if (ballType == 1) {
+
+		}
+		else if (ballType == 2) {
+
+		}
+		else if (ballType == 3) {
+
+		}
+		else if (ballType == 4) {
+
+		}
+		else if (ballType == 0) {
+			turn = 1;
+		}
+	}
+}

@@ -56,6 +56,8 @@ public:
 	void setColor(sf::Color color);
 	void setWhatBall(int param);
 
+	void moveBall(int ballType);
+
 	// getter 
 	sf::Vector2f	getPosition(void) const;
 	sf::Vector2f	getAcceleration(void) const;
@@ -68,6 +70,10 @@ public:
 	//턴 판별을 위한 whatBall의 getter
 	int getWhatball();
 	bool getGoal();
+
+
+	int check = 0;
+
 private:
 	// 공과 충돌한 경우 
 	void collideWithBall( Ball& other);
@@ -87,10 +93,12 @@ private:
 	float radius;
 	float mass;
 
-	bool goal = true;
+	bool goal = false;
 
 	sf::VertexArray vertices;
 	sf::Color color;
 
 	int whatBall = 0; //판별을 위한 변수
+
+	int turn = 1;
 };
