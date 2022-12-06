@@ -15,6 +15,7 @@
 #include "BaseGame.h"
 #include "Object.h"
 #include "GameBall.h"
+#include "LoadImage.h"
 
 class SampleGame : public BaseGame
 {
@@ -47,6 +48,8 @@ private:
 	std::vector< Object*> gameObjects;
 
 	std::vector< Ball*> balls;
+
+	std::vector<LoadImage*> images;
 
 	// 게임 UI 
 	sf::Text explanation;  //설명

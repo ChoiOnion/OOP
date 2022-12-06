@@ -157,23 +157,23 @@ void SampleGame::handle(sf::Event& ev)
 		if (ev.key.code == sf::Keyboard::Escape && pauseNum == 0)							//같은 키로 하면 안먹음!! 키 따로 설정해야 될 거 같아요
 		{
 			// TODO: game paused 
-			gameObjects.push_back(new LoadImage("pause.png", 800, 250, 125, 400));
+			images.push_back(new LoadImage("pause.png", 800, 250, 125, 400));
 			pauseNum = 1;
 			
 		}
 		if (ev.key.code == sf::Keyboard::P && pauseNum == 1)
 		{
-			gameObjects.pop_back();
+			images.pop_back();
 			pauseNum = 0;
 		}
 		if (ev.key.code == sf::Keyboard::H && helpNum == 0)
 		{
-			gameObjects.push_back(new LoadImage("rule.png", 800, 850, 125, 50));
+			images.push_back(new LoadImage("rule.png", 800, 850, 125, 50));
 			helpNum = 1;
 		}
 		if (ev.key.code == sf::Keyboard::C && helpNum == 1)
 		{
-			gameObjects.pop_back();
+			images.pop_back();
 			helpNum = 0;
 		}
 		if (ev.key.code == sf::Keyboard::E && endNum == 1) {
@@ -278,7 +278,7 @@ void SampleGame::update(void)
 	//게임 끝났을 시
 	if (false && endNum == 0) {
 		LoadImage* end = new LoadImage("end.png", 800, 250, 125, 400);
-		gameObjects.push_back(end); 
+		images.push_back(end);
 		endNum = 1;
 	}
 }
@@ -297,6 +297,10 @@ void SampleGame::render(sf::RenderTarget& target)
 
 	for (Ball* b : balls) {
 		b->render(target);
+	}
+
+	for (LoadImage* img : images) {
+		img->render(target);
 	}
 
 	// 공을 드래그 하면 세기 표시 (길이 및 색)
