@@ -204,9 +204,30 @@ void SampleGame::handle(sf::Event& ev)
 					if (b->getGoal()&&b->check==0) {
 						std::cout << b->getWhatball();
 						for (Object* obj : gameObjects) {
-							//int a=player->checkTurn(b->getWhatball());
+							if (player1->checkTurn(b->getWhatball()) == 1) {
+								player1->setTurn(true);
+								player2->setTurn(false);
+							}
+							else if (player1->checkTurn(b->getWhatball() == 0)) {
+								player1->setTurn(false);
+								player2->setTurn(true);
+							}
+							else if (player1->checkTurn(b->getWhatball() == -10)) {
+								checkEnd = 1;
+							}
 						}
 						b->check++;
+						continue;
+					}
+					else {
+						if (player1->getTurn()) {
+							player1->setTurn(false);
+							player2->setTurn(true);
+						}
+						else {
+							player1->setTurn(true);
+							player2->setTurn(false);
+						}
 					}
 				}
 				 GameBall* gameBall = dynamic_cast< GameBall*>(b);
@@ -295,15 +316,16 @@ void SampleGame::update(void)
 	}
 
 
-	// 다음 단위 시간을 위해 초기화 
-	clock.restart();
-
 	//게임 끝났을 시
-	if (false && endNum == 0) {
+	if (checkEnd == 1 && endNum == 0) {
 		LoadImage* end = new LoadImage("end.png", 800, 250, 125, 400);
 		images.push_back(end);
 		endNum = 1;
 	}
+
+	// 다음 단위 시간을 위해 초기화 
+	clock.restart();
+
 }
 
 // 상속 클래스는 반드시 객체 렌더링 함수 구현해야 함 

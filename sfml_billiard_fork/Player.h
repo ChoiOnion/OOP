@@ -13,7 +13,7 @@
 class  Player
 {
 public:
-	 Player();
+	 Player(bool turn);
 	~ Player();
 
 	void setTurn(bool param);
@@ -23,6 +23,8 @@ public:
 	bool allDone();
 
 	int checkTurn(int ballType);
+
+	void setRemainBall();
 
 private:
 	//각각의 플레이어 턴을 판별하기 위한 변수

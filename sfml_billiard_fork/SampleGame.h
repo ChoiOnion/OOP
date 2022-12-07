@@ -75,7 +75,8 @@ private:
 	int helpNum = 0;
 	int endNum = 0;
 	int pauseNum = 0;
+	int checkEnd = 0;
 
-	Player* player1=new Player();
-	Player* player2=new Player();
+	Player* player1=new Player(true);
+	Player* player2=new Player(false);
 }; 
