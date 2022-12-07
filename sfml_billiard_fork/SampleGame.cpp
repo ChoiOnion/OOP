@@ -219,16 +219,6 @@ void SampleGame::handle(sf::Event& ev)
 						b->check++;
 						continue;
 					}
-					else {
-						if (player1->getTurn()) {
-							player1->setTurn(false);
-							player2->setTurn(true);
-						}
-						else {
-							player1->setTurn(true);
-							player2->setTurn(false);
-						}
-					}
 				}
 				 GameBall* gameBall = dynamic_cast< GameBall*>(b);
 				if (gameBall == nullptr)
@@ -247,6 +237,14 @@ void SampleGame::handle(sf::Event& ev)
 
 				//드래그 할 때마다 턴이 바뀌어야 함
 
+				if (player1->getTurn()) {
+					player1->setTurn(false);
+					player2->setTurn(true);
+				}
+				else {
+					player1->setTurn(true);
+					player2->setTurn(false);
+				}
 				// 드래그 가능한 공 임시 저장 
 				draggedBall = gameBall;
 				isDraggingBall = true;

@@ -31,7 +31,7 @@ void Player::setRemainBall() {
 */
 int Player::checkTurn(int ballType) {
 	//브레이크샷
-	if (this->breakShot) {
+	if (this->breakShot == true) {
 		if (ballType == 1) {
 			this->ballType = 1;
 			this->remainBall--;
@@ -51,9 +51,8 @@ int Player::checkTurn(int ballType) {
 			return -10;
 		}
 	}
-
 	//브레이크샷 X, 내 턴인 경우
-	if (this->turn&& this->breakShot == false) {
+	else if (this->turn && this->breakShot == false) {
 		if (ballType == 1) {
 			if (this->myBall == ballType) {
 				this->remainBall--;
@@ -73,7 +72,7 @@ int Player::checkTurn(int ballType) {
 			}
 		}
 		else if (ballType == 3) {
-
+			return 0;
 		}
 		else if (ballType == 4) {
 			if (this->allDone())
@@ -81,10 +80,8 @@ int Player::checkTurn(int ballType) {
 			else
 				return -10;
 		}
-		else if (ballType == 0) {
-
-		}
 	}
+	return 0;
 }
 
 bool Player::allDone() {
