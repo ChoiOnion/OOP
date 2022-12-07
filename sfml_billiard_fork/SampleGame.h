@@ -16,6 +16,9 @@
 #include "Object.h"
 #include "GameBall.h"
 #include "LoadImage.h"
+#include "GameText.h"
+#include "Player.h"
+
 
 class SampleGame : public BaseGame
 {
@@ -51,10 +54,10 @@ private:
 
 	std::vector<LoadImage*> images;
 
+	std::vector<GameText*>turn;
+
 	// 게임 UI 
 	sf::Text explanation;  //설명
-	sf::Text player1;
-	sf::Text player2;
 
 	// 게임 시간 
 	sf::Clock clock;
@@ -72,4 +75,7 @@ private:
 	int helpNum = 0;
 	int endNum = 0;
 	int pauseNum = 0;
+
+	Player* player1=new Player();
+	Player* player2=new Player();
 }; 

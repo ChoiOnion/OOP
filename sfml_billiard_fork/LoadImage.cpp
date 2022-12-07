@@ -13,6 +13,9 @@ LoadImage::LoadImage(std::string file, float imageX, float imageY, float x, floa
 	sprite.setTexture(texture);
 	sprite.setPosition(x, y);
 }
+LoadImage::~LoadImage () {
+
+}
 
 void LoadImage::update(float timeElapsed)
 {

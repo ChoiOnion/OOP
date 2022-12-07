@@ -10,10 +10,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-#include "Ball.h"
-#include "Object.h"
-
-class  Player:public Object
+class  Player
 {
 public:
 	 Player();
@@ -25,16 +22,7 @@ public:
 	//자신이 넣어야 할 공을 다 넣었는지 판별하는 함수
 	bool allDone();
 
-	// Sample Game의 객체들은 반드시 상태 갱신 함수 구현해야 함 
-	virtual void update(float timeElapsed);
-
-	// Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
-	virtual void collide(Object& other);
-
-	// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
-	virtual void render(sf::RenderTarget& target);
-
-	void checkTurn(int ballType);
+	int checkTurn(int ballType);
 
 private:
 	//각각의 플레이어 턴을 판별하기 위한 변수
@@ -45,4 +33,6 @@ private:
 	int remainBall = 7;
 
 	bool breakShot = true;
+
+	int myBall{};
 };

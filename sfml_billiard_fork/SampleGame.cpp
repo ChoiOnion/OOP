@@ -25,10 +25,8 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	gameObjects.push_back(player1img);
 	gameObjects.push_back(player2img);
 
-	Player* player1 = new  Player();
-	gameObjects.push_back(player1);
-	Player* player2 = new  Player();
-	gameObjects.push_back(player2);
+	GameText* myTurn = new GameText("My Turn!", 150, 610, 50, sf::Color::Yellow, 8);
+	turn.push_back(myTurn);
 
 	GameText* help = new GameText("Press H : help", 20, 20, 30, sf::Color::White, 3);
 	gameObjects.push_back(help);
@@ -130,6 +128,13 @@ SampleGame::~SampleGame(void)
 		delete b;
 	}
 
+	for (GameText* txt : turn) {
+		delete txt;
+	}
+
+	for (LoadImage* img : images) {
+		delete img;
+	}
 }
 
 sf::Font* SampleGame::font = nullptr;
@@ -199,23 +204,7 @@ void SampleGame::handle(sf::Event& ev)
 					if (b->getGoal()&&b->check==0) {
 						std::cout << b->getWhatball();
 						for (Object* obj : gameObjects) {
-							Player* player = dynamic_cast<Player*>(obj);
-							player->checkTurn(b->getWhatball());
-							/*
-							Ball->moveBall
-Player->checkTurn
-
-넘어가야 하는 정보: 브레이크샷 여부 / 즉시 승리 혹은 패배 / 남은 공 / 턴 넘어감 여부 / 플레이어의 공인지
-
-moveBall
-->필요없을 거 같기도 하네용..
-
-checkTurn
-->플레이어 공인지, 승리 혹은 패배 판별, 브레이크샷 후 공 종류 설정, 남은 공 차감
-
-턴 넘어가는 건 SampleGame에서 set하기.
-->판별할 리턴값 필요, checkTurn에서 리턴할 것
-							*/
+							//int a=player->checkTurn(b->getWhatball());
 						}
 						b->check++;
 					}
@@ -248,7 +237,16 @@ checkTurn
 		if (ev.mouseButton.button == sf::Mouse::Left && isDraggingBall)
 		{
 			isDraggingBall = false;
-
+		}
+		if (player1->getTurn()) {
+			for (GameText* t : turn) {
+				t->setPosition(150, 610);
+			}
+		}
+		if (player2->getTurn()) {
+			for (GameText* t : turn) {
+				t->setPosition(150, 810);
+			}
 		}
 		break;
 	}
@@ -261,6 +259,13 @@ void SampleGame::update(void)
 	for ( Object* obj : gameObjects)
 	{
 		obj->update(clock.getElapsedTime().asSeconds());
+	}
+	for (GameText* txt : turn) {
+		txt->update(clock.getElapsedTime().asSeconds());
+	}
+
+	for (LoadImage* img : images) {
+		img->update(clock.getElapsedTime().asSeconds());
 	}
 
 	// 게임 오브젝트 충돌 검사
@@ -324,6 +329,10 @@ void SampleGame::render(sf::RenderTarget& target)
 	// 게임 UI 렌더링 
 	for (LoadImage* img : images) {
 		img->render(target);
+	}
+
+	for (GameText* txt : turn) {
+		txt->render(target);
 	}
 	
 }
