@@ -205,97 +205,64 @@ void SampleGame::handle(sf::Event& ev)
 						std::cout << b->getWhatball();
 						if (breakShot == true) {
 							//브레이크 샷
-							for (Object* obj : gameObjects) {
-								if (player1->getTurn() == true) {
-									if (b->getWhatball() == 1) {
-										player1->setType(1);
-										player2->setType(2);
-										this->breakShot = false;
-									}
-									else if(b->getWhatball() == 2) {
-										player1->setType(2);
-										player2->setType(1);
-										this->breakShot = false;
-									}
-									else if (b->getWhatball() == 4) { //8번 공
-										checkEnd = 1;
-									}
-									else{
-										player1->setTurn(false);
-										player2->setTurn(true);
-									}
-
+							if (player1->getTurn() == true) {
+								if (b->getWhatball() == 1) {
+									player1->setType(1);
+									player2->setType(2);
+									player1->setRBall();
+									this->breakShot = false;
 								}
-								else if (player2->getTurn() == true) {
-									if (b->getWhatball() == 1) {
-										player2->setType(1);
-										player1->setType(2);
-										this->breakShot = false;
-									}
-									else if (b->getWhatball() == 2) {
-										player2->setType(2);
-										player1->setType(1);
-										this->breakShot = false;
-									}
-									else if (b->getWhatball() == 4) { //8번 공
-										checkEnd = 1;
-									}
-									else {
-										player1->setTurn(true);
-										player2->setTurn(false);
-									}
+								else if (b->getWhatball() == 2) {
+									player1->setType(2);
+									player2->setType(1);
+									player1->setRBall();
+									this->breakShot = false;
+								}
+								else if (b->getWhatball() == 4) { //8번 공
+									checkEnd = 1;
+								}
+								else {
+									player1->setTurn(false);
+									player2->setTurn(true);
+								}
 
+							}
+							else if (player2->getTurn() == true) {
+								if (b->getWhatball() == 1) {
+									player2->setType(1);
+									player1->setType(2);
+									player2->setRBall();
+									this->breakShot = false;
+								}
+								else if (b->getWhatball() == 2) {
+									player2->setType(2);
+									player1->setType(1);
+									player2->setRBall();
+									this->breakShot = false;
+								}
+								else if (b->getWhatball() == 4) { //8번 공
+									checkEnd = 1;
+								}
+								else {
+									player1->setTurn(true);
+									player2->setTurn(false);
 								}
 							}
 						}
 						//일반 턴
 						else {
-							for (Object* obj : gameObjects) {
-								if (player1->checkTurn(b->getWhatball()) == 1) {
-									player1->setTurn(true);
-									player2->setTurn(false);
+							if (player1->checkTurn(b->getWhatball()) == 1) {
+								player1->setTurn(true);
+								player2->setTurn(false);
+								if (b->getWhatball() != 3) { //플레이어 볼이 아닐시 player 1의 공이 맞음
+									player1->setRBall();
 								}
-								else if (player1->checkTurn(b->getWhatball() == 0)) {
-									player1->setTurn(false);
-									player2->setTurn(true);
-								}
-								else if (b->getWhatball() == 4) {		// 8번 공
-									if (player1->getTurn()) {
-										if (player1->getType() == 1) {
-											if (remainStripe==0) {
-												//승리
-											}
-											else {
-												checkEnd = 1;
-											}
-										}
-										else {
-											if (remainSolide == 0) {
-												//승리
-											}
-											else {
-												checkEnd = 1;
-											}
-										}
-									}
-									else if (player2->getTurn()) {
-										if (player2->getType() == 1) {
-											if (remainStripe == 0) {
-												//승리
-											}
-											else {
-												checkEnd = 1;
-											}
-										}
-										else {
-											if (remainSolide == 0) {
-												//승리
-											}
-											else {
-												checkEnd = 1;
-											}
-										}
-									}
+							}
+							else if (player1->checkTurn(b->getWhatball() == 0)) {
+								player1->setTurn(false);
+								player2->setTurn(true);
+								if (b->getWhatball() != 3) { //플레이어 볼이 아닐시 player 2의 공이 맞음
+									player2->setRBall();
 								}
 							}
 						}
@@ -333,11 +300,8 @@ void SampleGame::handle(sf::Event& ev)
 				isDraggingBall = true;
 			}
 		}
-		/* 이렇게 출력하면 7이였다가 공 하나만 넣어도 -2씩 깎이고 그렇네요
-		지금은 remainSripe --; 은 다 지워둔 상태입니다
-		std::cout << "\nst :" << remainStripe;;
-		std::cout << "\nso :" << remainSolide;
-		*/
+		std::cout << "\n1p :" << player1->getRBall();
+		std::cout << "\n2p :" << player2->getRBall();
 		std::cout << "\n1p :" << player1->getType();
 		std::cout << "\n" << std::boolalpha << breakShot;
 		break;

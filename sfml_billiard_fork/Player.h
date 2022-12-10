@@ -22,6 +22,9 @@ public:
 	void setType(int a);
 	int getType();
 
+	void setRBall();
+	int getRBall();
+
 
 	int checkTurn(int ballType);
 
@@ -31,6 +34,8 @@ private:
 	bool turn = true;
 	//서로 어떤 공을 넣어야하는지 판별하는 변수(타입은 임시)
 	int ballType;
+
+	int remainBall=7;
 
 	int myBall{};
 

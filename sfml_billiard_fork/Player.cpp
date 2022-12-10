@@ -19,7 +19,13 @@ bool  Player::getTurn() {
 	return turn;
 }
 
+void Player::setRBall() {
+	this->remainBall--;
+};
 
+int Player::getRBall() {
+	return remainBall;
+};
 
 void Player::setType(int a) {
 	this->ballType = a;
@@ -35,27 +41,23 @@ int Player::getType() {
 턴 유지 시 1 반환
 */
 int Player::checkTurn(int ballType) {
-
-	if (this->turn) {
-		if (ballType == 1) {
-			if (this->myBall == ballType) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
+	if (ballType == 1) {
+		if (this->myBall == ballType) {
+			return 1;
 		}
-		else if (ballType == 2) {
-			if (this->myBall == ballType) {
-				return 1;
-			}
-			else {
-				return 0;
-			}
-		}
-		else if (ballType == 3) {
+		else {
 			return 0;
 		}
 	}
-	return 0;
+	else if (ballType == 2) {
+		if (this->myBall == ballType) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+	else if (ballType == 3) {
+		return 0;
+	}
 }
