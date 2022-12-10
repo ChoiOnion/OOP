@@ -14,15 +14,15 @@
 	sprite.setPosition(572.5f, 25.f);
 
 	// 당구대 경계 초기화 - 상하좌우
-	 Board::Border lineTopL(602.5f, 40.f, 617.f, 45.f);
-	 Board::Border lineTop(617.f, 50.f, 983.5, 45.f);
+	 Board::Border lineTopL(602.5f, 40.f, 617.f, 55.f);
+	 Board::Border lineTop(617.f, 55.f, 983.5, 55.f);
 	 Board::Border lineTopR(983.5f, 45.f, 998.5f, 40.f);
 	borderLines.push_back(lineTopL);
 	borderLines.push_back(lineTop);
 	borderLines.push_back(lineTopR);
 
 	 Board::Border lineTopRightL(1012.5f, 54.f, 997.5f, 69.5f);
-	 Board::Border lineTopRight(1002.5f, 69.5f, 1002.5f, 443.5f);
+	 Board::Border lineTopRight(997.5f, 69.5f, 887.5f, 443.5f);
 	 Board::Border lineTopRightR(997.5f, 433.5f, 1012.5f, 442.f);
 	borderLines.push_back(lineTopRightL);
 	borderLines.push_back(lineTopRight);
@@ -35,22 +35,22 @@
 	borderLines.push_back(lineDownRight);
 	borderLines.push_back(lineDownRightR);
 
-	 Board::Border lineDownL(998.5f, 860.f, 983.5f, 850.f);
-	 Board::Border lineDown(983.5f, 850.f, 616.5f, 850.f);
+	 Board::Border lineDownL(998.5f, 860.f, 983.5f, 845.f);
+	 Board::Border lineDown(983.5f, 845.f, 616.5f, 845.f);
 	 Board::Border lineDownR(616.5f, 850.f, 602.5f, 860.5f);
 	borderLines.push_back(lineDownL);
 	borderLines.push_back(lineDown);
 	borderLines.push_back(lineDownR);
 
 	 Board::Border lineDownLeftL(587.5f, 846.f, 602.5f, 830.5f);
-	 Board::Border lineDownLeft(595.5f, 830.5f, 595.5f, 466.5f);
+	 Board::Border lineDownLeft(602.5f, 830.5f, 602.5f, 466.5f);
 	 Board::Border lineDownLeftR(602.5f, 466.5f, 587.5f, 458.5f);
 	borderLines.push_back(lineDownLeftL);
 	borderLines.push_back(lineDownLeft);
 	borderLines.push_back(lineDownLeftR);
 
 	 Board::Border lineTopLeftL(587.5f, 442.5f, 602.5f, 433.5f);
-	 Board::Border lineTopLeft(595.5f, 433.5f, 595.5f, 69.5f);
+	 Board::Border lineTopLeft(602.5f, 433.5f, 602.5f, 69.5f);
 	 Board::Border lineTopLeftR(602.5f, 69.5f, 587.5f, 54.f);
 	borderLines.push_back(lineTopLeftL);
 	borderLines.push_back(lineTopLeft);

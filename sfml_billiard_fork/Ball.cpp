@@ -330,7 +330,7 @@ void  Ball::collideWithHole( Hole& other)
 		sf::Vector2f distance = p - st;
 		float distanceBetween = sqrtf((distance.x * distance.x) + (distance.y * distance.y));
 
-		if (distanceBetween <= getRadius()*2)
+		if (distanceBetween <= getRadius()*2.8)
 		{
 			if (t > -0.f && t < 1.f)
 			{
