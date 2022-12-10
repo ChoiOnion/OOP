@@ -221,11 +221,6 @@ void SampleGame::handle(sf::Event& ev)
 								else if (b->getWhatball() == 4) { //8번 공
 									checkEnd = 1;
 								}
-								else {
-									player1->setTurn(false);
-									player2->setTurn(true);
-								}
-
 							}
 							else if (player2->getTurn() == true) {
 								if (b->getWhatball() == 1) {
@@ -242,10 +237,6 @@ void SampleGame::handle(sf::Event& ev)
 								}
 								else if (b->getWhatball() == 4) { //8번 공
 									checkEnd = 1;
-								}
-								else {
-									player1->setTurn(true);
-									player2->setTurn(false);
 								}
 							}
 						}
@@ -298,12 +289,14 @@ void SampleGame::handle(sf::Event& ev)
 				// 드래그 가능한 공 임시 저장 
 				draggedBall = gameBall;
 				isDraggingBall = true;
+
+
+				std::cout << "\n1p :" << player1->getRBall();
+				std::cout << "\n2p :" << player2->getRBall();
+				std::cout << "\n1p :" << player1->getType();
+				std::cout << "\n" << std::boolalpha << breakShot;
 			}
 		}
-		std::cout << "\n1p :" << player1->getRBall();
-		std::cout << "\n2p :" << player2->getRBall();
-		std::cout << "\n1p :" << player1->getType();
-		std::cout << "\n" << std::boolalpha << breakShot;
 		break;
 
 
