@@ -6,6 +6,7 @@
 #include "StripeBall.h"
 #include "Player.h"
 #include "Hole.h"
+#include "SampleGame.h"
 
  Ball:: Ball(void) 
 	:  Ball(sf::Vector2f(100, 100), 10, sf::Color::Red)
@@ -353,11 +354,13 @@ void  Ball::collideWithHole( Hole& other)
 					else if (c.isSolidBall(*this)) {
 						this->setWhatBall(2);
 						//player1
-						this->setPosition(163, 720); //첫번째 들어온 공 위치
-						this->setPosition(193, 720); //2
+						// if player1->setTurn(true)
+						//this->setPosition(163, 720); //첫번째 들어온 공 위치
+						//this->setPosition(193, 720); //2
 						//player2
-						this->setPosition(163, 920); //첫번째 들어온 공 위치
-						this->setPosition(193, 920); //2
+						// else
+						//this->setPosition(163, 920); //첫번째 들어온 공 위치
+						//this->setPosition(193, 920); //2
 					}
 					else if (d.isStripeBall(*this)) {
 						this->setWhatBall(1);
