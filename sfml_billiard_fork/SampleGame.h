@@ -81,8 +81,6 @@ private:
 	Player* player2=new Player(false);
 
 	bool breakShot = true;
-	/*
 	int remainStripe = 7;
 	int remainSolide = 7;
-	*/
 }; 

@@ -230,13 +230,11 @@ void SampleGame::handle(sf::Event& ev)
 									if (b->getWhatball() == 1) {
 										player2->setType(1);
 										player1->setType(2);
-										remainStripe--;
 										this->breakShot = false;
 									}
 									else if (b->getWhatball() == 2) {
 										player2->setType(2);
 										player1->setType(1);
-										remainSolide--;
 										this->breakShot = false;
 									}
 									else if (b->getWhatball() == 4) { //8¹ø °ø
