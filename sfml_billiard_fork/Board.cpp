@@ -43,7 +43,7 @@
 	borderLines.push_back(lineDownR);
 
 	 Board::Border lineDownLeftL(587.5f, 846.f, 602.5f, 830.5f);
-	 Board::Border lineDownLeft(602.5f, 817.5f, 602.5f, 466.5f);
+	 Board::Border lineDownLeft(602.5f, 825.5f, 602.5f, 466.5f);
 	 Board::Border lineDownLeftR(602.5f, 466.5f, 587.5f, 458.5f);
 	borderLines.push_back(lineDownLeftL);
 	borderLines.push_back(lineDownLeft);
