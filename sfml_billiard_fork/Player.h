@@ -28,7 +28,6 @@ public:
 
 	int checkTurn(int ballType);
 
-
 private:
 	//각각의 플레이어 턴을 판별하기 위한 변수
 	bool turn = true;

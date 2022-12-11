@@ -31,14 +31,14 @@ SampleGame::SampleGame(int width, int height, int fpsLimit)
 	GameText* help = new GameText("Press H : help", 20, 20, 30, sf::Color::White, 3);
 	gameObjects.push_back(help);
 
-
 	// 공 들어갈 자리 표시
 	LoadImage* ballPosition1 = new LoadImage("ballposition.png", 250, 250, 120, 670);
 	gameObjects.push_back(ballPosition1);
 
 	LoadImage* ballPosition2 = new LoadImage("ballposition.png", 250, 250, 120, 870);
 	gameObjects.push_back(ballPosition2);
-	
+
+	//승패판정그림
 
 	// SampleGame을 위한 당구대 생성 및 등록 
 	gameObjects.push_back(new  Board());
@@ -221,7 +221,8 @@ void SampleGame::handle(sf::Event& ev)
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 4) { //8번 공
-									checkEnd = 1;
+									images.push_back(new LoadImage("end2.png", 800, 250, 125, 200));
+									pauseNum = 1;
 								}
 							}
 							else if (player2->getTurn() == true) {
@@ -240,7 +241,8 @@ void SampleGame::handle(sf::Event& ev)
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 4) { //8번 공
-									checkEnd = 1;
+									images.push_back(new LoadImage("end1.png", 800, 250, 125, 200));
+									pauseNum = 1;
 								}
 							}
 						}
@@ -275,6 +277,14 @@ void SampleGame::handle(sf::Event& ev)
 										player1->setRBall();
 									}
 								}
+							}
+							else if (player1->checkTurn(b->getWhatball())== -10) {
+								images.push_back(new LoadImage("end2.png", 800, 250, 125, 200));
+								pauseNum = 1;
+							}
+							else if(player1->checkTurn(b->getWhatball()) == 10) {
+								images.push_back(new LoadImage("end1.png", 800, 250, 125, 200));
+								pauseNum = 1;
 							}
 						}
 						b->check++;

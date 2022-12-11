@@ -60,4 +60,12 @@ int Player::checkTurn(int ballType) {
 	else if (ballType == 3) {
 		return 0;
 	}
+	else if (ballType == 4) {
+		if (remainBall==0) {
+			return 10;
+		}
+		else {
+			return -10;
+		}
+	}
 }
