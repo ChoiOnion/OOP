@@ -353,15 +353,6 @@ void  Ball::collideWithHole( Hole& other)
 					}
 					else if (c.isSolidBall(*this)) {
 						this->setWhatBall(2);
-						//player1
-						// if player1->setTurn(true)
-						//this->setPosition(163, 720); //첫번째 들어온 공 위치
-						//this->setPosition(193, 720); //2
-						//player2
-						// else
-						//this->setPosition(163, 920); //첫번째 들어온 공 위치
-						//this->setPosition(193, 920); //2
-						//this->setPosition(348, 920); // 마지막 공 위치..
 					}
 					else if (d.isStripeBall(*this)) {
 						this->setWhatBall(1);
