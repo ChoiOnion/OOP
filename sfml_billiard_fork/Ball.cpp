@@ -361,6 +361,7 @@ void  Ball::collideWithHole( Hole& other)
 						// else
 						//this->setPosition(163, 920); //첫번째 들어온 공 위치
 						//this->setPosition(193, 920); //2
+						//this->setPosition(348, 920); // 마지막 공 위치..
 					}
 					else if (d.isStripeBall(*this)) {
 						this->setWhatBall(1);
