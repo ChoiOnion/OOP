@@ -210,14 +210,12 @@ void SampleGame::handle(sf::Event& ev)
 									player1->setType(1);
 									player2->setType(2);
 									player1->setRBall();
-									b->setPosition(163, 720);
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 2) {
 									player1->setType(2);
 									player2->setType(1);
 									player1->setRBall();
-									b->setPosition(163, 720);
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 4) { //8번 공
@@ -229,14 +227,12 @@ void SampleGame::handle(sf::Event& ev)
 									player2->setType(1);
 									player1->setType(2);
 									player2->setRBall();
-									b->setPosition(163, 920);
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 2) {
 									player2->setType(2);
 									player1->setType(1);
 									player2->setRBall();
-									b->setPosition(163, 920);
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 4) { //8번 공
@@ -246,31 +242,34 @@ void SampleGame::handle(sf::Event& ev)
 						}
 						//일반 턴
 						else {
+							int x = 7 - player1->getRBall();
+							int y = 7 - player2->getRBall();
 							if (player1->checkTurn(b->getWhatball()) == 1) {
 								player1->setTurn(true);
 								player2->setTurn(false);
+								if (b->getWhatball() == player1->getType()) {
+									b->setPosition(163 + 30 * x, 720);
+								}
+								else if (b->getWhatball() == player2->getType()) {
+									b->setPosition(163 + 30 * y, 920);
+								}
+
 								if (b->getWhatball() != 3) { //플레이어 볼이 아닐시 player 1의 공이 맞음
 									player1->setRBall();
-									int s = player1->getRBall();
-									int k = 30;
-									for (s = 5; s >= 0; s--) {
-										b->setPosition(163 + k, 720);
-										k += 30;
-									}
 								}
 							}
 							else if (player1->checkTurn(b->getWhatball() == 0)) {
 								player1->setTurn(false);
 								player2->setTurn(true);
+								if (b->getWhatball() == player2->getType()) {
+									b->setPosition(163 + 30 * y, 920);
+								}
+								else if (b->getWhatball() == player1->getType()) {
+									b->setPosition(163 + 30 * x, 720);
+								}
+
 								if (b->getWhatball() != 3) { //플레이어 볼이 아닐시 player 2의 공이 맞음
 									player2->setRBall();
-									int s = player2->getRBall();
-									int k = 30;
-									for (s = 5; s >= 0; s--) {
-										b->setPosition(163 + k, 920);
-										k += 30;
-									}
-
 								}
 							}
 						}
