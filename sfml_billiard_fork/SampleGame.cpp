@@ -161,32 +161,31 @@ void SampleGame::handle(sf::Event& ev)
 		// 키보드 이벤트                                            
 		if (ev.key.code == sf::Keyboard::Escape && pauseNum == 0)							//같은 키로 하면 안먹음!! 키 따로 설정해야 될 거 같아요
 		{
-			// TODO: game paused 
 			images.push_back(new LoadImage("pause.png", 800, 250, 125, 400));
 			pauseNum = 1;
-			
+			break;
 		}
-		if (ev.key.code == sf::Keyboard::P && pauseNum == 1)
+		if (ev.key.code == sf::Keyboard::Escape && pauseNum == 1)
 		{
 			images.pop_back();
 			pauseNum = 0;
+			break;
 		}
 		if (ev.key.code == sf::Keyboard::H && helpNum == 0)
 		{
-			images.push_back(new LoadImage("rule.png", 800, 850, 125, 50));
+			images.push_back(new LoadImage("rule.png", 800, 850, 125, 100));
 			helpNum = 1;
+			break;
 		}
-		if (ev.key.code == sf::Keyboard::C && helpNum == 1)
+		if (ev.key.code == sf::Keyboard::H && helpNum == 1)
 		{
 			images.pop_back();
 			helpNum = 0;
+			break;
 		}
 		if (ev.key.code == sf::Keyboard::E && endNum == 1) {
 			window->close();
 			break;
-		}
-		if (ev.key.code == sf::Keyboard::R && endNum == 1) {
-			//다시 시작
 		}
 		break;
 	case sf::Event::MouseMoved:
@@ -221,8 +220,8 @@ void SampleGame::handle(sf::Event& ev)
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 4) { //8번 공
-									images.push_back(new LoadImage("end2.png", 800, 250, 125, 200));
-									pauseNum = 1;
+									images.push_back(new LoadImage("end2.png", 800, 250, 125, 400));
+									endNum = 1;
 								}
 							}
 							else if (player2->getTurn() == true) {
@@ -241,8 +240,8 @@ void SampleGame::handle(sf::Event& ev)
 									this->breakShot = false;
 								}
 								else if (b->getWhatball() == 4) { //8번 공
-									images.push_back(new LoadImage("end1.png", 800, 250, 125, 200));
-									pauseNum = 1;
+									images.push_back(new LoadImage("end1.png", 800, 250, 125, 400));
+									endNum = 1;
 								}
 							}
 						}
@@ -278,13 +277,13 @@ void SampleGame::handle(sf::Event& ev)
 									}
 								}
 							}
-							else if (player1->checkTurn(b->getWhatball())== -10) {
-								images.push_back(new LoadImage("end2.png", 800, 250, 125, 200));
-								pauseNum = 1;
+							else if (player1->checkTurn(b->getWhatball()) == -10 || player2->checkTurn(b->getWhatball()) == 10) {
+								images.push_back(new LoadImage("end2.png", 800, 250, 125, 400));
+								endNum = 1;
 							}
-							else if(player1->checkTurn(b->getWhatball()) == 10) {
-								images.push_back(new LoadImage("end1.png", 800, 250, 125, 200));
-								pauseNum = 1;
+							else if (player1->checkTurn(b->getWhatball()) == 10 || player2->checkTurn(b->getWhatball()) == -10) {
+								images.push_back(new LoadImage("end1.png", 800, 250, 125, 400));
+								endNum = 1;
 							}
 						}
 						b->check++;
@@ -392,14 +391,6 @@ void SampleGame::update(void)
 		draggedBall = nullptr;
 	}
 
-
-	//게임 끝났을 시
-	if (checkEnd == 1 && endNum == 0) {
-		LoadImage* end = new LoadImage("end.png", 800, 250, 125, 400);
-		images.push_back(end);
-		endNum = 1;
-	}
-
 	// 다음 단위 시간을 위해 초기화 
 	clock.restart();
 
@@ -426,12 +417,13 @@ void SampleGame::render(sf::RenderTarget& target)
 	renderDragpower(target);
 
 	// 게임 UI 렌더링 
-	for (LoadImage* img : images) {
-		img->render(target);
-	}
-
 	for (GameText* txt : turn) {
 		txt->render(target);
+	}
+
+
+	for (LoadImage* img : images) {
+		img->render(target);
 	}
 	
 }
