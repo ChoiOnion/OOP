@@ -48,8 +48,7 @@ void  GameBall::render(sf::RenderTarget& target)
 {
 	// 공 형태 그림 
 	target.draw(getVertices());
-
-	// SampleGame에서는 각 공에 플레이어 문자 표시 
+	 
 	sf::Text ballText;
 	ballText.setFont(SampleGame::getFont());
 	ballText.setFillColor(sf::Color::Red);

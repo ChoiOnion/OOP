@@ -15,9 +15,7 @@
 class  SolidBall : public  Ball
 {
 public:
-	using  Ball:: Ball;
-
-	bool isIntersecting(sf::Vector2f point);
+	using  Ball:: Ball; 
 
 	bool isPlayable(void);
 	void setPlayable(bool playable);
@@ -25,8 +23,6 @@ public:
 	void setOwner(std::string owner);
 	bool isOwner(std::string owner);
 	std::string getOwner(void);
-
-	//void setStripe(float x, float y, sf::Color color);
 
 	// 게임 공에 숫자를 그리기 위해 virtual 함수 재정의 
 	void render(sf::RenderTarget& window);

@@ -5,7 +5,6 @@
 	texture.loadFromFile("textureBoard.png", sf::IntRect(1, 1, 454, 848));
 
 	// 스프라이트 설정 
-	// 스프라이트 설정 
 	sprite.setTexture(texture);
 	sprite.setPosition(572.5f, 25.f);
 
@@ -27,17 +26,14 @@
 	Holes.clear();
 }
 void  Hole::update(float timeElapsed)
-{
-	// Sample Game의 당구대는 상태 갱신 X 
+{ 
 }
 
 // Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
 void  Hole::collide(Object& other)
-{
-	// Sample Game의 당구대는 고정 오브젝트이기 때문에 충돌 X 
+{ 
 }
-
-// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
+ 
 void  Hole::render(sf::RenderTarget& target)
 {
 	target.draw(sprite);

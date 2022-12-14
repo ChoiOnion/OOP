@@ -56,8 +56,6 @@ public:
 	void setColor(sf::Color color);
 	void setWhatBall(int param);
 
-	void moveBall(int ballType);
-
 	// getter 
 	sf::Vector2f	getPosition(void) const;
 	sf::Vector2f	getAcceleration(void) const;
@@ -99,6 +97,4 @@ private:
 	sf::Color color;
 
 	int whatBall = 0; //판별을 위한 변수
-
-	int turn = 1;
 };

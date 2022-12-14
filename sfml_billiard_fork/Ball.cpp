@@ -306,15 +306,7 @@ void  Ball::collideWithBoard( Board& other)
 }
 
 void  Ball::collideWithHole( Hole& other)
-{
-	/*is1pStripe... 등등의 사용 예시 밑의 판별식이랑 비슷하게 만들었어요!
-	 Player a;
-	if (a.is1pStripe()) {
-
-	}
-	*/
-
-
+{ 
 	for ( Hole::HoleIn hole : other.getHoles())
 	{
 		sf::Vector2f p = getPosition();
@@ -359,47 +351,6 @@ void  Ball::collideWithHole( Hole& other)
 					}
 				}
 			}
-		}
-	}
-}
-
-
-void Ball::moveBall(int ballType) {
-	int a = 0;
-	if (turn == 1) {
-		std::cout << "1p" << std::endl;
-		if (ballType == 1) {
-
-		}
-		else if (ballType == 2) {
-
-		}
-		else if (ballType == 3) {
-
-		}
-		else if (ballType == 4) {
-
-		}
-		else if (ballType == 0) {
-			turn = 2;
-		}
-	}
-	else if (turn == 2) {
-		std::cout << "2p" << std::endl;
-		if (ballType == 1) {
-
-		}
-		else if (ballType == 2) {
-
-		}
-		else if (ballType == 3) {
-
-		}
-		else if (ballType == 4) {
-
-		}
-		else if (ballType == 0) {
-			turn = 1;
 		}
 	}
 }

@@ -40,6 +40,7 @@ public:
 	virtual void render(sf::RenderTarget& target);
 	// 당구대를 구성하는 경계 요소 반환 
 	const std::vector< Board::Border>& getBorders(void) const;
+
 private:
 	// 당구대를 나타내는 스프라이트 이미지 
 	sf::Sprite			sprite;

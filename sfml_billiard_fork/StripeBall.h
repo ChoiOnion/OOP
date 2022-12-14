@@ -15,9 +15,7 @@
 class StripeBall : public Ball
 {
 public:
-	using Ball::Ball;
-
-	bool isIntersecting(sf::Vector2f point);
+	using Ball::Ball; 
 
 	bool isPlayable(void);
 	void setPlayable(bool playable);

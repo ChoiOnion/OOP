@@ -20,13 +20,11 @@ LoadImage::~LoadImage () {
 void LoadImage::update(float timeElapsed)
 {
 }
-
-// Sample Game의 객체들은 반드시 충돌 물리 구현해야 함
+ 
 void LoadImage::collide(Object& other)
 {
 }
-
-// Sample Game의 객체들은 반드시 렌더링 함수 구현해야 함  
+ 
 void LoadImage::render(sf::RenderTarget& target)
 {
 	target.draw(sprite);

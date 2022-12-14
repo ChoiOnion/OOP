@@ -248,7 +248,6 @@ void SampleGame::handle(sf::Event& ev)
 							int x = 7 - player1->getRBall();
 							int y = 7 - player2->getRBall();
 							if (player1->checkTurn(b->getWhatball()) == 1) {
-								std::cout << "a";
 								player1->setTurn(true);
 								player2->setTurn(false);
 								if (b->getWhatball() != 3 && b->getWhatball() != 4) { //플레이어 볼이 아닐시 player 1의 공이 맞음
@@ -263,7 +262,6 @@ void SampleGame::handle(sf::Event& ev)
 								}
 							}
 							else if (player1->checkTurn(b->getWhatball()) == 0) {
-								std::cout << "b";
 								player1->setTurn(false);
 								player2->setTurn(true);
 								if (b->getWhatball() != 3 && b->getWhatball() != 4) { //플레이어 볼이 아닐시 player 2의 공이 맞음

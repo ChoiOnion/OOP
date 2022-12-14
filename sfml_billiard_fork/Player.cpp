@@ -41,9 +41,8 @@ int Player::getType() {
 턴 유지 시 1 반환
 */
 int Player::checkTurn(int ballType) {
-	std::cout << "vv   " << ballType << "   " << std::endl;
 	if (ballType == 1) {
-		if (this->myBall == ballType) {
+		if (this->ballType == ballType) {
 			return 1;
 		}
 		else {
@@ -51,7 +50,7 @@ int Player::checkTurn(int ballType) {
 		}
 	}
 	else if (ballType == 2) {
-		if (this->myBall == ballType) {
+		if (this->ballType == ballType) {
 			return 1;
 		}
 		else {

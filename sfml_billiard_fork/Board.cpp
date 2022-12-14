@@ -4,12 +4,10 @@
 
  Board:: Board(void)
 {
-	// Sample Game을 위한 당구대 텍스처 이미지 로드 
-	// Sample Game을 위한 당구대 텍스처 이미지 로드 
+	// Sample Game을 위한 당구대 텍스처 이미지 로드  
 	texture.loadFromFile("textureBoard.png", sf::IntRect(1, 1, 454, 848));
 
-	// 스프라이트 설정 
-	// 스프라이트 설정 
+	// 스프라이트 설정  
 	sprite.setTexture(texture);
 	sprite.setPosition(572.5f, 25.f);
 
