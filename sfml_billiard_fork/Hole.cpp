@@ -2,12 +2,6 @@
 
  Hole:: Hole()
 {
-	texture.loadFromFile("textureBoard.png", sf::IntRect(1, 1, 454, 848));
-
-	// 스프라이트 설정 
-	sprite.setTexture(texture);
-	sprite.setPosition(572.5f, 25.f);
-
 	Hole::HoleIn holeTopLeft(582.5f, 49.f, 596.5f, 35.f);
 	Hole::HoleIn holeTopRight(1003.5f, 35.f, 1017.5f, 49.f);
 	Hole::HoleIn holeLeft(587.5f, 458.5f, 587.5f, 442.5f);
@@ -36,7 +30,6 @@ void  Hole::collide(Object& other)
  
 void  Hole::render(sf::RenderTarget& target)
 {
-	target.draw(sprite);
 }
 
 const std::vector< Hole::HoleIn>&  Hole::getHoles(void) const

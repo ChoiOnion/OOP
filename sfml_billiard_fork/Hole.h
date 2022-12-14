@@ -12,7 +12,7 @@
 class Hole : public Object
 {
 public:
-	// 내부클래스 - 당구대 물리적 경계
+	// 내부클래스 - 포켓의 물리적 경계
 	class HoleIn
 	{
 	public:
@@ -38,10 +38,6 @@ public:
 	virtual void render(sf::RenderTarget& target);
 	const std::vector<Hole::HoleIn>& getHoles(void) const;
 private:
-	// 당구대를 나타내는 스프라이트 이미지 
-	sf::Sprite			sprite;
-	// 당구대 텍스처 데이터
-	sf::Texture			texture;
 	// 당구대 물리적 경계
 	std::vector<Hole::HoleIn>  Holes;
 };
