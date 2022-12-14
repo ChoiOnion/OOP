@@ -201,7 +201,6 @@ void SampleGame::handle(sf::Event& ev)
 			{
 				if (b != nullptr) {
 					if (b->getGoal()&&b->check==0) {
-						std::cout << b->getWhatball();
 						if (breakShot == true) {
 							//브레이크 샷
 							if (player1->getTurn() == true) {
@@ -245,15 +244,14 @@ void SampleGame::handle(sf::Event& ev)
 								}
 							}
 						}
-						//일반 턴
-						else {
-							std::cout<<"\n" << player1->checkTurn(b->getWhatball()) << "   " << player2->checkTurn(b->getWhatball()) << std::endl;
+						else if(breakShot==false){
 							int x = 7 - player1->getRBall();
 							int y = 7 - player2->getRBall();
 							if (player1->checkTurn(b->getWhatball()) == 1) {
+								std::cout << "a";
 								player1->setTurn(true);
 								player2->setTurn(false);
-								if (b->getWhatball() != 3) { //플레이어 볼이 아닐시 player 1의 공이 맞음
+								if (b->getWhatball() != 3 && b->getWhatball() != 4) { //플레이어 볼이 아닐시 player 1의 공이 맞음
 									if (b->getWhatball() == player1->getType()) {
 										b->setPosition(163 + 31 * x, 720);
 										player1->setRBall();
@@ -264,10 +262,11 @@ void SampleGame::handle(sf::Event& ev)
 									}
 								}
 							}
-							else if (player1->checkTurn(b->getWhatball() == 0)) {
+							else if (player1->checkTurn(b->getWhatball()) == 0) {
+								std::cout << "b";
 								player1->setTurn(false);
 								player2->setTurn(true);
-								if (b->getWhatball() != 3) { //플레이어 볼이 아닐시 player 2의 공이 맞음
+								if (b->getWhatball() != 3 && b->getWhatball() != 4) { //플레이어 볼이 아닐시 player 2의 공이 맞음
 									if (b->getWhatball() == player2->getType()) {
 										b->setPosition(163 + 31 * y, 920);
 										player2->setRBall();
@@ -278,15 +277,15 @@ void SampleGame::handle(sf::Event& ev)
 									}
 								}
 							}
-							else if (player1->checkTurn(b->getWhatball()) == 10 || player2->checkTurn(b->getWhatball()) == -10) {
-								images.push_back(new LoadImage("end1.png", 800, 250, 125, 400));
-								endNum = 1;
-								break;
-							}
-							else if (player1->checkTurn(b->getWhatball()) == -10 || player2->checkTurn(b->getWhatball()) == 10) {
-								images.push_back(new LoadImage("end2.png", 800, 250, 125, 400));
-								endNum = 1;
-								break;
+							else if (b->getWhatball() == 4) {
+								if (player2->checkTurn(b->getWhatball()) == (-10) || player1->checkTurn(b->getWhatball()) == 10) {
+									images.push_back(new LoadImage("end1.png", 800, 250, 125, 400));
+									endNum = 1;
+								}
+								else if (player1->checkTurn(b->getWhatball()) == (-10) || player2->checkTurn(b->getWhatball()) == 10) {
+									images.push_back(new LoadImage("end2.png", 800, 250, 125, 400));
+									endNum = 1;
+								}
 							}
 						}
 						b->check++;
