@@ -340,17 +340,19 @@ void SampleGame::handle(sf::Event& ev)
 		{
 			isDraggingBall = false;
 		}
-		if (player1->getTurn()) {
-			for (GameText* t : turn) {
-				t->setPosition(150, 610);
+		if (endNum == 0) {
+			if (player1->getTurn()) {
+				for (GameText* t : turn) {
+					t->setPosition(150, 610);
+				}
 			}
-		}
-		if (player2->getTurn()) {
-			for (GameText* t : turn) {
-				t->setPosition(150, 810);
+			if (player2->getTurn()) {
+				for (GameText* t : turn) {
+					t->setPosition(150, 810);
+				}
 			}
+			break;
 		}
-		break;
 	}
 }
 
