@@ -247,6 +247,7 @@ void SampleGame::handle(sf::Event& ev)
 						}
 						//¿œπ› ≈œ
 						else {
+							std::cout<<"\n" << player1->checkTurn(b->getWhatball()) << "   " << player2->checkTurn(b->getWhatball()) << std::endl;
 							int x = 7 - player1->getRBall();
 							int y = 7 - player2->getRBall();
 							if (player1->checkTurn(b->getWhatball()) == 1) {
@@ -277,13 +278,15 @@ void SampleGame::handle(sf::Event& ev)
 									}
 								}
 							}
-							else if (player1->checkTurn(b->getWhatball()) == -10 || player2->checkTurn(b->getWhatball()) == 10) {
-								images.push_back(new LoadImage("end2.png", 800, 250, 125, 400));
-								endNum = 1;
-							}
 							else if (player1->checkTurn(b->getWhatball()) == 10 || player2->checkTurn(b->getWhatball()) == -10) {
 								images.push_back(new LoadImage("end1.png", 800, 250, 125, 400));
 								endNum = 1;
+								break;
+							}
+							else if (player1->checkTurn(b->getWhatball()) == -10 || player2->checkTurn(b->getWhatball()) == 10) {
+								images.push_back(new LoadImage("end2.png", 800, 250, 125, 400));
+								endNum = 1;
+								break;
 							}
 						}
 						b->check++;
@@ -320,10 +323,13 @@ void SampleGame::handle(sf::Event& ev)
 				isDraggingBall = true;
 
 
-				std::cout << "\n1p :" << player1->getRBall();
+				std::cout << "\n\n1p :" << player1->getRBall();
 				std::cout << "\n2p :" << player2->getRBall();
-				std::cout << "\n1p :" << player1->getType();
-				std::cout << "\n" << std::boolalpha << breakShot;
+				std::cout << "\ntype 1p :" << player1->getType();
+				std::cout << "\ntype 2p :" << player2->getType();
+				std::cout << "\nbreakShot : " << std::boolalpha << breakShot;
+				std::cout << "\nturn 1p :" << player1->getTurn();
+				std::cout << "\nturn 2p :" << player2->getTurn();
 			}
 		}
 		break;

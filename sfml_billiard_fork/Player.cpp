@@ -61,11 +61,15 @@ int Player::checkTurn(int ballType) {
 		return 0;
 	}
 	else if (ballType == 4) {
-		if (remainBall==0) {
-			return 10;
-		}
-		else {
-			return -10;
+		if (this->turn == true) {
+			if (remainBall == 0) {
+				return 10;
+			}
+			else {
+				return (-10);
+			}
 		}
 	}
+	else
+		return 5; //아무것도 아닐 때
 }
